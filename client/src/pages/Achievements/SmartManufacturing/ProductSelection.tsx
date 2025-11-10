@@ -61,13 +61,13 @@ export default function ProductSelectionIntro() {
 					<p className="text-gray-700 mb-6">要件定義～評価環境整備～本番展開まで段階的な導入をご支援します。まずはお気軽にお問い合わせください。</p>
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
-								href="/#contact"
+								href={`${import.meta.env.BASE_URL}#contact`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
-								href="/achievements/smart-manufacturing"
+								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る

@@ -4,11 +4,8 @@
 // 2) 下の `galleryImages` にパスを追記します（例: "/images/mes/hero.png"）。
 // 3) ギャラリーに自動で表示されます。
 
-const galleryImages: string[] = [
-  "/SmartManufacturing/mes/1.png",
-  "/SmartManufacturing/mes/2.png",
-  "/SmartManufacturing/mes/3.png",
-]
+import { assetPath } from "../../../utils/assetPath";
+const galleryImages: string[] = [1,2,3].map(n => assetPath(`SmartManufacturing/mes/${n}.png`));
 
 export default function MesIntro() {
 	return (
@@ -29,7 +26,7 @@ export default function MesIntro() {
 								{galleryImages.map((src, idx) => (
 									<div key={src + idx} className="bg-white rounded-xl shadow overflow-hidden">
 										<div className="h-56 sm:h-64 lg:h-72 flex items-center justify-center bg-white p-2">
-											<img src={src} alt={`MES 画像 ${idx + 1}`} className="h-full max-h-full w-auto max-w-full object-contain" />
+											<img src={src} alt={`MES 画像 ${idx + 1}`} className="h-full max-h-full w-auto max-w-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								))}
@@ -110,13 +107,13 @@ export default function MesIntro() {
 					<p className="text-gray-700 mb-6">貴社の生産形態・品質要件に合わせて、適用範囲と導入ステップをご提案します。</p>
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
-								href="/#contact"
+								href={`${import.meta.env.BASE_URL}#contact`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
-								href="/achievements/smart-manufacturing"
+								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る

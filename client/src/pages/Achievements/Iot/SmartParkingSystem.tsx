@@ -1,9 +1,7 @@
 
-const galleryImages: string[] = [
-  "/Iot/SmartParkingSystem/1.png",
-  "/Iot/SmartParkingSystem/2.png",
-  "/Iot/SmartParkingSystem/3.png",
-]
+import { assetPath } from "../../../utils/assetPath";
+
+const galleryImages: string[] = [1,2,3].map(n => assetPath(`Iot/SmartParkingSystem/${n}.png`));
 
 export default function SmartParkingSystem() {
 	return (
@@ -33,6 +31,7 @@ export default function SmartParkingSystem() {
 											src={src}
 											alt={`SmartParkingSystem ギャラリー画像 ${idx + 1}`}
 											className="h-full max-h-full w-auto max-w-full object-contain"
+											loading="lazy"
 										/>
 									</div>
 								</div>
@@ -100,13 +99,13 @@ export default function SmartParkingSystem() {
 					<div className="max-w-6xl mx-auto">
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
-								href="/#contact"
+								href={`${import.meta.env.BASE_URL}#contact`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
-								href="/achievements/iot"
+								href={`${import.meta.env.BASE_URL}achievements/iot`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る
