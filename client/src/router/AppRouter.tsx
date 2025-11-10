@@ -29,6 +29,7 @@ import Partners from '../pages/CompanyProfile/Partners'
 import News from '../pages/News'
 import NewsLayout from '../layouts/NewsLayout'
 import NotFound from '../pages/NotFound'
+import ErrorPage from '../pages/ErrorPage'
 import Post from '../pages/News/Post'
 import Category from '../pages/News/Category'
 // Removed dedicated Contact page in favor of embedded homepage section
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <DefaultLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
       {
