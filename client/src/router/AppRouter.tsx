@@ -97,7 +97,7 @@ const router = createBrowserRouter([
       { path: 'privacy', element: <PrivacyPolicy /> },
     ],
   },
-])
+], { basename: import.meta.env.BASE_URL || '/' })
 
 export default function AppRouter() {
   return <RouterProvider router={router} />
