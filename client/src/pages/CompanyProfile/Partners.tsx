@@ -1,22 +1,7 @@
-export default function Partners() {
-  const logos: string[] = [
-    "/PartnerLogo/1.png",
-    "/PartnerLogo/2.png",
-    "/PartnerLogo/3.png",
-    "/PartnerLogo/4.png",
-    "/PartnerLogo/5.png",
-    "/PartnerLogo/6.png",
-    "/PartnerLogo/7.png",
-    "/PartnerLogo/8.png",
-    "/PartnerLogo/9.png",
-    "/PartnerLogo/10.png",
-    "/PartnerLogo/11.png",
-    "/PartnerLogo/12.png",
-    "/PartnerLogo/13.png",
-    "/PartnerLogo/14.png",
-    "/PartnerLogo/15.png",
+import { assetPath } from "../../utils/assetPath";
 
-  ];
+export default function Partners() {
+  const logos: string[] = Array.from({ length: 15 }, (_, i) => assetPath(`PartnerLogo/${i + 1}.png`));
 
   return (
     <section className="py-16 bg-white min-h-[60vh]">
