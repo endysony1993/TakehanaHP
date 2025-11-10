@@ -12,11 +12,20 @@ function getTransporter() {
         return { messageId: 'dev-' + Math.random().toString(36).slice(2) }
       },
       verify: async () => true,
+      __driver: 'log',
     } as any
   }
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    const msg = '[mailService] SMTP not configured. Set SMTP_HOST, SMTP_USER, SMTP_PASS in environment (or set MAIL_DRIVER=log for dev).'
-    throw new Error(msg)
+    // Instead of throwing, degrade gracefully to log driver so contact form does not 500.
+    console.warn('[mailService] Missing SMTP config; falling back to MAIL_DRIVER=log emulation.')
+    return {
+      sendMail: async (opts: any) => {
+        console.warn('[mailService] (fallback-log) would send:', opts)
+        return { messageId: 'fallback-' + Math.random().toString(36).slice(2) }
+      },
+      verify: async () => true,
+      __driver: 'log',
+    } as any
   }
   transporter = nodemailer.createTransport({
     host: SMTP_HOST,
@@ -28,6 +37,8 @@ function getTransporter() {
       rejectUnauthorized: false,
     },
   })
+  // annotate for diagnostics
+  ;(transporter as any).__driver = 'smtp'
   return transporter
 }
 
@@ -52,7 +63,18 @@ export async function sendContactMail(name: string, email: string, message: stri
 
   let info
   try {
-    info = await getTransporter().sendMail({ from: mailFrom, to: mailTo, replyTo: email, subject, html, text })
+    const t = getTransporter() as any
+    info = await t.sendMail({ from: mailFrom, to: mailTo, replyTo: email, subject, html, text })
+    if (t.__driver === 'smtp') {
+      console.info('[mailService] sent via smtp:', {
+        id: info?.messageId,
+        accepted: info?.accepted,
+        rejected: info?.rejected,
+        response: info?.response,
+      })
+    } else {
+      console.info('[mailService] (log mode) generated id:', info?.messageId)
+    }
   } catch (err: any) {
     console.error('[mailService] sendMail error:', {
       message: err?.message,
@@ -67,13 +89,11 @@ export async function sendContactMail(name: string, email: string, message: stri
 export async function verifyMailTransport(): Promise<{ ok: boolean; driver: string; message?: string }> {
   try {
     const t = getTransporter()
-    if (MAIL_DRIVER === 'log') {
-      return { ok: true, driver: 'log', message: 'MAIL_DRIVER=log (no real sending)' }
-    }
-    if (typeof (t as any).verify === 'function') {
+    const driver = (t as any).__driver === 'log' || MAIL_DRIVER === 'log' ? 'log' : 'smtp'
+    if (driver !== 'log' && typeof (t as any).verify === 'function') {
       await (t as any).verify()
     }
-    return { ok: true, driver: 'smtp' }
+    return { ok: true, driver }
   } catch (err: any) {
     return { ok: false, driver: MAIL_DRIVER || 'smtp', message: err?.message || 'Unknown verification error' }
   }

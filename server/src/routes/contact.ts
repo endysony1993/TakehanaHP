@@ -23,7 +23,21 @@ router.use((req, res, next) => {
   next()
 })
 
-router.post('/', validateBody(['name', 'email', 'title', 'message']), submitContact)
+// Accept either `title` or `subject` to match various client payloads
+router.post(
+  '/',
+  (req, res, next) => {
+    const { name, email, message, title, subject } = req.body || {}
+    if (!name) return res.status(400).json({ success: false, error: { message: 'Missing field: name', code: 400 } })
+    if (!email) return res.status(400).json({ success: false, error: { message: 'Missing field: email', code: 400 } })
+    if (!message) return res.status(400).json({ success: false, error: { message: 'Missing field: message', code: 400 } })
+    if (!title && !subject) {
+      return res.status(400).json({ success: false, error: { message: 'Missing field: title or subject', code: 400 } })
+    }
+    next()
+  },
+  submitContact,
+)
 router.post('/test', testSendContact)
 router.get('/verify', verifyContactMail)
 
