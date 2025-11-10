@@ -1,3 +1,4 @@
+import { assetPath } from "../../../utils/assetPath";
 export default function MobileBatteryShare() {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -50,7 +51,7 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center px-6">
         <div>
           <div className="w-full h-80 flex items-center justify-center">
-            <img src="/Iot/MobileBatteryShare/battery.png" alt="バッテリーシェア概要" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/battery.png')} alt="バッテリーシェア概要" className="h-80 object-contain" />
           </div>
         </div>
         <div>
@@ -73,7 +74,7 @@ export default function MobileBatteryShare() {
         </div>
         <div className="order-1 md:order-2">
           <div className="w-full h-64 flex items-center justify-center">
-            <img src="/Iot/MobileBatteryShare/management-side.png" alt="管理システム" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/management-side.png')} alt="管理システム" className="h-80 object-contain" />
           </div>
         </div>
       </div>
@@ -82,7 +83,7 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div>
           <div className="w-full h-64 flex items-center justify-center">
-            <img src="/Iot/MobileBatteryShare/cabinet-side.png" alt="充電スタンド" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/cabinet-side.png')} alt="充電スタンド" className="h-80 object-contain" />
           </div>
         </div>
         <div>
@@ -106,7 +107,7 @@ export default function MobileBatteryShare() {
         </div>
         <div className="order-1 md:order-2">
           <div className="w-full h-64 flex items-center justify-center">
-            <img src="/Iot/MobileBatteryShare/mobile-side.png" alt="モバイルアプリ" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/mobile-side.png')} alt="モバイルアプリ" className="h-80 object-contain" />
           </div>
         </div>
       </div>
@@ -118,13 +119,13 @@ export default function MobileBatteryShare() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/#contact"
+              href={`${import.meta.env.BASE_URL}#contact`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
               お問い合わせ
             </a>
             <a
-              href="/achievements/iot"
+              href={`${import.meta.env.BASE_URL}achievements/iot`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
               他の事例を見る

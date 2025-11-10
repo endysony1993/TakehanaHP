@@ -1,3 +1,4 @@
+import { assetPath } from "../../../utils/assetPath";
 export default function AIVisa() {
   return (
     <section className="py-12 sm:py-16 bg-white">
@@ -14,13 +15,13 @@ export default function AIVisa() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="/#contact"
+                href={`${import.meta.env.BASE_URL}#contact`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 お問い合わせ
               </a>
               <a
-                href="/achievements/ai"
+                href={`${import.meta.env.BASE_URL}achievements/ai`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 他のAI事例を見る
@@ -29,7 +30,7 @@ export default function AIVisa() {
           </div>
           <div className="flex-1 w-full">
             <img
-              src="/AI/AIVisa/1.png"
+              src={assetPath('AI/AIVisa/1.png')}
               alt="AI Visa 画面イメージ"
               className="w-full rounded-xl shadow-md object-cover aspect-video"
               loading="eager"
@@ -91,10 +92,10 @@ export default function AIVisa() {
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-[#31B4A8] mb-4 text-center">画面イメージ</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {['/AI/AIVisa/2.png','/AI/AIVisa/3.png','/AI/AIVisa/4.png'].map((src, idx) => (
+            {[2,3,4].map((n, idx) => (
               <img
-                key={src}
-                src={src}
+                key={n}
+                src={assetPath(`AI/AIVisa/${n}.png`)}
                 alt={`AI Visa 画面イメージ ${idx + 2}`}
                 className="w-full aspect-video rounded-xl shadow-md object-cover"
                 loading="lazy"
@@ -122,13 +123,13 @@ export default function AIVisa() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/#contact"
+              href={`${import.meta.env.BASE_URL}#contact`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               お問い合わせ
             </a>
             <a
-              href="/achievements/ai"
+              href={`${import.meta.env.BASE_URL}achievements/ai`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               他の事例を見る

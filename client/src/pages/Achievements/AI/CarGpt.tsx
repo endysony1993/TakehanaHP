@@ -1,3 +1,4 @@
+import { assetPath } from "../../../utils/assetPath";
 export default function CarGpt() {
   return (
     <div className="bg-white min-h-screen">
@@ -16,13 +17,13 @@ export default function CarGpt() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               <a
-                href="/#contact"
+                href={`${import.meta.env.BASE_URL}#contact`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 お問い合わせ
               </a>
               <a
-                href="/achievements/ai"
+                href={`${import.meta.env.BASE_URL}achievements/ai`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 他のAI事例を見る
@@ -31,7 +32,7 @@ export default function CarGpt() {
             <br />
           </div>
           <div className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0">
-            <img src="/AI/CarGpt/car-gpt-hero.png" alt="Car GPT Hero" className="w-full max-w-md md:max-w-2xl rounded-2xl shadow-md object-cover transition-transform duration-200 hover:scale-105" />
+            <img src={assetPath('AI/CarGpt/car-gpt-hero.png')} alt="Car GPT Hero" className="w-full max-w-md md:max-w-2xl rounded-2xl shadow-md object-cover transition-transform duration-200 hover:scale-105" />
           </div>
         </div>
       </section>
@@ -75,10 +76,9 @@ export default function CarGpt() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <img src="/AI/CarGpt/1.png" alt="Car GPT 画面 1" className="rounded-lg shadow-md" loading="lazy" />
-            <img src="/AI/CarGpt/2.png" alt="Car GPT 画面 2" className="rounded-lg shadow-md" loading="lazy" />
-            <img src="/AI/CarGpt/3.png" alt="Car GPT 画面 3" className="rounded-lg shadow-md" loading="lazy" />
-            <img src="/AI/CarGpt/4.png" alt="Car GPT 画面 4" className="rounded-lg shadow-md" loading="lazy" />
+            {[1,2,3,4].map(n => (
+              <img key={n} src={assetPath(`AI/CarGpt/${n}.png`)} alt={`Car GPT 画面 ${n}`} className="rounded-lg shadow-md" loading="lazy" />
+            ))}
           </div>
 
           <p className="text-sm text-gray-500 mt-4">ミニアプリ・APP・車載アプリの統合UI例</p>
@@ -128,13 +128,13 @@ export default function CarGpt() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/#contact"
+              href={`${import.meta.env.BASE_URL}#contact`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               お問い合わせ
             </a>
             <a
-              href="/achievements/iot"
+              href={`${import.meta.env.BASE_URL}achievements/iot`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               他の事例を見る

@@ -1,3 +1,4 @@
+import { assetPath } from "../../../utils/assetPath";
 export default function AIInspection() {
   return (
     <section className="text-center py-20 bg-gradient-to-b from-white to-gray-50">
@@ -48,7 +49,7 @@ export default function AIInspection() {
         <div className="rounded-xl shadow-md overflow-hidden hover:shadow-xl transition bg-white flex flex-col">
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[500px]"
-            style={{ backgroundImage: "url(/AI/AIInspection/fuji-template.jpg)" }}
+            style={{ backgroundImage: `url(${assetPath('AI/AIInspection/fuji-template.jpg')})` }}
             aria-label="風景写真テンプレート"
           />
           <div className="p-6">
@@ -63,7 +64,7 @@ export default function AIInspection() {
         <div className="rounded-xl shadow-md overflow-hidden hover:shadow-xl transition bg-white flex flex-col" >
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[500px]"
-            style={{ backgroundImage: "url(/AI/AIInspection/cosplay-template.jpg)" }}
+            style={{ backgroundImage: `url(${assetPath('AI/AIInspection/cosplay-template.jpg')})` }}
             aria-label="コスプレテンプレート"
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
@@ -81,7 +82,7 @@ export default function AIInspection() {
         <div className="rounded-xl shadow-md overflow-hidden hover:shadow-xl transition bg-white flex flex-col">
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[600px]"
-            style={{ backgroundImage: "url(/AI/AIInspection/anime-template.jpg)" }}
+            style={{ backgroundImage: `url(${assetPath('AI/AIInspection/anime-template.jpg')})` }}
             aria-label="アニメ取景地テンプレート"
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
@@ -98,13 +99,13 @@ export default function AIInspection() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/#contact"
+              href={`${import.meta.env.BASE_URL}#contact`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               お問い合わせ
             </a>
             <a
-              href="/achievements/ai"
+              href={`${import.meta.env.BASE_URL}achievements/ai`}
               className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               他の事例を見る

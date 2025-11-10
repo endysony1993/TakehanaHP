@@ -1,6 +1,7 @@
 
 
 import { Link, useLocation } from "react-router-dom";
+import { assetPath } from "../utils/assetPath";
 import { useEffect } from "react";
 import ContactSection from "../components/ui/ContactSection";
 import { RiBrainLine, RiWifiLine, RiBuilding2Line, RiAppsLine, RiContractLine, RiTeamLine } from "react-icons/ri";
@@ -113,7 +114,7 @@ export default function Home() {
       {/* Hero Section */}
         <section
           className="w-full relative text-white text-center pb-20 sm:pb-32 min-h-[70vh] sm:min-h-[75vh] flex items-center justify-center bg-center bg-cover bg-no-repeat overflow-hidden shadow-none"
-          style={{ backgroundImage: 'url(/banner.png)' }}
+          style={{ backgroundImage: `url(${assetPath('banner.png')})` }}
         >
         <div className="absolute inset-0 bg-black/40 w-full"></div>
         <div className="relative z-10 px-6 w-full">
@@ -125,7 +126,7 @@ export default function Home() {
           </h1>
          		<div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                  href="/#contact"
+                  href={`${import.meta.env.BASE_URL}#contact`}
                   className="inline-block px-8 py-3 rounded-xl bg-[#034a8c] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
                 >
                   お問い合わせ
@@ -210,7 +211,7 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 mt-8 sm:mt-10 md:mt-0">
             <img
-              src="/about-image.png"
+              src={assetPath('about-image.png')}
               alt="About Zhuhua"
               className="rounded-2xl shadow-xl mx-auto hover:scale-105 transition-transform duration-500"
             />
