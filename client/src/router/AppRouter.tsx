@@ -28,6 +28,7 @@ import Team from '../pages/CompanyProfile/Team'
 import Partners from '../pages/CompanyProfile/Partners'
 import News from '../pages/News'
 import NewsLayout from '../layouts/NewsLayout'
+import NotFound from '../pages/NotFound'
 import Post from '../pages/News/Post'
 import Category from '../pages/News/Category'
 // Removed dedicated Contact page in favor of embedded homepage section
@@ -95,6 +96,7 @@ const router = createBrowserRouter([
       // Redirect legacy /contact URLs to homepage contact section
       { path: 'contact', element: <Navigate to="/#contact" replace /> },
       { path: 'privacy', element: <PrivacyPolicy /> },
+        { path: '*', element: <NotFound /> },
     ],
   },
 ], { basename: import.meta.env.BASE_URL || '/' })
