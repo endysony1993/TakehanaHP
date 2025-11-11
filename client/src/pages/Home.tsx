@@ -113,7 +113,7 @@ export default function Home() {
   <div className="space-y-0 font-sans text-gray-800" style={{marginTop: 0}}>
       {/* Hero Section */}
         <section
-          className="relative w-screen max-w-none left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] text-white text-center min-h-[50svh] sm:min-h-[50vh] flex items-center justify-center bg-center bg-cover bg-no-repeat overflow-hidden shadow-none"
+          className="relative w-screen max-w-none left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] text-white text-center min-h-[60svh] sm:min-h-[60vh] flex items-center justify-center bg-center bg-cover bg-no-repeat overflow-hidden shadow-none"
           style={{ backgroundImage: `url(${assetPath('banner.png')})` }}
         >
         <div className="absolute inset-0 bg-black/40 w-full"></div>
@@ -138,8 +138,8 @@ export default function Home() {
       </section>
 
       {/* Why Us Section */}
-      <section className="py-12 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:flex items-center gap-8 sm:gap-12">
+  <section className="py-10 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 md:flex items-center gap-4 sm:gap-12">
           <div className="md:w-1/2">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-[#0066c5]">
               私たちの強み
