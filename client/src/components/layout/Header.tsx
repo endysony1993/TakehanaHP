@@ -4,7 +4,7 @@ import { assetPath } from '../../utils/assetPath'
 
 export default function Header() {
   return (
-    <header className="bg-gradient-to-b from-[#031C35] to-[#053461] text-white sticky top-0 z-[1050]">
+  <header className="bg-gradient-to-b from-[#031C35] to-[#034a8c] text-white sticky top-0 z-[1050]">
   <div className="container mx-auto px-3 py-3 min-h-16 grid grid-cols-[auto_1fr_auto] items-center">
         {/* Left: Logo + Brand */}
         <Link to="/" className="inline-flex items-center gap-1.5 text-white" aria-label="Home">

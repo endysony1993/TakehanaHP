@@ -109,7 +109,7 @@ export default function Navbar() {
         </button>
 
         {mobileOpen && (
-          <div className="fixed inset-0 z-[9999] bg-[#053461] text-white">
+          <div className="fixed inset-0 z-[9999] bg-[#034a8c] text-white">
             <div className="flex items-end justify-end px-4 py-3 border-b border-white/10">
               {/* <span className="text-base font-semibold">メニュー</span> */}
               <button
@@ -210,7 +210,7 @@ export default function Navbar() {
                 {openCompany && (
                   <ul className="bg-[#034a8c]/80 px-2 py-2">
                     <li><Link to="/company/about" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">会社概要</Link></li>
-                    <li><Link to="/company/team" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">チーム紹介</Link></li>
+                    {/* <li><Link to="/company/team" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">チーム紹介</Link></li> */}
                     <li><Link to="/company/partners" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">パートナー</Link></li>
                   </ul>
                 )}

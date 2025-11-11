@@ -13,7 +13,7 @@ export default function MesIntro() {
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] text-center">MES（製造実行システム）</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">MES（製造実行システム）</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
 						MESは生産プロセスの透明性を高め、品質と生産性の向上を支援します。
 					</p>
@@ -50,7 +50,7 @@ export default function MesIntro() {
 
 			{/* MESの効果 */}
 			{/* <section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#31B4A8]">MESの効果</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">MESの効果</h2>
 				<ul className="mt-6 grid md:grid-cols-2 gap-4 list-disc pl-5 text-gray-800">
 					<li>プロセス制御の強化</li>
 					<li>製品品質の向上</li>
@@ -63,7 +63,7 @@ export default function MesIntro() {
 
 			{/* 主な機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-				<h2 className="text-2xl font-semibold text-center text-[#31B4A8]">主な機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
 				<div className="mt-6 grid md:grid-cols-2 gap-6">
 					<div className="bg-white rounded-xl border p-6">
 						<h3 className="font-semibold mb-2">工程ルート管理</h3>
@@ -103,19 +103,19 @@ export default function MesIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-					<h3 className="text-xl font-semibold mb-3 text-[#31B4A8]">MESの詳細資料・デモのご依頼</h3>
+					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">MESの詳細資料・デモのご依頼</h3>
 					<p className="text-gray-700 mb-6">貴社の生産形態・品質要件に合わせて、適用範囲と導入ステップをご提案します。</p>
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
 								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る
 							</a>

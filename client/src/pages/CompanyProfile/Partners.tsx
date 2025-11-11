@@ -6,7 +6,7 @@ export default function Partners() {
   return (
     <section className="py-16 bg-white min-h-[60vh]">
       <div className="max-w-6xl mx-auto px-4">
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] mb-8 text-center">パートナー・提携先</h1>
+  <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-8 text-center">パートナー・提携先</h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 place-items-center">
           {logos.map((src, idx) => (
             <div key={idx} className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden bg-white flex items-center justify-center">

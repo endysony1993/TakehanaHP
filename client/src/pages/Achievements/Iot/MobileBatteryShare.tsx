@@ -4,7 +4,7 @@ export default function MobileBatteryShare() {
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header Section */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] mb-6">
+  <h2 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-6">
           モバイルバッテリーシェアシステム
         </h2>
         
@@ -18,7 +18,7 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-16 grid md:grid-cols-3 gap-8 px-6">
         {/* Client Request */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">クライアントのご要望</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">クライアントのご要望</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>都市部や商業施設でのモバイルバッテリー貸出サービスを新規導入したい</li>
             <li>ユーザーが簡単に借りて返却できる仕組みが必要</li>
@@ -27,7 +27,7 @@ export default function MobileBatteryShare() {
         </div>
         {/* Our Solution */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">当社のソリューション</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">当社のソリューション</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>IoT連携によるリアルタイム管理システムを構築</li>
             <li>アプリ・Web・充電スタンドを統合したシームレスなユーザー体験を設計</li>
@@ -36,7 +36,7 @@ export default function MobileBatteryShare() {
         </div>
         {/* Skills & Techniques */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">技術・スキル</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">技術・スキル</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>IoTデバイス制御・データ連携</li>
             <li>React/TypeScriptによるフロントエンド開発</li>
@@ -55,7 +55,7 @@ export default function MobileBatteryShare() {
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold text-[#31B4A8] mb-4 text-center">システム概要</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">システム概要</h3>
           <p className="text-gray-700 leading-relaxed">
             管理システム、モバイルアプリ、充電スタンドの三つの主要部分から構成される共有モバイルバッテリーシステムは、
             データのリアルタイム連携を実現し、利便性と運営効率の両立を目指しています。
@@ -66,7 +66,7 @@ export default function MobileBatteryShare() {
       {/* Section: 管理システム */}
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-semibold text-[#31B4A8] mb-4 text-center">管理システム</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">管理システム</h3>
           <p className="text-gray-700 leading-relaxed">
             管理システムはシステム全体の「頭脳」として機能し、貸出状況や電量状態、機柜の分布をリアルタイムで監視。
             また、ユーザー管理、データ統計、故障予警などの機能を通じて、安定した運営を支援します。
@@ -87,7 +87,7 @@ export default function MobileBatteryShare() {
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold text-[#31B4A8] mb-4 text-center">充電スタンド</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">充電スタンド</h3>
           <p className="text-gray-700 leading-relaxed">
             充電スタンドはモバイルバッテリーの実際の貸出・返却を担う物理デバイスです。大容量・高速充電・防盗設計を備え、
             内部のスマート認識技術により自動で充電状態を管理し、常に満電のモバイルバッテリーを提供します。
@@ -98,7 +98,7 @@ export default function MobileBatteryShare() {
       {/* Section: モバイルアプリ */}
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-semibold text-[#31B4A8] mb-4 text-center">モバイルアプリ</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">モバイルアプリ</h3>
           <p className="text-gray-700 leading-relaxed">
             モバイルアプリはユーザーとの直接の接点。アプリやミニプログラムを通じて、
             近くの機柜検索、貸出予約、スキャン利用、返却操作などをスムーズに行えます。
@@ -120,13 +120,13 @@ export default function MobileBatteryShare() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={`${import.meta.env.BASE_URL}#contact`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
               お問い合わせ
             </a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/iot`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
               他の事例を見る
             </a>

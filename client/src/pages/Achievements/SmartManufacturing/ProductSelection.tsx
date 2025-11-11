@@ -34,7 +34,7 @@ export default function ProductSelectionIntro() {
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] text-center">製品選定支援システム</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">製品選定支援システム</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
 						多様化する要件・仕様・市場動向を統合分析し、最適な製品/構成を迅速に選定するための支援プラットフォームです。営業・技術・調達が共通指標で意思決定できる環境を整備します。
 					</p>
@@ -43,7 +43,7 @@ export default function ProductSelectionIntro() {
 
 			{/* 6つの機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#31B4A8]">6つの機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">6つの機能</h2>
 				<div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{functions.map(f => (
 						<div key={f.title} className="bg-white rounded-xl border p-6 shadow-sm hover:shadow-md transition">
@@ -57,18 +57,19 @@ export default function ProductSelectionIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-					<h3 className="text-xl font-semibold mb-3 text-[#31B4A8]">詳細・導入相談</h3>
+					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">詳細・導入相談</h3>
 					<p className="text-gray-700 mb-6">要件定義～評価環境整備～本番展開まで段階的な導入をご支援します。まずはお気軽にお問い合わせください。</p>
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る
 							</a>

@@ -6,7 +6,7 @@ export default function AIVisa() {
         {/* Hero */}
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-12">
           <div className="flex-1">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#31B4A8] mb-4 whitespace-normal sm:whitespace-nowrap leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0066c5] mb-4 whitespace-normal sm:whitespace-nowrap leading-tight">
               AI Visa｜日本ビザを多言語で案内
             </h1>
             <p className="text-gray-700 leading-relaxed mb-4 text-base sm:text-lg">
@@ -17,13 +17,13 @@ export default function AIVisa() {
               <a
                 href={`${import.meta.env.BASE_URL}#contact`}
                 onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-                className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 お問い合わせ
               </a>
               <a
                 href={`${import.meta.env.BASE_URL}achievements/ai`}
-                className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 他のAI事例を見る
               </a>
@@ -42,7 +42,7 @@ export default function AIVisa() {
         {/* 課題 / ソリューション / 技術 */}
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
           <div className="p-6 rounded-xl bg-gray-50 text-left">
-            <h2 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">ユーザー/運営の課題</h2>
+            <h2 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">ユーザー/運営の課題</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2 inline-block text-left">
               <li>最新の日本ビザ情報を多言語で正確に案内したい</li>
               <li>AIでの「質問」による自己解決率を高めたい</li>
@@ -50,7 +50,7 @@ export default function AIVisa() {
             </ul>
           </div>
           <div className="p-6 rounded-xl bg-gray-50 text-left">
-            <h2 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">ソリューション</h2>
+            <h2 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">ソリューション</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2 inline-block text-left">
               <li>在留資格別の要件・必要書類を構造化し、多言語で提供</li>
               <li>AIでの質問機能（自動言語判定）で疑問を即時解消</li>
@@ -58,7 +58,7 @@ export default function AIVisa() {
             </ul>
           </div>
           <div className="p-6 rounded-xl bg-gray-50 text-left">
-            <h2 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">技術・スキル</h2>
+            <h2 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">技術・スキル</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2 inline-block text-left">
               <li>HTML / CSS</li>
               <li>Tailwind CSS</li>
@@ -72,7 +72,7 @@ export default function AIVisa() {
 
         {/* 機能ハイライト */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-[#31B4A8] mb-4 text-center">主な機能</h2>
+          <h2 className="text-2xl font-bold text-[#0066c5] mb-4 text-center">主な機能</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               'AIで質問（自動言語判定）',
@@ -91,7 +91,7 @@ export default function AIVisa() {
 
         {/* ギャラリー（プレースホルダ） */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-[#31B4A8] mb-4 text-center">画面イメージ</h2>
+          <h2 className="text-2xl font-bold text-[#0066c5] mb-4 text-center">画面イメージ</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[2,3,4].map((n, idx) => (
               <img
@@ -113,7 +113,7 @@ export default function AIVisa() {
             { t: '誤案内の抑制', d: '出典提示と更新管理により、最新基準への準拠を担保。' },
           ].map((b) => (
             <div key={b.t} className="p-6 rounded-xl bg-gray-50 text-center">
-              <h3 className="text-lg font-semibold text-[#31B4A8] mb-2 text-center">{b.t}</h3>
+              <h3 className="text-lg font-semibold text-[#0066c5] mb-2 text-center">{b.t}</h3>
               <p className="text-gray-700">{b.d}</p>
             </div>
           ))}
@@ -126,13 +126,13 @@ export default function AIVisa() {
             <a
               href={`${import.meta.env.BASE_URL}#contact`}
               onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               お問い合わせ
             </a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/ai`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               他の事例を見る
             </a>

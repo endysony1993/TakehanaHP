@@ -13,7 +13,7 @@ export default function WmsIntro() {
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] text-center">WMS（倉庫管理システム）</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">WMS（倉庫管理システム）</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
 						WMSは倉庫オペレーションを統合管理し、在庫精度と業務効率を高めます。
 					</p>
@@ -50,7 +50,7 @@ export default function WmsIntro() {
 
 			{/* 主な機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#31B4A8]">主な機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
 				<div className="mt-6 grid md:grid-cols-2 gap-6">
 					<div className="bg-white rounded-xl border p-6">
 						<h3 className="font-semibold mb-2">在庫管理</h3>
@@ -74,19 +74,19 @@ export default function WmsIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-					<h3 className="text-xl font-semibold mb-3 text-[#31B4A8]">WMSの詳細資料・デモのご依頼</h3>
+					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">WMSの詳細資料・デモのご依頼</h3>
 					<p className="text-gray-700 mb-6">貴社の倉庫規模・運用に合わせて、最適な導入ステップと構成をご提案します。</p>
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
 								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る
 							</a>

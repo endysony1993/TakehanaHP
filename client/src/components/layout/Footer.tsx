@@ -4,8 +4,8 @@ import ReactCountryFlag from "react-country-flag";
 
 export default function Footer() {
   return (
-  <footer className="bg-gradient-to-b from-[#053461] to-[#0B0A1F] text-white py-12">
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#053461]/20 pb-10 text-white">
+  <footer className="bg-gradient-to-b from-[#034a8c] to-[#0B0A1F] text-white py-12">
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#034a8c]/20 pb-10 text-white">
         {/* Company Info */}
         <div>
           {/* <h2 className="text-white font-bold text-lg mb-3 flex items-center gap-2">

@@ -94,7 +94,7 @@ export default function CompanyDropdown({
 							<MenuLink to="/company/about" title="会社概要" onClick={() => setOpen(false)} />
 						</li>
 						<li>
-							<MenuLink to="/company/team" title="チーム紹介" onClick={() => setOpen(false)} />
+							{/* <MenuLink to="/company/team" title="チーム紹介" onClick={() => setOpen(false)} /> */}
 						</li>
 						<li>
 							<MenuLink to="/company/partners" title="パートナー" onClick={() => setOpen(false)} />

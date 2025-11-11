@@ -14,7 +14,7 @@ export default function ApsIntro() {
   {/* ヒーロー */}
       <section className="bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-6 py-16">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">
             APS（生産スケジューリング）
           </h1>
           <p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
@@ -53,7 +53,7 @@ export default function ApsIntro() {
 
       {/* 主な機能 */}
       <section className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold text-center text-[#31B4A8]">主な機能</h2>
+  <h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
         <div className="mt-6 grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl border p-6">
             <h3 className="font-semibold mb-2">受注一覧管理</h3>
@@ -96,7 +96,7 @@ export default function ApsIntro() {
 
       {/* 目的
       <section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-        <h2 className="text-2xl font-semibold text-center text-[#31B4A8]">主な目的</h2>
+  <h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な目的</h2>
         <p className="mt-4 text-gray-800 text-center max-w-3xl mx-auto">
           生産計画を最適化し、資材の備えを高め、遅延を削減します。
         </p>
@@ -105,7 +105,7 @@ export default function ApsIntro() {
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="rounded-2xl border p-8 text-center">
-          <h3 className="text-xl font-semibold mb-3 text-[#31B4A8]">APSの詳細資料・デモのご依頼</h3>
+          <h3 className="text-xl font-semibold mb-3 text-[#0066c5]">APSの詳細資料・デモのご依頼</h3>
           <p className="text-gray-700 mb-6">貴社の製品構成と運用に合わせて、最適な適用範囲と導入ステップをご提案します。</p>
        				<div className="mt-12 px-6">
 					<div className="max-w-6xl mx-auto">
@@ -113,13 +113,13 @@ export default function ApsIntro() {
               <a
                 href={`${import.meta.env.BASE_URL}#contact`}
                 onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-                className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 						>
                 お問い合わせ
               </a>
               <a
                 href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
-                className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 						>
                 他の事例を見る
               </a>

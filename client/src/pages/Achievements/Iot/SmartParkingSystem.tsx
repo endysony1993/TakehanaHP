@@ -8,7 +8,7 @@ export default function SmartParkingSystem() {
 		<section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
 			<div className="max-w-6xl mx-auto px-6">
 				{/* Title */}
-				<h2 className="text-3xl sm:text-4xl font-bold text-[#31B4A8] mb-6 text-center">
+				<h2 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-6 text-center">
 					スマートパーキング
 				</h2>
 
@@ -58,7 +58,7 @@ export default function SmartParkingSystem() {
 				<div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
 					{/* 現状と課題 */}
 					<div className="bg-white rounded-xl shadow p-6 flex flex-col">
-						<h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">駐車場の現状と課題</h3>
+						<h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">駐車場の現状と課題</h3>
 						<ul className="list-disc list-inside text-gray-700 space-y-2 text-left flex-1">
 							<li>人工コストが高い／人力管理によるミス・非効率</li>
 							<li>料金の回収漏れ・未払いが発生しやすく、正確な収益管理が困難となるケースがあります。</li>
@@ -70,7 +70,7 @@ export default function SmartParkingSystem() {
 
 					{/* 解決策 */}
 					<div className="bg-white rounded-xl shadow p-6 flex flex-col">
-						<h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">スマートパーキングの解決策</h3>
+						<h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">スマートパーキングの解決策</h3>
 						<ul className="list-disc list-inside text-gray-700 space-y-2 text-left flex-1">
 							<li>ALPRで入出庫を自動化、カメラ・地磁気で車室監視</li>
 							<li>自動計時・自動課金と複数決済方式に対応</li>
@@ -83,7 +83,7 @@ export default function SmartParkingSystem() {
 
 					{/* 導入効果 */}
 					<div className="bg-white rounded-xl shadow p-6 flex flex-col">
-						<h3 className="text-xl font-semibold text-[#31B4A8] mb-3 text-center">導入効果</h3>
+						<h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">導入効果</h3>
 						<ul className="list-disc list-inside text-gray-700 space-y-2 text-left flex-1">
 							<li>入出場時の待ち時間を大幅に削減し、利用者をスムーズに誘導できる環境を実現します。</li>
 							<li>徴収の完全自動化で売上最大化・漏れ防止</li>
@@ -101,13 +101,13 @@ export default function SmartParkingSystem() {
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
 								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+									className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								お問い合わせ
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/iot`}
-								className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+									className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								他の事例を見る
 							</a>

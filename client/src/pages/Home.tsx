@@ -54,7 +54,7 @@ const achievementsLinks = [
 const servicesLinks = [
   {
     title: "請負型開発",
-    desc: "要件定義から納品まで一括対応。品質とスケジュール重視のプロジェクト型。",
+    desc: "要件定義から納品まで一貫対応",
     to: "/services/development/project-based",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#475569] to-[#64748B] shadow-sm mb-4 mx-auto">
@@ -64,7 +64,7 @@ const servicesLinks = [
   },
   {
     title: "ラボ型開発",
-    desc: "専属チーム体制で長期的・柔軟な開発支援を実現。",
+    desc: "専属チーム体制で柔軟・安定した開発支援",
     to: "/services/development/lab-based",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#84CC16] to-[#A3E635] shadow-sm mb-4 mx-auto">
@@ -74,7 +74,7 @@ const servicesLinks = [
   },
   {
     title: "オフショア",
-    desc: "海外開発拠点を活用し、コスト最適化とリソース拡充。",
+    desc: "海外拠点活用でコスト最適化と体制強化",
     to: "/services/delivery/offshore",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] shadow-sm mb-4 mx-auto">
@@ -84,7 +84,7 @@ const servicesLinks = [
   },
   {
     title: "オンサイト",
-    desc: "日本側リーダーによる品質・進行の直接管理。",
+    desc: "日本側リーダーが品質・進行を直接管理",
     to: "/services/delivery/onsite",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#E11D48] to-[#FB7185] shadow-sm mb-4 mx-auto">
@@ -113,7 +113,7 @@ export default function Home() {
   <div className="space-y-0 font-sans text-gray-800" style={{marginTop: 0}}>
       {/* Hero Section */}
         <section
-          className="w-full relative text-white text-center pb-20 sm:pb-32 min-h-[70vh] sm:min-h-[75vh] flex items-center justify-center bg-center bg-cover bg-no-repeat overflow-hidden shadow-none"
+          className="relative w-screen max-w-none left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] text-white text-center min-h-[50svh] sm:min-h-[50vh] flex items-center justify-center bg-center bg-cover bg-no-repeat overflow-hidden shadow-none"
           style={{ backgroundImage: `url(${assetPath('banner.png')})` }}
         >
         <div className="absolute inset-0 bg-black/40 w-full"></div>
@@ -128,7 +128,7 @@ export default function Home() {
               <a
                   href={`${import.meta.env.BASE_URL}#contact`}
                   onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal')) }}
-                  className="inline-block px-8 py-3 rounded-xl bg-[#034a8c] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+                  className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
                 >
                   お問い合わせ
                 </a>
@@ -141,7 +141,7 @@ export default function Home() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:flex items-center gap-8 sm:gap-12">
           <div className="md:w-1/2">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-[#034a8c]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-[#0066c5]">
               私たちの強み
             </h2>
             <p className="text-gray-600 mb-5 sm:mb-6 leading-relaxed">
@@ -223,15 +223,15 @@ export default function Home() {
       {/* Achievements Section */}
       <section id="achievements" className="py-12 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#034a8c]">
-            主な実績
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">
+            実績
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {achievementsLinks.map((item, i) => (
               <Link
                 key={i}
                 to={item.to}
-                className="block bg-white shadow-md rounded-xl p-5 sm:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#034a8c]"
+                className="block bg-white shadow-md rounded-xl p-5 sm:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0066c5]"
                 style={{ textDecoration: 'none' }}
               >
                 <button
@@ -254,7 +254,7 @@ export default function Home() {
   {/* Services Section */}
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#034a8c]">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">
             サービス
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -262,7 +262,7 @@ export default function Home() {
               <Link
                 key={i}
                 to={service.to}
-                className="block text-center p-6 sm:p-8 border-t-4 border-[#034a8c] rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 transition-all focus:outline-none focus:ring-2 focus:ring-[#034a8c]"
+                className="block text-center p-6 sm:p-8 border-t-4 border-[#0066c5] rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 transition-all focus:outline-none focus:ring-2 focus:ring-[#0066c5]"
                 style={{ textDecoration: 'none' }}
               >
                 <button

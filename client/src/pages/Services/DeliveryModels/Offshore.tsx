@@ -1,24 +1,20 @@
 import Section from '../../../components/common/Section'
 import SectionTitle from '../../../components/ui/SectionTitle'
 import Card from '../../../components/ui/Card'
-import Button from '../../../components/ui/Button'
 
 export default function Offshore() {
   return (
     <div className="space-y-10 sm:space-y-14">
       {/* Hero */}
       <Section>
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#31B4A8] to-teal-500 text-white py-10 sm:py-14 px-6">
+  <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#0066c5] to-teal-500 text-white py-10 sm:py-14 px-6">
           <div className="max-w-3xl">
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">オフショア開発</h1>
             <p className="mt-3 text-white/90 text-sm sm:text-base leading-relaxed">
               コスト最適化とスピード両立のために、海外拠点を活用したチームでの開発体制をご提供します。
               日本側PM/BrSEによる要件整理・品質管理と、海外の優秀なエンジニアの実装力を組み合わせます。
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Button className="bg-white text-[#31B4A8] hover:bg-white/90" onClick={() => window.dispatchEvent(new Event('open-contact-modal'))}>お問い合わせ</Button>
-              <Button variant="secondary" className="bg-teal-50 text-teal-900 hover:bg-teal-100">事例を見る</Button>
-            </div>
+            
           </div>
           <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
         </div>
@@ -102,9 +98,16 @@ export default function Offshore() {
           <p className="mt-2 text-gray-600 text-sm">
             2週間のトライアルスプリントからご提供可能です。スコープ定義〜実装〜レビューまで一気通貫で実施します。
           </p>
-          <div className="mt-5">
-            <Button className="bg-[#31B4A8] hover:bg-teal-600">無料相談する</Button>
-          </div>
+         	<div className="flex flex-col pt-5 sm:flex-row gap-3 justify-center">
+              <a
+                href={`${import.meta.env.BASE_URL}#contact`}
+                onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
+                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+						>
+                お問い合わせ
+              </a>
+            
+						</div>
         </div>
       </Section>
     </div>

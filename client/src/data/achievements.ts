@@ -41,11 +41,11 @@ tags: ['IoT', 'シェアリング', '可視化'],
     link: '/achievements/smart-parking-system',
 
   },
-  {
-    title: '予防保全のための振動解析',
-    description: '加速度センサーの周波数解析でベアリングの摩耗傾向を早期検知。',
-    tags: ['Vibration', 'FFT', 'Anomaly'],
-  },
+  // {
+  //   title: '予防保全のための振動解析',
+  //   description: '加速度センサーの周波数解析でベアリングの摩耗傾向を早期検知。',
+  //   tags: ['Vibration', 'FFT', 'Anomaly'],
+  // },
 ]
 
 export const smartManufacturingCases: CaseItem[] = [

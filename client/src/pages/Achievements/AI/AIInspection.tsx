@@ -3,7 +3,7 @@ export default function AIInspection() {
   return (
     <section className="text-center py-20 bg-gradient-to-b from-white to-gray-50">
       {/* Title */}
-      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#31B4A8]">AI撮影テンプレート</h2>
+  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">AI撮影テンプレート</h2>
 
       <p className="text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed text-base sm:text-lg">
         風景写真、アニメのワンシーンとの合成、スタイル化されたイラストまで、AI撮影テンプレートで一枚一枚の写真が創造性と驚きに満ちた作品になります。
@@ -13,7 +13,7 @@ export default function AIInspection() {
       <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
         {/* Client Request */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3">クライアントのご要望</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">クライアントのご要望</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>AIを活用した新しい写真体験サービスを開発したい</li>
             <li>ユーザーが簡単に多様なテンプレートで写真を生成できる仕組みが必要</li>
@@ -22,7 +22,7 @@ export default function AIInspection() {
         </div>
         {/* Our Solution */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3">当社のソリューション</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">当社のソリューション</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>AI画像合成・スタイル変換アルゴリズムを独自開発</li>
             <li>Webアプリ・スマホアプリで直感的な操作UIを設計</li>
@@ -31,7 +31,7 @@ export default function AIInspection() {
         </div>
         {/* Skills & Techniques */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#31B4A8] mb-3">技術・スキル</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">技術・スキル</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
             <li>AI画像処理（GAN・スタイル変換）</li>
             <li>React/TypeScriptによるフロントエンド開発</li>
@@ -53,7 +53,7 @@ export default function AIInspection() {
             aria-label="風景写真テンプレート"
           />
           <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2 text-[#31B4A8]">風景写真テンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">風景写真テンプレート</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               富士山、東京タワー、奈良、伏見稲荷など、日本各地の名所を背景にしたAI合成写真を作成します。
             </p>
@@ -68,7 +68,7 @@ export default function AIInspection() {
             aria-label="コスプレテンプレート"
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold mb-2 text-[#31B4A8]">コスプレテンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">コスプレテンプレート</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               AIがあなたを人気キャラクターや名画の登場人物に変身させます。
             </p>
@@ -86,7 +86,7 @@ export default function AIInspection() {
             aria-label="アニメ取景地テンプレート"
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold mb-2 text-[#31B4A8]">アニメ取景地テンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">アニメ取景地テンプレート</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               「君の名は。」や「千と千尋の神隠し」など、人気アニメの舞台でキャラクターと一緒に撮影したような合成写真を作成します。
             </p>
@@ -101,13 +101,13 @@ export default function AIInspection() {
             <a
               href={`${import.meta.env.BASE_URL}#contact`}
               onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               お問い合わせ
             </a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/ai`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
+              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               他の事例を見る
             </a>

@@ -91,15 +91,15 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
             </svg>
           </button>
           <div className="p-6 sm:p-8">
-            <h2 className="text-xl sm:text-2xl font-bold mb-2 text-[#034a8c]">お問い合わせ</h2>
-            <p className="text-gray-600 mb-4">ご相談はお気軽にご連絡ください。</p>
+            <h2 className="text-xl sm:text-2xl text-center font-bold mb-2 text-[#0066c5]">お問い合わせ</h2>
+            <p className="text-gray-600 text-center mb-4">ご相談はお気軽にご連絡ください。</p>
 
             {/* Form */}
             {submitted ? (
               <div className="text-center py-10">
-                <p className="text-lg text-[#034a8c] font-semibold mb-2">送信が完了しました。</p>
+                <p className="text-lg text-[#0066c5] font-semibold mb-2">送信が完了しました。</p>
                 <p className="text-gray-600 text-sm">お問い合わせいただきありがとうございます。担当者よりご連絡いたします。</p>
-                <button onClick={closeAndReset} className="mt-6 px-6 py-2 rounded-lg bg-[#034a8c] text-white font-semibold hover:opacity-90">閉じる</button>
+                <button onClick={closeAndReset} className="mt-6 px-6 py-2 rounded-lg bg-[#0066c5] text-white font-semibold hover:opacity-90">閉じる</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
@@ -112,7 +112,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-900 placeholder-gray-500 caret-[#3C7FE6] focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                     required
                   />
                 </div>
@@ -124,7 +124,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-900 placeholder-gray-500 caret-[#3C7FE6] focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                     required
                   />
                 </div>
@@ -136,7 +136,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                     name="title"
                     value={form.title}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-900 placeholder-gray-500 caret-[#3C7FE6] focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                   />
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                     value={form.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-900 placeholder-gray-500 caret-[#3C7FE6] focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                     required
                   />
                 </div>
@@ -156,7 +156,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-2 rounded-lg bg-[#034a8c] text-white font-semibold shadow transition-transform duration-200 transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="px-6 py-2 rounded-lg bg-[#0066c5] text-white font-semibold shadow transition-transform duration-200 transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? "送信中..." : "送信"}
                   </button>
