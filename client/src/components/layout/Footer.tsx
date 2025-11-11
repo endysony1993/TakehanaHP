@@ -49,7 +49,15 @@ export default function Footer() {
             <li><Link to="/" className="hover:text-[#3C7FE6] text-white">ホーム</Link></li>
             {/* <li><Link to="/services" className="hover:text-[#3C7FE6] text-white">サービス</Link></li> */}
             <li><Link to="/company/about" className="hover:text-[#3C7FE6] text-white">会社概要</Link></li>
-            <li><Link to="/#contact" className="hover:text-[#3C7FE6] text-white">お問い合わせ</Link></li>
+            <li>
+              <Link
+                to="/#contact"
+                onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal')) }}
+                className="hover:text-[#3C7FE6] text-white"
+              >
+                お問い合わせ
+              </Link>
+            </li>
           </ul>
         </div>
 

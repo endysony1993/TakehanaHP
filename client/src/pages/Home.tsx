@@ -127,6 +127,7 @@ export default function Home() {
          		<div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                   href={`${import.meta.env.BASE_URL}#contact`}
+                  onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal')) }}
                   className="inline-block px-8 py-3 rounded-xl bg-[#034a8c] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
                 >
                   お問い合わせ
@@ -282,8 +283,8 @@ export default function Home() {
       </section>
 
 
-      {/* Contact Section (embedded) */}
-      <ContactSection />
+      {/* Contact Section (embedded)
+      <ContactSection /> */}
   
     </div>
   );

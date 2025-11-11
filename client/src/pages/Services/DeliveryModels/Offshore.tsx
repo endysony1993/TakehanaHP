@@ -16,7 +16,7 @@ export default function Offshore() {
               日本側PM/BrSEによる要件整理・品質管理と、海外の優秀なエンジニアの実装力を組み合わせます。
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Button className="bg-white text-[#31B4A8] hover:bg-white/90">お問い合わせ</Button>
+              <Button className="bg-white text-[#31B4A8] hover:bg-white/90" onClick={() => window.dispatchEvent(new Event('open-contact-modal'))}>お問い合わせ</Button>
               <Button variant="secondary" className="bg-teal-50 text-teal-900 hover:bg-teal-100">事例を見る</Button>
             </div>
           </div>

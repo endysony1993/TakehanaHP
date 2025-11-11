@@ -57,6 +57,23 @@ export default function Navbar() {
     return () => window.removeEventListener('open-contact-modal', handler as EventListener)
   }, [])
 
+  // Intercept any link clicks to ...#contact and open the modal instead
+  useEffect(() => {
+    const onCaptureClick = (e: Event) => {
+      const t = e.target as HTMLElement | null
+      if (!t) return
+      const anchor = t.closest('a') as HTMLAnchorElement | null
+      const href = anchor?.getAttribute('href') || ''
+      if (anchor && /#contact$/.test(href)) {
+        e.preventDefault()
+        e.stopPropagation()
+        setContactOpen(true)
+      }
+    }
+    document.addEventListener('click', onCaptureClick, true)
+    return () => document.removeEventListener('click', onCaptureClick, true)
+  }, [])
+
   return (
     <>
       {/* Desktop nav */}

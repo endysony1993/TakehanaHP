@@ -112,6 +112,7 @@ export default function ApsIntro() {
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href={`${import.meta.env.BASE_URL}#contact`}
+                onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
                 className="inline-block px-8 py-3 rounded-xl bg-[#31B4A8] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 						>
                 お問い合わせ

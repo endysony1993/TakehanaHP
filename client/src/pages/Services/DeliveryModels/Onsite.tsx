@@ -16,7 +16,7 @@ export default function Onsite() {
               セキュリティ要件が厳しい案件や、密な関係者調整が必要なプロジェクトに最適です。
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Button className="bg-white text-indigo-700 hover:bg-white/90">お問い合わせ</Button>
+              <Button className="bg-white text-indigo-700 hover:bg-white/90" onClick={() => window.dispatchEvent(new Event('open-contact-modal'))}>お問い合わせ</Button>
               <Button variant="secondary" className="bg-indigo-50 text-indigo-900 hover:bg-indigo-100">事例を見る</Button>
             </div>
           </div>
