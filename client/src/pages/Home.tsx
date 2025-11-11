@@ -3,7 +3,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { assetPath } from "../utils/assetPath";
 import { useEffect } from "react";
-import ContactSection from "../components/ui/ContactSection";
+// import ContactSection from "../components/ui/ContactSection"; // Removed unused import
 import { RiBrainLine, RiWifiLine, RiBuilding2Line, RiAppsLine, RiContractLine, RiTeamLine } from "react-icons/ri";
 import { FaGlobe } from "react-icons/fa6";
 import { MdLocationOn } from "react-icons/md";

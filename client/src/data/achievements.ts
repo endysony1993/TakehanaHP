@@ -37,15 +37,16 @@ tags: ['IoT', 'シェアリング', '可視化'],
   {
     title: 'スマートパーキング',
     description: 'AI車番認識とセンサーで入出庫・空車を自動化。オンライン決済・料金計時に対応し、稼働や売上を可視化。',
-    tags: ['ALPR', 'Occupancy', 'Payment', 'IoT'],
+    tags: ['車番認識', '稼働率', '決済', 'IoT連携'],
     link: '/achievements/smart-parking-system',
 
   },
-  // {
-  //   title: '予防保全のための振動解析',
-  //   description: '加速度センサーの周波数解析でベアリングの摩耗傾向を早期検知。',
-  //   tags: ['Vibration', 'FFT', 'Anomaly'],
-  // },
+  {
+    title: '駐車場管理システム',
+    description: '空き状況の検知、予約、料金最適化、オンライン決済を統合管理し、稼働率と顧客体験を向上。',
+    tags: ['駐車場', '予約', '料金最適化', '決済'],
+    link: '/achievements/parking-management-system',
+  },
 ]
 
 export const smartManufacturingCases: CaseItem[] = [
@@ -84,18 +85,14 @@ export const smartManufacturingCases: CaseItem[] = [
 
 export const otherCases: CaseItem[] = [
   {
-    title: 'カスタマーサクセスの離反予兆検知',
-    description: '利用状況とサポート履歴から解約リスクをスコアリングし、適切な打ち手を提示。',
-    tags: ['Churn', 'Scoring', 'SaaS'],
+    title: 'SAP導入・運用最適化',
+    description: 'FI/CO・SD・MMなどの要件整理から設計・導入・運用までを支援。周辺システム連携とデータ連携基盤も構築。',
+    tags: ['SAP', 'ERP', 'Integration'],
   },
   {
-    title: 'ECレコメンド最適化',
-    description: '協調フィルタリングと内容ベースのハイブリッド手法でCVRを改善。',
-    tags: ['Recommender', 'Personalization', 'E-commerce'],
+    title: 'Salesforce導入・活用支援',
+    description: 'Sales Cloud／Service Cloudの設計・実装・運用定着化を支援。MA連携やダッシュボード可視化で営業生産性を向上。',
+    tags: ['Salesforce', 'CRM', 'Automation'],
   },
-  {
-    title: 'ドキュメント自動分類・要約',
-    description: '大規模言語モデルを活用し、社内文書の分類・要約・検索性を強化。',
-    tags: ['NLP', 'Summarization', 'LLM'],
-  },
+ 
 ]

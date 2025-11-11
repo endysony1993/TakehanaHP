@@ -4,7 +4,7 @@ export default function ProjectBased() {
       <div className="max-w-3xl mx-auto px-4">
   <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-8 text-center">Project型開発</h1>
         <p className="text-gray-700 leading-relaxed mb-8 text-center">
-          Project型開発は、明確な要件・納期・予算に基づき、システムやアプリケーションを一括で受託開発するモデルです。要件定義から設計・開発・テスト・納品まで、ワンストップで高品質な成果物を提供します。
+          プロジェクト型開発は、明確な要件・納期・予算に基づき、システムやアプリを一括受託するモデルです。要件定義から設計・開発・テスト・納品まで、ワンストップで高品質な成果を提供します。
         </p>
         <div className="bg-gray-50 rounded-xl shadow p-6 mb-8">
           <h2 className="text-lg font-semibold text-[#0066c5] mb-2">特徴</h2>

@@ -4,7 +4,7 @@ export default function LabBased() {
       <div className="max-w-3xl mx-auto px-4">
   <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-8 text-center">Lab型開発</h1>
         <p className="text-gray-700 leading-relaxed mb-8 text-center">
-          Lab型開発は、クライアント専属の開発チームを編成し、柔軟かつ継続的なシステム開発・運用を実現するモデルです。要件の変化や新規機能追加にも迅速に対応でき、長期的なパートナーシップ構築に最適です。
+          ラボ型開発は、クライアント専属チームを編成し、柔軟かつ継続的なシステム開発・運用を実現するモデルです。要件変化や新機能追加にも迅速に対応し、長期的なパートナーシップ構築に最適です。
         </p>
         <div className="bg-gray-50 rounded-xl shadow p-6 mb-8">
           <h2 className="text-lg font-semibold text-[#0066c5] mb-2">特徴</h2>
