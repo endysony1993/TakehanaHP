@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react'
 import ServicesDropdown from '../ui/ServicesDropdown'
 import AchievementsDropdown from '../ui/AchievementsDropdown'
 import CompanyDropdown from '../ui/CompanyDropdown'
+import ContactModal from '../ui/ContactModal'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openServices, setOpenServices] = useState(false)
   const [openAchievements, setOpenAchievements] = useState(false)
   const [openCompany, setOpenCompany] = useState(false)
+  const [contactOpen, setContactOpen] = useState(false)
 
   const closeAll = () => {
     setMobileOpen(false)
@@ -48,6 +50,12 @@ export default function Navbar() {
   }, [mobileOpen])
 
   // Direct hash link navigation to embedded contact section on homepage
+  // Also listen for a global event to open the contact modal from anywhere
+  useEffect(() => {
+    const handler = () => setContactOpen(true)
+    window.addEventListener('open-contact-modal', handler as EventListener)
+    return () => window.removeEventListener('open-contact-modal', handler as EventListener)
+  }, [])
 
   return (
     <>
@@ -59,14 +67,14 @@ export default function Navbar() {
         <ServicesDropdown label="サービス" buttonClassName="text-lg" />
         <AchievementsDropdown label="実績事例" buttonClassName="text-lg" />
         <CompanyDropdown label="会社概要" buttonClassName="text-lg" />
-        <Link
-          to="/#contact"
-          onClick={closeAll}
+        <button
+          type="button"
+          onClick={() => { closeAll(); setContactOpen(true) }}
           className="text-white hover:text-[#3C7FE6] text-lg focus:outline-none focus:ring-2 focus:ring-[#3C7FE6] rounded"
-          aria-label="お問い合わせセクションへ移動"
+          aria-label="お問い合わせフォームを開く"
         >
           お問い合わせ
-        </Link>
+        </button>
       </nav>
 
       {/* Mobile nav */}
@@ -192,19 +200,20 @@ export default function Navbar() {
               </li>
 
               <li>
-                <Link
-                  to="/#contact"
-                  onClick={closeAll}
+                <button
+                  type="button"
+                  onClick={() => { setContactOpen(true); closeAll() }}
                   className="block w-full text-left px-5 py-4 text-white hover:bg-[#3C7FE6]/20 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
-                  aria-label="お問い合わせセクションへ移動"
+                  aria-label="お問い合わせフォームを開く"
                 >
                   お問い合わせ
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
         )}
       </div>
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   )
 }
