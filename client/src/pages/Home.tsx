@@ -43,6 +43,10 @@ import {
   TbCoffee,
 } from "react-icons/tb";
 
+// Dummy reference to satisfy TypeScript noUnusedLocals in certain incremental builds
+// (icons are also used within JSX skill arrays below, but some build modes were flagging them)
+void [SiC, SiCplusplus];
+
 const achievementsLinks = [
   {
     title: "AI関連",

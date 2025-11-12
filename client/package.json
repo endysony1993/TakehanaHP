@@ -3,15 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://endysony1993.github.io/TakehanaHP",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "build:gh": "cross-env VITE_BASE_PATH=/TakehanaHP/ vite build",
-    "predeploy": "npm run build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && node -e \"const fs=require('fs');const f=fs.existsSync('docs/CNAME')?fs.readFileSync('docs/CNAME','utf8'):'';fs.rmSync('docs',{recursive:true,force:true});fs.mkdirSync('docs');fs.cpSync('dist','docs',{recursive:true});fs.writeFileSync('docs/CNAME','tkhtec.org');fs.copyFileSync('docs/index.html','docs/404.html');\" && git add docs -A && git commit -m \"Deploy\" && git push",
+    
+    "build:gh": "cross-env VITE_BASE_PATH=/TakehanaHP/ vite build"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -35,7 +33,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
     "vite": "npm:rolldown-vite@7.1.14",
-    "gh-pages": "^6.2.0"
+    "cross-env": "^7.0.3"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"
