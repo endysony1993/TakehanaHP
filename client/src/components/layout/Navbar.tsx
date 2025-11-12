@@ -188,7 +188,7 @@ export default function Navbar() {
                   <ul className="bg-[#034a8c]/80 px-2 py-2">
                     <li><Link to="/achievements/ai" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">AI</Link></li>
                     <li><Link to="/achievements/iot" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">IoT</Link></li>
-                    <li><Link to="/achievements/smart-manufacturing" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">スマートファクトリー</Link></li>
+                    <li><Link to="/achievements/smart-manufacturing" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">製造業向けソリューション</Link></li>
                     <li><Link to="/achievements/others" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">その他</Link></li>
                   </ul>
                 )}

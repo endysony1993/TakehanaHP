@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && node -e \"const fs=require('fs');const f=fs.existsSync('docs/CNAME')?fs.readFileSync('docs/CNAME','utf8'):'';fs.rmSync('docs',{recursive:true,force:true});fs.mkdirSync('docs');fs.cpSync('dist','docs',{recursive:true});fs.writeFileSync('docs/CNAME','tkhtec.org');fs.copyFileSync('docs/index.html','docs/404.html');\" && git add docs -A && git commit -m \"Deploy\" && git push",
+  "deploy": "npm run build && node -e \"const fs=require('fs');const path=require('path');const cwd=process.cwd();const root=path.resolve(cwd,'..');const docs=path.join(root,'docs');fs.rmSync(docs,{recursive:true,force:true});fs.mkdirSync(docs,{recursive:true});fs.cpSync(path.join(cwd,'dist'),docs,{recursive:true});fs.writeFileSync(path.join(docs,'CNAME'),'tkhtec.org');fs.copyFileSync(path.join(docs,'index.html'),path.join(docs,'404.html'));\" && git -C .. add docs -A && git -C .. commit -m \"Deploy\" && git -C .. push",
     
     "build:gh": "cross-env VITE_BASE_PATH=/TakehanaHP/ vite build"
   },
