@@ -15,21 +15,7 @@ export default function CarGpt() {
             <p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
               マルチエンド接続（ミニアプリ／APP／車載）・機能ガイド・マスキング済み車両データ連携
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-              <a
-                href={`${import.meta.env.BASE_URL}#contact`}
-                onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
-                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
-              >
-                お問い合わせ
-              </a>
-              <a
-                href={`${import.meta.env.BASE_URL}achievements/ai`}
-                className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
-              >
-                他のAI事例を見る
-              </a>
-            </div>
+            
             <br />
           </div>
           <div className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0">

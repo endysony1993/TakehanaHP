@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm leading-relaxed text-white">
               <li className="flex flex-wrap items-center gap-x-4 gap-y-1 whitespace-nowrap">
                 <span>〒220-0004 <br />神奈川県横浜市西区北幸一丁目11番1号 水信ビル7階</span>
-                <span>E-mail：<a href="mailto:he.jian@zhuhuakeji.com" className="hover:text-[#3C7FE6] text-white">he.jian@zhuhuakeji.com</a></span>
+                {/* <span>E-mail：<a href="mailto:he.jian@zhuhuakeji.com" className="hover:text-[#3C7FE6] text-white">he.jian@zhuhuakeji.com</a></span> */}
               </li>
             </ul>
           </div>
@@ -79,10 +79,10 @@ export default function Footer() {
   <div className="text-center text-xs mt-6 space-y-2 text-white/80">
         <p>© ZHUHUA TECHNOLOGY 2025 All rights reserved.</p>
         {/* <p>開発、システム開発、Webソリューションの専門企業</p> */}
-        <p>
+        {/* <p>
           <Link to="/privacy" className="hover:text-[#3C7FE6] text-white">プライバシーポリシー</Link> ｜{" "}
           <Link to="/terms" className="hover:text-[#3C7FE6] text-white">利用規約</Link>
-        </p>
+        </p> */}
       </div>
     </footer>
   );

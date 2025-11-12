@@ -16,9 +16,9 @@ export default function About() {
           
             <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
               <li>会社名：竹華ジャパン株式会社</li>
-              <li>設立：2021年</li>
+              <li>設立：2022年</li>
               <li>資本金：1000万円</li>
-              <li>代表者：贺建</li>
+              <li>代表者：贺鑫</li>
               <li>所在地：〒220-0004 神奈川県横浜市西区北幸一丁目11番1号 水信ビル7階</li>
               <li>事業内容：AI・IoT・業務システム開発、DXコンサルティング、オフショア/オンサイト開発</li>
               <li>関連会社：大連竹華科技有限公司（中国本社）</li>
@@ -28,16 +28,16 @@ export default function About() {
         <div className="mt-12">
           <h2 className="text-xl font-semibold text-[#0066c5] mb-3">企業理念</h2>
           <p className="text-gray-700 leading-relaxed mb-6">
-            「技術で未来をつなぐ」——私たちは、最先端のIT技術とグローバルな視点で、お客様・社会・社員の持続的な成長に貢献します。
+            「技術で未来をつなぐ」—— 私たちは、最先端のIT技術とグローバルな視点で、お客様・社会・社員の持続的な成長に貢献します。
           </p>
         </div>
         <div className="mt-12">
           <h2 className="text-xl font-semibold text-[#0066c5] mb-3">沿革</h2>
           <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
             <li>2016年：中国本社（大連竹華科技有限公司）設立</li>
-            <li>2018年：AI・IoT分野の開発体制強化</li>
-            <li>2021年：DX推進・コンサルティング事業拡大</li>
-            <li>2024年：新オフィスへ移転</li>
+            <li>2018年：AI・IoT分野の体制強化</li>
+            <li>2021年：DXコンサル事業拡大</li>
+            <li>2022年：竹華ジャパン株式会社設立</li>
           </ul>
         </div>
       </div>

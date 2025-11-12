@@ -15,6 +15,7 @@ import AIInspection from '../pages/Achievements/AI/AIInspection'
 import IoT from '../pages/Achievements/IoT'
 import MobileBatteryShare from '../pages/Achievements/Iot/MobileBatteryShare'
 import SmartParkingSystem from '../pages/Achievements/Iot/SmartParkingSystem'
+import ParkingManagementSystem from '../pages/Achievements/Iot/ParkingManagementSystem'
 import SmartManufacturing from '../pages/Achievements/SmartManufacturing'
 import ApsIntro from '../pages/Achievements/SmartManufacturing/APS'
 import MesIntro from '../pages/Achievements/SmartManufacturing/MES'
@@ -66,6 +67,7 @@ const router = createBrowserRouter([
           { path: 'iot', element: <IoT /> },
           { path: 'mobile-battery-share', element: <MobileBatteryShare /> },
           { path: 'smart-parking-system', element: <SmartParkingSystem /> },
+          { path: 'parking-management-system', element: <ParkingManagementSystem /> },
           { path: 'smart-manufacturing', element: <SmartManufacturing /> },
           { path: 'aps', element: <ApsIntro /> },
           { path: 'mes', element: <MesIntro /> },

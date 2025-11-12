@@ -7,11 +7,46 @@ import { useEffect } from "react";
 import { RiBrainLine, RiWifiLine, RiBuilding2Line, RiAppsLine, RiContractLine, RiTeamLine } from "react-icons/ri";
 import { FaGlobe } from "react-icons/fa6";
 import { MdLocationOn } from "react-icons/md";
+import type { IconType } from "react-icons";
+import {
+  SiAndroid,
+  SiCss3,
+  SiElectron,
+  SiFlutter,
+  SiHtml5,
+  SiJavascript,
+  SiJquery,
+  SiKotlin,
+  SiXcode,
+  SiReact,
+  SiSwift,
+  SiTypescript,
+  SiVuedotjs,
+  SiC,
+  SiCplusplus,
+  SiNodedotjs,
+  SiRedis,
+  SiSpringboot,
+  SiMongodb,
+  SiOracle,
+  SiPostgresql,
+} from "react-icons/si";
+import {
+  TbCode,
+  TbApps,
+  TbTopologyStar3,
+  TbPlugConnected,
+  TbCloudCog,
+  TbRocket,
+  TbDatabase,
+  TbApi,
+  TbCoffee,
+} from "react-icons/tb";
 
 const achievementsLinks = [
   {
     title: "AI関連",
-    desc: "AI画像解析・予測システムなどの導入支援。",
+    desc: "AI画像解析・予測システムなどの導入支援",
     to: "/achievements/ai",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#7B61FF] to-[#5A45D6] shadow-sm mb-4 mx-auto">
@@ -21,7 +56,7 @@ const achievementsLinks = [
   },
   {
     title: "IoT関連",
-    desc: "IoT連携による生産効率化。",
+    desc: "IoT連携による生産効率化",
     to: "/achievements/iot",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#34D399] to-[#059669] shadow-sm mb-4 mx-auto">
@@ -41,7 +76,7 @@ const achievementsLinks = [
   },
   {
     title: "その他",
-    desc: "CRM、業務管理システムなど多様な開発実績。",
+    desc: "CRM、業務管理システムなど多様な開発実績",
     to: "/achievements/others",
     icon: () => (
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#60A5FA] to-[#2563EB] shadow-sm mb-4 mx-auto">
@@ -138,13 +173,13 @@ export default function Home() {
       </section>
 
       {/* Why Us Section */}
-  <section className="py-10 sm:py-16 bg-white">
+  <section className="pt-4 sm:pt-8 pb-10 sm:pb-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:flex items-center gap-4 sm:gap-12">
           <div className="md:w-1/2">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-[#0066c5]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-5 text-[#0066c5]">
               私たちの強み
             </h2>
-            <p className="text-gray-600 mb-5 sm:mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-4 sm:mb-5 leading-relaxed">
         日本と中国の両拠点を活かし、先端技術を用いた多様なソリューションを展開しています。
             </p>
             <ul className="space-y-4 text-gray-800 text-base sm:text-lg">
@@ -282,10 +317,133 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Contact Section (embedded)
-      <ContactSection /> */}
-  
+  {/* Skills Section */}
+      <section className="py-12 sm:py-20 bg-gray-50" id="skills">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">技術スタック</h2>
+          {/* Categories */}
+          <div className="space-y-12">
+            {/* Front-End */}
+            <div>
+              <h3 className="group text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-4 relative">
+                <span className="relative">
+                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0ea5e9] via-[#0066c5] to-[#312e81] opacity-70 group-hover:opacity-90 transition-opacity"></span>
+                  <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur shadow-lg ring-1 ring-white/30 group-hover:scale-[1.04] group-hover:shadow-xl transition-all">
+                    <span className="text-2xl">🧩</span>
+                  </span>
+                </span>
+                <span className="relative inline-flex items-center">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] via-[#0066c5] to-[#312e81] font-extrabold tracking-wide">
+                    フロントエンド
+                  </span>
+                  <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#0ea5e9] via-[#27a4ff] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
+                </span>
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                {(
+                  [
+                    { name: 'Android', Icon: SiAndroid, color: '#3DDC84' },
+                    { name: 'ArkTS', Icon: TbCode, color: '#6366F1' }, // fallback
+                    { name: 'CSS', Icon: SiCss3, color: '#1572B6' },
+                    { name: 'Electron', Icon: SiElectron, color: '#47848F' },
+                    { name: 'Flutter', Icon: SiFlutter, color: '#02569B' },
+                    { name: 'HTML', Icon: SiHtml5, color: '#E34F26' },
+                    { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+                    { name: 'jQuery', Icon: SiJquery, color: '#0769AD' },
+                    { name: 'Kotlin', Icon: SiKotlin, color: '#0095D5' },
+                    { name: 'Objective-C', Icon: SiXcode, color: '#1575F9' },
+                    { name: 'React', Icon: SiReact, color: '#61DAFB' },
+                    { name: 'React Native', Icon: SiReact, color: '#61DAFB' },
+                    { name: 'Swift', Icon: SiSwift, color: '#FA7343' },
+                    { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
+                    { name: 'UniApp', Icon: TbApps, color: '#10B981' }, // fallback color
+                    { name: 'Vue', Icon: SiVuedotjs, color: '#42B883' },
+                  ] as { name: string; Icon: IconType; color: string }[]
+                ).map(({ name, Icon, color }) => (
+                  <div key={name} className="flex flex-col items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <Icon style={{ color }} className="w-10 h-10 mb-2" />
+                    <span className="text-xs font-medium text-gray-700">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Back-End */}
+            <div>
+              <h3 className="group text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-4 relative">
+                <span className="relative">
+                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#6366F1] via-[#4F46E5] to-[#312e81] opacity-70 group-hover:opacity-90 transition-opacity"></span>
+                  <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur shadow-lg ring-1 ring-white/30 group-hover:scale-[1.04] group-hover:shadow-xl transition-all">
+                    <span className="text-2xl">⚙️</span>
+                  </span>
+                </span>
+                <span className="relative inline-flex items-center">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#818CF8] to-[#312e81] font-extrabold tracking-wide">
+                    バックエンド
+                  </span>
+                  <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#6366F1] via-[#818CF8] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
+                </span>
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                {(
+                  [
+                    // { name: 'C', Icon: SiC, color: '#A8B9CC' },
+                    // { name: 'C++', Icon: SiCplusplus, color: '#00599C' },
+                    { name: 'Java', Icon: TbCoffee, color: '#007396' },
+                    { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+                    { name: 'Netty', Icon: TbTopologyStar3, color: '#6366F1' },
+                    { name: 'Node.js', Icon: SiNodedotjs, color: '#339933' },
+                    { name: 'Redis', Icon: SiRedis, color: '#DC382D' },
+                    { name: 'Socket', Icon: TbPlugConnected, color: '#4F46E5' },
+                    { name: 'Spring Boot', Icon: SiSpringboot, color: '#6DB33F' },
+                    { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
+                  ] as { name: string; Icon: IconType; color: string }[]
+                ).map(({ name, Icon, color }) => (
+                  <div key={name} className="flex flex-col items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <Icon style={{ color }} className="w-10 h-10 mb-2" />
+                    <span className="text-xs font-medium text-gray-700">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Database / Middleware */}
+            <div>
+              <h3 className="group text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-4 relative">
+                <span className="relative">
+                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0D9488] via-[#0066c5] to-[#312e81] opacity-70 group-hover:opacity-90 transition-opacity"></span>
+                  <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur shadow-lg ring-1 ring-white/30 group-hover:scale-[1.04] group-hover:shadow-xl transition-all">
+                    <span className="text-2xl">💾</span>
+                  </span>
+                </span>
+                <span className="relative inline-flex items-center">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D9488] via-[#31b8ff] to-[#312e81] font-extrabold tracking-wide">
+                    データベース / ミドルウェア
+                  </span>
+                  <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#0D9488] via-[#31b8ff] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
+                </span>
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                {(
+                  [
+                    { name: 'SQL', Icon: TbDatabase, color: '#4B5563' },
+                    { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
+                    { name: 'Oracle', Icon: SiOracle, color: '#F80000' },
+                    { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791' },
+                    { name: 'Redis', Icon: SiRedis, color: '#DC382D' },
+                    { name: 'Dubbo', Icon: TbApi, color: '#0A84FF' },
+                    { name: 'Nacos', Icon: TbCloudCog, color: '#2563EB' },
+                    { name: 'RocketMQ', Icon: TbRocket, color: '#D9534F' },
+                  ] as { name: string; Icon: IconType; color: string }[]
+                ).map(({ name, Icon, color }) => (
+                  <div key={name} className="flex flex-col items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <Icon style={{ color }} className="w-10 h-10 mb-2" />
+                    <span className="text-xs font-medium text-gray-700">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

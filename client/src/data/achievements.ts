@@ -4,19 +4,19 @@ export const aiCases: CaseItem[] = [
   {
     title: 'AI画像解析による外観検査自動化',
     description: 'ディープラーニングを用いた欠陥検出モデルで検査精度を向上、判定時間を短縮。',
-    tags: ['Computer Vision', '品質検査', 'PyTorch'],
+    tags: ['Computer Vision', 'Quality Inspection', 'PyTorch'],
     link: '/achievements/ai-inspection',
   },
   {
     title: '自動車サービスGPT',
     description: '車両データを統合し、AIが自然言語でドライバーをサポート。\n車載システムやアプリと連携し、サービスを自動化。',
-    tags: ['大規模言語モデル', '自然言語処理', 'AIアシスタント'],
+    tags: ['Large Language Model', 'NLP', 'AI Assistant'],
     link: '/achievements/car-gpt',
   },
   {
     title: 'AI Visa｜日本ビザを多言語で案内',
     description: '専用ベクトル検索×生成AIでFAQ精度と一次回答率を向上。最新基準に沿った案内を自動化。',
-    tags: ['RAG', 'ベクトル検索', '多言語'],
+    tags: ['RAG', 'Vector Search', 'Multilingual'],
     link: '/achievements/ai-visa',
   },
   // {
@@ -30,21 +30,21 @@ export const iotCases: CaseItem[] = [
   {
    title: 'モバイルバッテリーシェア',
 description: 'モバイルバッテリーの利用状況や貸出・返却データをIoTで収集し、稼働率や設置場所ごとの利用傾向を可視化。',
-tags: ['IoT', 'シェアリング', '可視化'],
+tags: ['IoT', 'Sharing', 'Visualization'],
   link: '/achievements/mobile-battery-share',
 
   },
   {
     title: 'スマートパーキング',
     description: 'AI車番認識とセンサーで入出庫・空車を自動化。オンライン決済・料金計時に対応し、稼働や売上を可視化。',
-    tags: ['車番認識', '稼働率', '決済', 'IoT連携'],
+    tags: ['Plate Recognition', 'Utilization', 'Payment', 'IoT Integration'],
     link: '/achievements/smart-parking-system',
 
   },
   {
     title: '駐車場管理システム',
     description: '空き状況の検知、予約、料金最適化、オンライン決済を統合管理し、稼働率と顧客体験を向上。',
-    tags: ['駐車場', '予約', '料金最適化', '決済'],
+    tags: ['Parking', 'Reservation', 'Pricing Optimization', 'Payment'],
     link: '/achievements/parking-management-system',
   },
 ]
@@ -72,13 +72,13 @@ export const smartManufacturingCases: CaseItem[] = [
    {
    title: '製品選定システム',
   description: '要件に合った製品を自動マッチングし、データ分析・比較検討を効率化。選定精度向上と提案業務の標準化を支援します。',
-  tags: ['Recommendation', 'Selection', 'Configurator'],
+  tags: ['Recommendation', 'Product Selection', 'Configurator'],
   link: '/achievements/product-selection',
   },
    {
     title: '見積管理システム',
     description: '原価と粗利を加味した見積作成・版管理・承認ワークフローを実装。履歴参照とテンプレート化で提案スピードを向上。',
-    tags: ['Quotation', 'Sales', 'Pricing'],
+    tags: ['Quotation', 'Sales', 'Pricing Management'],
     link: '/achievements/quotation',
   },
 ]
@@ -87,7 +87,7 @@ export const otherCases: CaseItem[] = [
   {
     title: 'SAP導入・運用最適化',
     description: 'FI/CO・SD・MMなどの要件整理から設計・導入・運用までを支援。周辺システム連携とデータ連携基盤も構築。',
-    tags: ['SAP', 'ERP', 'Integration'],
+    tags: ['SAP', 'ERP', 'System Integration'],
   },
   {
     title: 'Salesforce導入・活用支援',

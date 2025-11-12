@@ -7,7 +7,9 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
-    "test:health": "tsx tests/health.test.ts"
+    "test:health": "tsx tests/health.test.ts",
+    "deploy": "npm run build && rm -rf docs && mkdir docs && cp -r dist/* docs/ && echo 'tkhtec.org' > docs/CNAME && cp docs/index.html docs/404.html && git add . && git commit -m 'Deploy update' && git push"
+
   },
   "dependencies": {
     "cors": "^2.8.5",
