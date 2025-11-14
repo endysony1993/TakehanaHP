@@ -3,7 +3,29 @@
     name: takehana-backend
     rootDir: server
     env: node
-    buildCommand: "npm install && npm run build"
+    plan: free
+    buildCommand: "npm ci && npm run build"
     startCommand: "npm start"
     autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: MAIL_DRIVER
+        value: smtp
+      - key: CORS_ORIGIN
+        value: https://tkhtec.org,https://endysony1993.github.io
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_SECURE
+        value: "false"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: MAIL_TO
+        sync: false
 
