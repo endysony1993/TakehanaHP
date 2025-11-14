@@ -1,0 +1,9 @@
+﻿services:
+  - type: web
+    name: takehana-backend
+    rootDir: server
+    env: node
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    autoDeploy: true
+
