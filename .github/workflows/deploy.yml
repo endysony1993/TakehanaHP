@@ -27,13 +27,11 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install deps (client)
-        working-directory: client
+      - name: Install deps (workspace root)
         run: npm ci
 
       - name: Build (client)
-        working-directory: client
-        run: npm run build -- --mode production
+        run: npm --prefix client run build -- --mode production
 
       - name: Add CNAME and 404
         run: |
