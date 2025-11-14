@@ -8,14 +8,18 @@ export default function Footer() {
   <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-[#034a8c]/20 pb-10 text-white">
         {/* Company Info */}
         <div>
-          {/* <h2 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+          { <h2 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
             <ReactCountryFlag countryCode="CN" svg style={{ width: '1.5em', height: '1.5em', borderRadius: '2px', boxShadow: '0 1px 2px #0002' }} title="China" />
-            <span style={{ fontFamily: 'Noto Sans SC, SimHei, sans-serif', letterSpacing: '0.02em' }}>大连竹华科技有限公司</span>
+            <span style={{ fontFamily: 'Noto Sans SC, SimHei, sans-serif', letterSpacing: '0.02em' }}>大连竹华科技有限公司 (本社)</span>
             <span className="text-xs ml-1"></span>
-          </h2> */}
-          {/* <ul className="space-y-2 text-sm leading-relaxed text-white">
-            <li>辽宁省大连高新技术产业园区火炬路7号25层666号</li>
+          </h2> }
+          { <ul className="space-y-2 text-sm leading-relaxed text-white">
             <li>
+              <span style={{ fontFamily: 'Noto Sans JP, Meiryo, sans-serif', letterSpacing: '0.02em' }}>
+                辽宁省大连高新技术产业园区火炬路7号25层666号
+              </span>
+            </li>
+            {/* <li>
               ホームページ：{" "}
               <a
                 href="https://www.zhuhuakeji.com/"
@@ -25,9 +29,9 @@ export default function Footer() {
               >
                 https://www.zhuhuakeji.com/
               </a>
-            </li>
-          </ul> */}
-          <div className="">
+            </li> */}
+          </ul> }
+          <div className="pt-6">
             <h2 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
               <ReactCountryFlag countryCode="JP" svg style={{ width: '1.5em', height: '1.5em', borderRadius: '2px', boxShadow: '0 1px 2px #0002' }} title="Japan" />
               <span style={{ fontFamily: 'Noto Sans JP, Meiryo, sans-serif', letterSpacing: '0.02em' }}>竹華ジャパン株式会社</span>
@@ -36,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm leading-relaxed text-white">
               <li className="flex flex-wrap items-center gap-x-4 gap-y-1 whitespace-nowrap">
                 <span>〒220-0004 <br />神奈川県横浜市西区北幸一丁目11番1号 水信ビル7階</span>
-                {/* <span>E-mail：<a href="mailto:he.jian@zhuhuakeji.com" className="hover:text-[#3C7FE6] text-white">he.jian@zhuhuakeji.com</a></span> */}
+                {/* <span>E-mail：<a href="mailto:info@mail.tkhtec.org" className="hover:text-[#3C7FE6] text-white">info@mail.tkhtec.org</a></span> */}
               </li>
             </ul>
           </div>

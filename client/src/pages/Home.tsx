@@ -184,7 +184,7 @@ export default function Home() {
               私たちの強み
             </h2>
             <p className="text-gray-600 mb-4 sm:mb-5 leading-relaxed">
-        日本と中国の両拠点を活かし、先端技術を用いた多様なソリューションを展開しています。
+        日本と海外の両拠点を活かし、先端技術を用いた多様なソリューションを展開しています。
             </p>
             <ul className="space-y-4 text-gray-800 text-base sm:text-lg">
               <li className="flex items-center gap-3">

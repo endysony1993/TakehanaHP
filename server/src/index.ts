@@ -1,7 +1,7 @@
-import { PORT } from './config/env'
-import { logger } from './utils/logger'
-import { app } from './app'
-import { initMail } from './services/mailService'
+import { PORT } from './config/env.js'
+import { logger } from './utils/logger.js'
+import { app } from './app.js'
+import { initMail } from './services/mailService.js'
 
 function start(port: number, attempt = 0) {
   const MAX_ATTEMPTS = 3
@@ -12,7 +12,11 @@ function start(port: number, attempt = 0) {
   server.on('error', (err: any) => {
     if (err?.code === 'EADDRINUSE' && attempt < MAX_ATTEMPTS) {
       const nextPort = port + 1
-      logger.warn(`Port ${port} in use, retrying on ${nextPort} (attempt ${attempt + 1}/${MAX_ATTEMPTS})`)
+      logger.warn(
+        `Port ${port} in use, retrying on ${nextPort} (attempt ${
+          attempt + 1
+        }/${MAX_ATTEMPTS})`
+      )
       start(nextPort, attempt + 1)
     } else {
       logger.error(`Failed to start server: ${err?.message}`)

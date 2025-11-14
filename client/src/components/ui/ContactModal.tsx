@@ -129,7 +129,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">タイトル</label>
+                  <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">件名</label>
                   <input
                     type="text"
                     id="title"
