@@ -1,3 +1,32 @@
+# Client App
+
+This is the frontend (React + TypeScript + Vite).
+
+## API Base URL
+
+- Development: configured via `.env.development`
+  - `VITE_API_BASE_URL=http://127.0.0.1:4002`
+- Production build: configured via `.env.production`
+  - `VITE_API_BASE_URL=https://takehana-backend.onrender.com` (replace with your actual Render URL)
+
+The contact form posts to `${VITE_API_BASE_URL}/api/contact`.
+
+## Local Development
+
+1. Start the backend on your machine (listening on 4002)
+2. In `client/` run:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+## Build
+
+```bash
+npm run build
+```
+
+---
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
