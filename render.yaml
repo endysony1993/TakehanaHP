@@ -28,4 +28,6 @@
         sync: false
       - key: MAIL_TO
         sync: false
+      - key: MAIL_TEST_TOKEN
+        sync: false
 
