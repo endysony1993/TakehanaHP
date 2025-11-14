@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { MAIL_FROM, MAIL_TO, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, MAIL_DRIVER } from '../config/env'
+import { MAIL_FROM, MAIL_TO, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, MAIL_DRIVER, NODE_ENV } from '../config/env'
 
 let transporter: any | null = null
 
@@ -16,12 +16,16 @@ function getTransporter() {
     } as any
   }
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    // Instead of throwing, degrade gracefully to log driver so contact form does not 500.
-    console.warn('[mailService] Missing SMTP config; falling back to MAIL_DRIVER=log emulation.')
+    // In production, require real SMTP so emails are actually delivered.
+    if (MAIL_DRIVER === 'smtp' && NODE_ENV === 'production') {
+      throw new Error('SMTP configuration missing: please set SMTP_HOST, SMTP_USER, SMTP_PASS, and MAIL_FROM/MAIL_TO')
+    }
+    // Otherwise, degrade to log driver (useful for local/dev testing).
+    console.warn('[mailService] Missing SMTP config; using MAIL_DRIVER=log for non-production/dev.')
     return {
       sendMail: async (opts: any) => {
-        console.warn('[mailService] (fallback-log) would send:', opts)
-        return { messageId: 'fallback-' + Math.random().toString(36).slice(2) }
+        console.warn('[mailService] (dev-log) would send:', opts)
+        return { messageId: 'dev-' + Math.random().toString(36).slice(2) }
       },
       verify: async () => true,
       __driver: 'log',
@@ -42,8 +46,8 @@ function getTransporter() {
   return transporter
 }
 
-// Default recipient (central Gmail inbox) if MAIL_TO not provided in environment.
-const DEFAULT_RECIPIENTS = ['sonynoit@gmail.com']
+// Default recipients if MAIL_TO not provided in environment.
+const DEFAULT_RECIPIENTS = ['info@tkhtec.org', 'info@mail.tkhtec.org']
 
 export async function sendContactMail(name: string, email: string, message: string, subjectInput?: string) {
   const mailFrom = MAIL_FROM || SMTP_USER || 'no-reply@example.com'
