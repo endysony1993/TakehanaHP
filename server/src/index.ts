@@ -1,7 +1,8 @@
-import { PORT } from './config/env.js'
-import { logger } from './utils/logger.js'
-import { app } from './app.js'
-import { initMail } from './services/mailService.js'
+import { PORT } from './config/env'
+import { logger } from './utils/logger'
+import { app } from './app'
+import { initMail } from './services/mailService'
+
 
 function start(port: number, attempt = 0) {
   const MAX_ATTEMPTS = 3
