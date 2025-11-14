@@ -39,6 +39,7 @@ jobs:
         run: |
           echo "tkhtec.org" > client/dist/CNAME
           cp client/dist/index.html client/dist/404.html
+          echo "" > client/dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
