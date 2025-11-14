@@ -27,13 +27,10 @@ router.use((req, res, next) => {
 router.post(
   '/',
   (req, res, next) => {
-    const { name, email, message, title, subject } = req.body || {}
+    const { name, email, message } = req.body || {}
     if (!name) return res.status(400).json({ success: false, error: { message: 'Missing field: name', code: 400 } })
     if (!email) return res.status(400).json({ success: false, error: { message: 'Missing field: email', code: 400 } })
     if (!message) return res.status(400).json({ success: false, error: { message: 'Missing field: message', code: 400 } })
-    if (!title && !subject) {
-      return res.status(400).json({ success: false, error: { message: 'Missing field: title or subject', code: 400 } })
-    }
     next()
   },
   submitContact,

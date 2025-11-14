@@ -15,9 +15,13 @@ const origins = (CORS_ORIGIN || '*')
 const corsOptions: any = {
 	origin: (origin, callback) => {
 		if (!origin) return callback(null, true)
-		if (origins === '*' || origins.split(',').map(o => o.trim()).includes(origin)) return callback(null, true)
+		const list = origins.split(',').map(o => o.trim())
+		if (origins === '*' || list.includes(origin)) return callback(null, true)
 		callback(new Error('Not allowed by CORS'))
 	},
+	methods: ['GET', 'POST', 'OPTIONS'],
+	allowedHeaders: ['Content-Type', 'X-Test-Token'],
+	optionsSuccessStatus: 204,
 }
 app.use(cors(corsOptions))
 app.options('*', cors(corsOptions))
