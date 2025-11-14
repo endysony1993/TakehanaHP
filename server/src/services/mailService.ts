@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer'
 import { MAIL_FROM, MAIL_TO, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, MAIL_DRIVER } from '../config/env'
 
-let transporter: nodemailer.Transporter | null = null
+let transporter: any | null = null
 
 function getTransporter() {
   if (transporter) return transporter

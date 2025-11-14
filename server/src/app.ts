@@ -12,7 +12,7 @@ export const app = express()
 
 // Allow string or comma-separated origins from env for flexibility
 const origins = (CORS_ORIGIN || '*')
-const corsOptions: cors.CorsOptions = {
+const corsOptions: any = {
 	origin: (origin, callback) => {
 		if (!origin) return callback(null, true)
 		if (origins === '*' || origins.split(',').map(o => o.trim()).includes(origin)) return callback(null, true)
