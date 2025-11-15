@@ -27,9 +27,9 @@
       - key: SMTP_PASS
         sync: false
       - key: MAIL_FROM
-        sync: false
+        value: info@mail.tkhtec.org
       - key: MAIL_TO
-        sync: false
+        value: info@mail.tkhtec.org
       - key: MAIL_TEST_TOKEN
         sync: false
 

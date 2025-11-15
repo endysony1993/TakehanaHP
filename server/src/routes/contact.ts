@@ -26,12 +26,6 @@ router.use((req, res, next) => {
 // Accept either `title` or `subject` to match various client payloads
 router.post(
   '/',
-  // Ensure the request doesn't hang forever; Express will fire 'timeout' if exceeded
-  (req, res, next) => {
-    // 20s server-side timeout safeguard; client will receive 504 if SMTP is unresponsive
-    res.setTimeout(20000)
-    next()
-  },
   (req, res, next) => {
     const { name, email, message } = req.body || {}
     if (!name) return res.status(400).json({ success: false, error: { message: 'Missing field: name', code: 400 } })
