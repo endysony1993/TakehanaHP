@@ -9,11 +9,11 @@
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
-        value: 22
+        value: 20
       - key: MAIL_DRIVER
         value: smtp
       - key: CORS_ORIGIN
-        value: https://tkhtec.org,https://endysony1993.github.io
+        value: https://tkhtec.org,https://www.tkhtec.org,https://endysony1993.github.io
       - key: SMTP_HOST
         sync: false
       - key: SMTP_PORT
