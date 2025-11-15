@@ -20,3 +20,6 @@ client/.env
 .vscode/
 .DS_Store
 Thumbs.db
+ 
+# Legacy GitHub Pages folder (we deploy via Actions now)
+docs/
