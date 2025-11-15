@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { MAIL_FROM, MAIL_TO, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, MAIL_DRIVER, NODE_ENV } from '../config/env'
+import { MAIL_FROM, MAIL_TO, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, MAIL_DRIVER, NODE_ENV, MAIL_SEND_TIMEOUT_MS } from '../config/env'
 
 let transporter: any | null = null
 
@@ -68,7 +68,11 @@ export async function sendContactMail(name: string, email: string, message: stri
   let info
   try {
     const t = getTransporter() as any
-    info = await t.sendMail({ from: mailFrom, to: mailTo, replyTo: email, subject, html, text })
+    // Wrap sendMail with a timeout so the API doesn't hang if SMTP is slow/unreachable
+    info = await withTimeout(
+      t.sendMail({ from: mailFrom, to: mailTo, replyTo: email, subject, html, text }),
+      MAIL_SEND_TIMEOUT_MS,
+    )
     if (t.__driver === 'smtp') {
       console.info('[mailService] sent via smtp:', {
         id: info?.messageId,
@@ -114,4 +118,26 @@ export async function initMail() {
   } catch (e: any) {
     console.error('[mailService] init failed:', e?.message)
   }
+}
+
+function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    let settled = false
+    const timer = setTimeout(() => {
+      if (settled) return
+      settled = true
+      reject(new Error(`Mail send timed out after ${ms} ms`))
+    }, ms)
+    p.then((v) => {
+      if (settled) return
+      settled = true
+      clearTimeout(timer)
+      resolve(v)
+    }).catch((e) => {
+      if (settled) return
+      settled = true
+      clearTimeout(timer)
+      reject(e)
+    })
+  })
 }

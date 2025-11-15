@@ -30,3 +30,4 @@ export const MAIL_DRIVER: 'smtp' | 'log' = MAIL_DRIVER_RAW === 'smtp' || MAIL_DR
 
 export const MAIL_TEST_TOKEN = process.env.MAIL_TEST_TOKEN // optional token to allow /api/contact/test
 export const MAIL_DEBUG = toBool(process.env.MAIL_DEBUG, false)
+export const MAIL_SEND_TIMEOUT_MS = parseInt(process.env.MAIL_SEND_TIMEOUT_MS || '15000', 10)
