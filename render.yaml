@@ -11,9 +11,11 @@
       - key: NODE_VERSION
         value: 20
       - key: MAIL_DRIVER
-        value: smtp
+        value: log
       - key: CORS_ORIGIN
         value: https://tkhtec.org,https://www.tkhtec.org,https://endysony1993.github.io
+      - key: MAIL_SEND_TIMEOUT_MS
+        value: "15000"
       - key: SMTP_HOST
         sync: false
       - key: SMTP_PORT
