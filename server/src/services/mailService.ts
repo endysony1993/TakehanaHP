@@ -31,16 +31,21 @@ function getTransporter() {
       __driver: 'log',
     } as any
   }
-  transporter = nodemailer.createTransport({
+  const transportOptions: any = {
     host: SMTP_HOST,
     port: SMTP_PORT,
     secure: SMTP_SECURE,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
     tls: {
       // If the server has a self-signed or mismatched cert, allow it for debugging
       rejectUnauthorized: false,
     },
-  })
+  }
+  // Only set auth when both user and pass are provided to avoid attempting
+  // AUTH with empty credentials (many SMTP servers reject that with 535).
+  if (SMTP_USER && SMTP_PASS) {
+    transportOptions.auth = { user: SMTP_USER, pass: SMTP_PASS }
+  }
+  transporter = nodemailer.createTransport(transportOptions)
   // annotate for diagnostics
   ;(transporter as any).__driver = 'smtp'
   return transporter
