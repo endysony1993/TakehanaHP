@@ -7,9 +7,9 @@ This is the frontend (React + TypeScript + Vite).
 - Development: configured via `.env.development`
   - `VITE_API_BASE_URL=http://127.0.0.1:4002`
 - Production build: configured via `.env.production`
-  - `VITE_API_BASE_URL=https://takehana-backend.onrender.com` (replace with your actual Render URL)
+  - `VITE_API_BASE_URL=https://your-sakura-host.example` (replace with your Sakura server URL)
 
-The contact form posts to `${VITE_API_BASE_URL}/api/contact`.
+The contact form posts to `${VITE_API_BASE_URL}/api/contact` on your Sakura-hosted backend.
 
 ## Local Development
 
