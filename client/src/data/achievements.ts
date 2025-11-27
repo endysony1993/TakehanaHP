@@ -65,7 +65,7 @@ export const smartManufacturingCases: CaseItem[] = [
 
   {
     title: 'WMS（倉庫管理システム）',
-    description: '入出庫・在庫・ロケーションを一元管理し、トレーサビリティと棚卸精度を向上。波動や需要に応じた補充・ピッキングを最適化。',
+    description: '入出庫・在庫・ロケーションを一元管理し、トレーサビリティと棚卸精度を向上。',
     tags: ['WMS', 'Inventory', 'Logistics'],
     link: '/achievements/wms',
   },
