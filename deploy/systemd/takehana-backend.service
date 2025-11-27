@@ -1,0 +1,19 @@
+[Unit]
+Description=TakehanaHP backend
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/takehana/server
+EnvironmentFile=/var/www/takehana/server/.env
+ExecStart=/usr/bin/node /var/www/takehana/server/dist/index.js
+Restart=always
+RestartSec=5
+LimitNOFILE=4096
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=takehana-backend
+
+[Install]
+WantedBy=multi-user.target
