@@ -10,6 +10,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
   const [form, setForm] = useState({ name: "", email: "", title: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [mailtoHref, setMailtoHref] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Close on ESC
@@ -58,7 +59,22 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
         setError(res.error?.message || "送信に失敗しました。時間をおいて再度お試しください。");
       }
     } catch (err: any) {
-      setError(err.message || "送信中にエラーが発生しました。");
+      const msg = err?.message || "送信中にエラーが発生しました。"
+      // If it's a network-level failure (browser shows "Failed to fetch"), offer a mailto fallback
+      if (typeof msg === 'string' && (msg.includes('Failed to fetch') || msg.toLowerCase().includes('network'))) {
+        const to = 'info@mail.tkhtec.org'
+        const subject = encodeURIComponent(form.title?.trim() || 'お問い合わせ')
+        const bodyLines = [
+          `Name: ${form.name}`,
+          `Email: ${form.email}`,
+          `Message:\n${form.message}`,
+        ]
+        const body = encodeURIComponent(bodyLines.join('\n'))
+        setMailtoHref(`mailto:${to}?subject=${subject}&body=${body}`)
+        setError('サーバーに接続できませんでした。代わりにメールクライアントで送信するには下のリンクを使ってください。')
+      } else {
+        setError(msg)
+      }
     } finally {
       setLoading(false);
     }
@@ -104,6 +120,11 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
                 {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+                {mailtoHref && (
+                  <div className="mb-2">
+                    <a href={mailtoHref} className="text-blue-600 underline" rel="noreferrer">メールで送信する (info@mail.tkhtec.org)</a>
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">お名前 <span className="text-red-500">*</span></label>
                   <input
