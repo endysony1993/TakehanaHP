@@ -39,6 +39,14 @@ jobs:
           cp client/dist/index.html client/dist/404.html
           echo "" > client/dist/.nojekyll
 
+      - name: "Debug: show built files"
+        run: |
+          echo "== client/dist listing =="
+          ls -la client/dist || true
+          echo "\n== index.html head preview =="
+          head -n 60 client/dist/index.html || true
+          echo "\n== dist asset sizes =="
+          du -sh client/dist/* || true
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
