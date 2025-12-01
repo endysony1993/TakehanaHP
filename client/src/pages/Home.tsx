@@ -279,7 +279,7 @@ export default function Home() {
                   tabIndex={-1}
                 >
                   {item.icon()}
-                  <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 ">
+                  <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 whitespace-nowrap">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
@@ -310,7 +310,7 @@ export default function Home() {
                   tabIndex={-1}
                 >
                   {service.icon()}
-                  <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">{service.title}</h3>
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 whitespace-nowrap">{service.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {service.desc}
                   </p>
