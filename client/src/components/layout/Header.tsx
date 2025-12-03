@@ -2,15 +2,42 @@ import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import { assetPath } from '../../utils/assetPath'
 import { useLang } from '../../context/LangContext'
+import type { ReactElement } from 'react'
 
 export default function Header() {
   const { lang, setLang } = useLang()
-  const flags: Record<'ja'|'en'|'vi', string> = { ja: '🇯🇵', en: '🇺🇸', vi: '🇻🇳' }
   const labels: Record<'ja'|'en'|'vi', string> = { ja: '日本語', en: 'English', vi: 'Tiếng Việt' }
-  const options: Array<{ code: 'ja'|'en'|'vi', flag: string, label: string }> = [
-    { code: 'ja', flag: flags.ja, label: labels.ja },
-    { code: 'en', flag: flags.en, label: labels.en },
-    { code: 'vi', flag: flags.vi, label: labels.vi },
+  const FlagIcon: Record<'ja'|'en'|'vi', ReactElement> = {
+    ja: (
+      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden>
+        <rect width="3" height="2" fill="#fff"/>
+        <circle cx="1.5" cy="1" r="0.5" fill="#bc002d"/>
+      </svg>
+    ),
+    en: (
+      // Use GB for English to avoid regional ambiguity
+      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden>
+        <clipPath id="gb-clip"><rect width="3" height="2"/></clipPath>
+        <g clipPath="url(#gb-clip)">
+          <rect width="3" height="2" fill="#012169"/>
+          <path d="M0 0 L3 2 M3 0 L0 2" stroke="#fff" strokeWidth="0.3"/>
+          <path d="M0 0 L3 2 M3 0 L0 2" stroke="#C8102E" strokeWidth="0.15"/>
+          <path d="M1.5 0 V2 M0 1 H3" stroke="#fff" strokeWidth="0.5"/>
+          <path d="M1.5 0 V2 M0 1 H3" stroke="#C8102E" strokeWidth="0.3"/>
+        </g>
+      </svg>
+    ),
+    vi: (
+      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden>
+        <rect width="3" height="2" fill="#da251d"/>
+        <polygon points="1.5,0.4 1.7,1.1 2.4,1.1 1.8,1.5 2.0,2.1 1.5,1.7 1.0,2.1 1.2,1.5 0.6,1.1 1.3,1.1" fill="#ffcd00"/>
+      </svg>
+    ),
+  }
+  const options: Array<{ code: 'ja'|'en'|'vi', label: string }> = [
+    { code: 'ja', label: labels.ja },
+    { code: 'en', label: labels.en },
+    { code: 'vi', label: labels.vi },
   ]
   const isActive = (code: 'ja'|'en'|'vi') => lang === code
   return (
@@ -35,17 +62,16 @@ export default function Header() {
         </div>
 
         {/* Right: Language dropdown */}
-        <div className="relative">
+        <div className="relative ml-3 sm:ml-4">
           <details className="group">
-            <summary className="list-none inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs sm:text-sm bg-white/10 hover:bg-white/20 cursor-pointer">
-              <span aria-hidden>{flags[lang as 'ja'|'en'|'vi']}</span>
+            <summary className="list-none inline-flex items-center rounded-md px-2 py-1 text-xs sm:text-sm bg-white/10 hover:bg-white/20 cursor-pointer">
+              <span className="inline-flex items-center" aria-hidden>
+                {FlagIcon[lang as 'ja'|'en'|'vi']}
+              </span>
               <span className="sr-only">{labels[lang as 'ja'|'en'|'vi']}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
-              </svg>
             </summary>
             <ul className="absolute right-0 mt-2 w-40 rounded-md bg-[#034a8c] shadow-lg ring-1 ring-white/10 divide-y divide-white/10">
-              {options.map(({ code, flag, label }) => (
+              {options.map(({ code, label }) => (
                 <li key={code}>
                   <button
                     type="button"
@@ -53,7 +79,7 @@ export default function Header() {
                     className={`flex items-center gap-2 block w-full text-left px-3 py-2 text-xs sm:text-sm ${isActive(code) ? 'bg-white text-[#034a8c] font-semibold' : 'text-white hover:bg-white/10'}`}
                     aria-label={label}
                   >
-                    <span aria-hidden>{flag}</span>
+                    <span className="inline-flex items-center" aria-hidden>{FlagIcon[code]}</span>
                     <span className="sr-only">{label}</span>
                   </button>
                 </li>
