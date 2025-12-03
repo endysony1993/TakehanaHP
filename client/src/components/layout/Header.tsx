@@ -9,14 +9,14 @@ export default function Header() {
   const labels: Record<'ja'|'en'|'vi', string> = { ja: '日本語', en: 'English', vi: 'Tiếng Việt' }
   const FlagIcon: Record<'ja'|'en'|'vi', ReactElement> = {
     ja: (
-      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
+      <svg width="20" height="13" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
         <rect width="3" height="2" fill="#fff"/>
         <circle cx="1.5" cy="1" r="0.5" fill="#bc002d"/>
       </svg>
     ),
     en: (
       // Use GB for English to avoid regional ambiguity
-      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
+      <svg width="20" height="13" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
         <clipPath id="gb-clip"><rect width="3" height="2"/></clipPath>
         <g clipPath="url(#gb-clip)">
           <rect width="3" height="2" fill="#012169"/>
@@ -28,7 +28,7 @@ export default function Header() {
       </svg>
     ),
     vi: (
-      <svg width="18" height="12" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
+      <svg width="20" height="13" viewBox="0 0 3 2" aria-hidden className="rounded-[2px] ring-1 ring-black/10">
         <rect width="3" height="2" fill="#da251d"/>
         <polygon points="1.5,0.4 1.7,1.1 2.4,1.1 1.8,1.5 2.0,2.1 1.5,1.7 1.0,2.1 1.2,1.5 0.6,1.1 1.3,1.1" fill="#ffcd00"/>
       </svg>
@@ -64,7 +64,7 @@ export default function Header() {
         {/* Right: Language dropdown */}
         <div className="relative ml-3 sm:ml-4">
           <details className="group relative">
-            <summary className="list-none inline-flex items-center rounded-full px-1.5 py-1 bg-white/15 hover:bg-white/25 cursor-pointer">
+            <summary className="list-none inline-flex items-center rounded-full px-2 py-1 bg-white/15 hover:bg-white/25 cursor-pointer">
               <span className="inline-flex items-center" aria-hidden>
                 {FlagIcon[lang as 'ja'|'en'|'vi']}
               </span>
@@ -76,7 +76,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setLang(code)}
-                    className={`flex items-center justify-center w-8 h-6 rounded-md m-1 ${isActive(code) ? 'bg-white' : 'hover:bg-white/10'} `}
+                    className={`flex items-center justify-center w-9 h-7 rounded-md m-1 ${isActive(code) ? 'bg-white' : 'hover:bg-white/10'} `}
                     aria-label={label}
                     title={label}
                   >
