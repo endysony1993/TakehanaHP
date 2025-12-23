@@ -16,10 +16,11 @@ html, body {
   overscroll-behavior-x: none;
 }
 
-/* Subtle cross-fade during language switch to improve UX */
-[data-lang-switch="1"] #root {
-  opacity: 0.85;
-  transition: opacity 200ms ease;
+
+/* Fade-out effect for language switch */
+#root.lang-fade-out {
+  opacity: 0.3;
+  transition: opacity 350ms cubic-bezier(0.4,0,0.2,1);
 }
 
 /* Tailwind v4 no longer ships a .container utility by default.

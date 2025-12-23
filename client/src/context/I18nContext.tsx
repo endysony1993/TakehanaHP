@@ -32,6 +32,7 @@ type I18nCtx = {
   t: (key: string, fallback?: string, vars?: Variables) => string
   tp: (baseKey: string, count: number, fallback?: { one?: string; other?: string }, vars?: Variables) => string
   locale: 'en' | 'ja' | 'zh' | 'vi'
+  loading: boolean
 }
 
 const I18nContext = createContext<I18nCtx | null>(null)
@@ -39,11 +40,15 @@ const I18nContext = createContext<I18nCtx | null>(null)
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const { lang } = useLang()
   const [messages, setMessages] = useState<Messages>({})
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     let alive = true
+    setLoading(true);
     loadMessages(lang).then((m) => {
       if (alive) setMessages(m)
+    }).finally(() => {
+      if (alive) setLoading(false)
     })
     return () => { alive = false }
   }, [lang])
@@ -51,6 +56,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<I18nCtx>(() => ({
     messages,
     locale: lang,
+    loading,
     t: (key: string, fallback?: string, vars?: Variables) => {
       const found = getNested(messages, key)
       if (typeof found === 'string') return interpolate(found, vars)
@@ -61,7 +67,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       const fb = count === 1 ? fallback?.one : fallback?.other
       return value.t(formKey, fb ?? baseKey, { ...(vars || {}), count })
     }
-  }), [messages, lang])
+  }), [messages, lang, loading])
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
 }

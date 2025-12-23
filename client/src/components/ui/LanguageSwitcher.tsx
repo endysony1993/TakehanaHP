@@ -1,15 +1,18 @@
+
 import type { ReactElement } from 'react'
 import { useLang } from '../../context/LangContext'
 import { useT } from '../../hooks/useT'
-
+import { useState, useRef } from 'react'
 export default function LanguageSwitcher() {
-  const { lang, setLang } = useLang()
-  const { t } = useT()
+  const { lang, setLang } = useLang();
+  const { t, loading: i18nLoading } = useT();
+  const [loading, setLoading] = useState(false);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
   const labels: Record<'ja'|'en'|'vi', string> = {
     ja: t('lang.ja', '日本語'),
     en: t('lang.en', 'English'),
     vi: t('lang.vi', 'Tiếng Việt'),
-  }
+  };
 
   const FlagIcon: Record<'ja'|'en'|'vi', ReactElement> = {
     ja: (
@@ -51,31 +54,42 @@ export default function LanguageSwitcher() {
         </g>
       </svg>
     ),
-  }
+  };
 
   const options: Array<{ code: 'ja'|'en'|'vi', label: string }> = [
     { code: 'ja', label: labels.ja },
     { code: 'en', label: labels.en },
     { code: 'vi', label: labels.vi },
-  ]
+  ];
 
   const switchLang = (next: 'ja'|'en'|'vi') => {
-    if (next === lang) return
-    // Set language and perform a full reload for guaranteed consistency
-    setLang(next as any)
-    try { window.location.reload() } catch {}
-  }
+    if (next === lang || loading) return;
+    setLoading(true);
+    localStorage.setItem('lang', next);
+    setLang(next as any);
+    // Hide the dropdown after choosing
+    if (detailsRef.current) detailsRef.current.open = false;
+    const minDelay = 1000;
+    const start = Date.now();
+    const waitForLoad = () => {
+      if (!i18nLoading && Date.now() - start >= minDelay) {
+        setLoading(false);
+      } else {
+        setTimeout(waitForLoad, 50);
+      }
+    };
+    waitForLoad();
+  };
 
   return (
     <div className="relative">
-      <details className="group relative">
+      <details className="group relative" ref={detailsRef}>
         <summary className="list-none inline-flex items-center justify-center rounded-md overflow-hidden cursor-pointer w-9 h-8 align-middle translate-y-[1px]">
           <span className="inline-flex items-center w-full h-full" aria-hidden>
             {FlagIcon[lang as 'ja'|'en'|'vi']}
           </span>
           <span className="sr-only">{labels[lang as 'ja'|'en'|'vi']}</span>
         </summary>
-        {/* Full reload approach: no transitional overlay needed */}
         <ul className="hidden group-open:block absolute right-0 mt-1 rounded-xl bg-[#034a8c]/95 backdrop-blur-sm shadow-lg ring-1 ring-white/10 z-50 px-1 py-1">
           {options.map(({ code, label }) => (
             <li key={code}>
@@ -85,6 +99,7 @@ export default function LanguageSwitcher() {
                 className="flex items-center justify-center w-9 h-7 rounded-md overflow-hidden m-1 focus:outline-none focus:ring-2 focus:ring-white/30"
                 aria-label={label}
                 title={label}
+                disabled={loading}
               >
                 <span className="inline-flex items-center w-full h-full" aria-hidden>{FlagIcon[code]}</span>
               </button>
@@ -93,5 +108,5 @@ export default function LanguageSwitcher() {
         </ul>
       </details>
     </div>
-  )
+  );
 }
