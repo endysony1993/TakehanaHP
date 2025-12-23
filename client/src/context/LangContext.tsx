@@ -7,7 +7,7 @@ type Ctx = { lang: Lang; setLang: (l: Lang) => void }
 const LangContext = createContext<Ctx | null>(null)
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Lang>('vi')
+  const [lang, setLang] = useState<Lang>('ja')
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -17,15 +17,9 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
       setLang(urlLang)
       return
     }
-    const saved = localStorage.getItem('lang') as Lang | null
-    if (saved) {
-      setLang(saved)
-      return
-    }
-    const navigatorLang = (navigator.language || 'en').slice(0, 2)
-    if (['en', 'ja', 'vi', 'zh'].includes(navigatorLang)) {
-      setLang(navigatorLang as Lang)
-    }
+    // Always default to Japanese if not set in URL
+    setLang('ja');
+    localStorage.setItem('lang', 'ja');
   }, [])
   const value = useMemo(() => ({ lang, setLang: (l: Lang) => { localStorage.setItem('lang', l); setLang(l) } }), [lang])
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>
