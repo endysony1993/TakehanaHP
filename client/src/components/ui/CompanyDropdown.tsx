@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useT } from '../../hooks/useT'
 
 export type CompanyDropdownProps = {
 	label?: string
@@ -58,6 +59,8 @@ export default function CompanyDropdown({
 			onMouseEnter={openNow}
 			onMouseLeave={scheduleClose}
 		>
+			{ /* ensure i18n available */ }
+			{ (() => { const { locale } = useT(); (window as any).__locale = locale; return null })() }
 			<button
 				type="button"
 				className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:text-[#3C7FE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3C7FE6] ${buttonClassName}`}
@@ -65,7 +68,7 @@ export default function CompanyDropdown({
 				aria-expanded={open}
 				onClick={() => setOpen((v) => !v)}
 			>
-				<span className="text-white text-lg">{label}</span>
+				<span className="text-white text-lg">{useT().locale === 'vi' ? 'Về chúng tôi' : useT().locale === 'en' ? 'About Us' : label}</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
@@ -84,20 +87,20 @@ export default function CompanyDropdown({
 			<div
 				className={`absolute z-[9999] mt-2 ${alignClass} ${open ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity transform`}
 				role="menu"
-				aria-label="会社概要"
+				aria-label={useT().locale === 'vi' ? 'Giới thiệu công ty' : useT().locale === 'en' ? 'About Us' : '会社概要'}
 				onMouseEnter={openNow}
 				onMouseLeave={scheduleClose}
 			>
 				<div className="w-[min(92vw,24rem)] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
 					<ul className="p-2 sm:p-3">
 						<li>
-							<MenuLink to="/company/about" title="会社概要" onClick={() => setOpen(false)} />
+							<MenuLink to="/company/about" title={useT().locale === 'vi' ? 'Giới thiệu công ty' : useT().locale === 'en' ? 'Company Profile' : '会社概要'} onClick={() => setOpen(false)} />
 						</li>
 						<li>
 							{/* <MenuLink to="/company/team" title="チーム紹介" onClick={() => setOpen(false)} /> */}
 						</li>
 						<li>
-							<MenuLink to="/company/partners" title="パートナー" onClick={() => setOpen(false)} />
+							<MenuLink to="/company/partners" title={useT().locale === 'vi' ? 'Đối tác' : useT().locale === 'en' ? 'Partners' : 'パートナー'} onClick={() => setOpen(false)} />
 						</li>
 					</ul>
 				</div>
@@ -107,14 +110,14 @@ export default function CompanyDropdown({
 }
 
 function MenuLink({ to, title, onClick }: { to: string; title: string; onClick?: () => void }) {
-	return (
-		<Link
-			to={to}
-			onClick={onClick}
-			className="block rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
-			role="menuitem"
-		>
-			{title}
-		</Link>
-	)
+ return (
+ <Link
+ to={to}
+ onClick={onClick}
+ className="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+ role="menuitem"
+ >
+ {title}
+ </Link>
+ )
 }

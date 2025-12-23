@@ -16,6 +16,12 @@ html, body {
   overscroll-behavior-x: none;
 }
 
+/* Subtle cross-fade during language switch to improve UX */
+[data-lang-switch="1"] #root {
+  opacity: 0.85;
+  transition: opacity 200ms ease;
+}
+
 /* Tailwind v4 no longer ships a .container utility by default.
    Define a responsive container to match dev expectations. */
 @layer utilities {

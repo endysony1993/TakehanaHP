@@ -5,20 +5,22 @@
 // 3) ギャラリーに自動で表示されます。
 
 import { assetPath } from "../../../utils/assetPath";
+import { useT } from '../../../hooks/useT'
 
 const galleryImages: string[] = [1,2,3].map(n => assetPath(`SmartManufacturing/aps/${n}.png`));
 
 export default function ApsIntro() {
+  const { t } = useT()
   return (
     <main className="min-h-screen bg-white text-gray-900">
   {/* ヒーロー */}
       <section className="bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-6 py-16">
           <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">
-            APS（生産スケジューリング）
+            {t('pages.achievements.sm.apsPage.title', 'APS — Advanced Production Scheduling')}
           </h1>
           <p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
-            APSは、生産スケジューリングの精度と効率を高めるための知的な計画ツールを提供します。
+            {t('pages.achievements.sm.apsPage.intro', 'APS provides intelligent planning tools to improve accuracy and efficiency in production scheduling.')}
           </p>
 
           {/* ギャラリー */}
@@ -29,7 +31,7 @@ export default function ApsIntro() {
                 {galleryImages.map((src, idx) => (
                   <div key={src + idx} className="bg-white rounded-xl shadow overflow-hidden">
                     <div className="h-56 sm:h-64 lg:h-72 flex items-center justify-center bg-white p-2">
-                      <img src={src} alt={`APS 画像 ${idx + 1}`} className="h-full max-h-full w-auto max-w-full object-contain" loading="lazy" />
+                      <img src={src} alt={t('pages.achievements.sm.apsPage.galleryAlt', `APS image ${idx + 1}`)} className="h-full max-h-full w-auto max-w-full object-contain" loading="lazy" />
                     </div>
                   </div>
                 ))}
@@ -41,8 +43,8 @@ export default function ApsIntro() {
                     key={i}
                     className="rounded-xl border-2 border-dashed border-gray-300 bg-white text-center text-gray-500 h-56 sm:h-64 lg:h-72 flex flex-col items-center justify-center"
                   >
-                    <p className="font-medium">画像なし</p>
-                    <p className="text-sm mt-1">/images/aps/ にファイルを追加し、上の配列にパスを記載してください</p>
+                    <p className="font-medium">{t('pages.achievements.sm.apsPage.noImage', 'No image')}</p>
+                    <p className="text-sm mt-1">{t('pages.achievements.sm.apsPage.addHint', 'Add files under /SmartManufacturing/aps/ and list them in the array above.')}</p>
                   </div>
                 ))}
               </div>
@@ -53,42 +55,42 @@ export default function ApsIntro() {
 
       {/* 主な機能 */}
       <section className="max-w-6xl mx-auto px-6 py-12">
-  <h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
+  <h2 className="text-2xl font-semibold text-center text-[#0066c5]">{t('pages.achievements.sm.apsPage.features.title', 'Key Features')}</h2>
         <div className="mt-6 grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">受注一覧管理</h3>
-            <p className="text-gray-700">納期・数量・業務ルールに基づいて受注を優先度付けし、迅速かつ妥当な計画判断を支援。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.order.title', 'Order List Management')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.order.desc', 'Prioritize orders by due date, quantity, and business rules to support fast, sound planning decisions.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">在庫照合と欠品検知</h3>
-            <p className="text-gray-700">需要と在庫をリアルタイム照合し、現場トラブルを避けるため欠品を早期に検知。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.stock.title', 'Stock Matching & Shortage Detection')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.stock.desc', 'Match demand and stock in real time to detect shortages early and prevent shop-floor issues.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">照合結果レポート</h3>
-            <p className="text-gray-700">充足・不足・調達/代替に必要なアクションを明確に示すレポートを生成。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.report.title', 'Matching Result Reports')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.report.desc', 'Generate reports clarifying actions for fulfillments, shortages, procurement, and substitutes.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">欠品サマリーの統合</h3>
-            <p className="text-gray-700">品目/シリーズ別に欠品を統合し、補充手配やサプライヤ連携を効率化。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.shortageSummary.title', 'Shortage Summary')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.shortageSummary.desc', 'Consolidate shortages by item/series to streamline replenishment and supplier coordination.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">生産計画管理</h3>
-            <p className="text-gray-700">制約条件を考慮した実行可能な計画を作成し、現場への指示をスムーズに展開。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.plan.title', 'Production Plan Management')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.plan.desc', 'Create feasible plans considering constraints and smoothly deploy instructions to the shop floor.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">能力ボード（能力の可視化）</h3>
-            <p className="text-gray-700">設備・工程の負荷を可視化し、ボトルネックの特定とライン/シフト間の平準化を実現。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.capacity.title', 'Capacity Board (Visualization)')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.capacity.desc', 'Visualize equipment/process loads to identify bottlenecks and level across lines/shifts.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">受注審査</h3>
-            <p className="text-gray-700">納期遵守に向けた実現可能性と優先度を確認し、アラートで遅延を未然に防止。</p>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.orderCheck.title', 'Order Feasibility Check')}</h3>
+            <p className="text-gray-700">{t('pages.achievements.sm.apsPage.features.orderCheck.desc', 'Validate feasibility and priority for on-time delivery, with alerts to prevent delays.')}</p>
           </div>
           <div className="bg-white rounded-xl border p-6">
-            <h3 className="font-semibold mb-2">在庫アラート設定</h3>
+            <h3 className="font-semibold mb-2">{t('pages.achievements.sm.apsPage.features.stockAlert.title', 'Stock Alert Rules')}</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>共通/非共通品のロジック</li>
-              <li>販売履歴の考慮</li>
-              <li>警戒値下回り時の自動通知</li>
+              <li>{t('pages.achievements.sm.apsPage.features.stockAlert.item1', 'Common/non-common item logic')}</li>
+              <li>{t('pages.achievements.sm.apsPage.features.stockAlert.item2', 'Consider sales history')}</li>
+              <li>{t('pages.achievements.sm.apsPage.features.stockAlert.item3', 'Auto notifications under threshold')}</li>
             </ul>
           </div>
         </div>
@@ -105,8 +107,8 @@ export default function ApsIntro() {
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="rounded-2xl border p-8 text-center">
-          <h3 className="text-xl font-semibold mb-3 text-[#0066c5]">APSの詳細資料・デモのご依頼</h3>
-          <p className="text-gray-700 mb-6">貴社の製品構成と運用に合わせて、最適な適用範囲と導入ステップをご提案します。</p>
+          <h3 className="text-xl font-semibold mb-3 text-[#0066c5]">{t('pages.achievements.sm.apsPage.cta.title', 'Request APS materials & demo')}</h3>
+          <p className="text-gray-700 mb-6">{t('pages.achievements.sm.apsPage.cta.desc', 'We tailor scope and rollout steps to your product mix and operations.')}</p>
        				<div className="mt-12 px-6">
 					<div className="max-w-6xl mx-auto">
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -115,13 +117,13 @@ export default function ApsIntro() {
                 onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
                 className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 						>
-                お問い合わせ
+                {t('cta.contact', 'Contact Us')}
               </a>
               <a
                 href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 						>
-                他の事例を見る
+                {t('cta.moreCases', 'See More Cases')}
               </a>
 						</div>
 					</div>

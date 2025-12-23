@@ -1,16 +1,83 @@
 import { useEffect } from 'react';
+import { useT } from '../../../hooks/useT';
+import { useI18n } from '../../../context/I18nContext';
 import { assetPath } from '../../../utils/assetPath';
 
 export default function ParkingManagementSystem() {
+		const { t } = useT();
+		const { messages, locale } = useI18n();
+		const vi = locale === 'vi'
+
+		const VI = {
+			title: 'Hệ thống quản lý bãi đỗ xe',
+			intro: 'Tích hợp phát hiện chỗ trống, đặt chỗ, định giá động và thanh toán trực tuyến để cải thiện tỷ lệ sử dụng và trải nghiệm khách hàng.',
+			current: {
+				title: 'Thực trạng & Thách thức',
+				items: [
+					'Tracking chỗ trống thủ công và đặt chỗ giấy tờ dễ lỗi',
+					'Giá cố định không phản ánh nhu cầu, giảm doanh thu',
+					'Quy trình thanh toán rời rạc, thiếu minh bạch',
+					'Hạn chế trong việc theo dõi KPI sử dụng và xu hướng',
+					'Quy trình vận hành chưa chuẩn hóa giữa các điểm',
+				],
+			},
+			effects: {
+				title: 'Hiệu quả đạt được',
+				items: [
+					'Tăng tỷ lệ sử dụng, giảm thời gian tìm chỗ',
+					'Tối ưu doanh thu với định giá theo nhu cầu',
+					'Chuẩn hóa quy trình, giảm công việc thủ công',
+					'Mang lại trải nghiệm minh bạch, nhanh và đơn giản',
+				],
+			},
+			features: {
+				title: 'Tính năng chính',
+				adminTitle: 'Quản trị',
+				driverTitle: 'Người dùng',
+			},
+			architecture: {
+				title: 'Kiến trúc hệ thống',
+				desc: 'Tích hợp cổng/cảm biến/ANPR cho tự động vào/ra, kết nối thanh toán bên thứ ba (QR/thẻ) qua API, thiết kế loosely-coupled để mở rộng linh hoạt.',
+			},
+			integrations: {
+				title: 'Tích hợp & Mở rộng',
+			},
+			security: {
+				title: 'Bảo mật / Tuân thủ',
+			},
+			offering: {
+				title: 'Mô hình triển khai',
+				desc: 'Mặc định sử dụng Cloud/SaaS. On-premise khả dụng theo yêu cầu. Bắt đầu bằng PoC để xác thực nhận diện tự động và mô hình định giá, sau đó triển khai theo giai đoạn để vận hành và tối ưu.',
+			},
+		}
+
+		const currentItems = vi
+			? VI.current.items
+			: [
+				t('pages.achievements.iot.parkingMgmtPage.current.item1', 'Manual spot tracking and paper-based reservations cause errors'),
+				t('pages.achievements.iot.parkingMgmtPage.current.item2', 'Static pricing fails to reflect demand and reduces revenue'),
+				t('pages.achievements.iot.parkingMgmtPage.current.item3', 'Payment processes are fragmented with low transparency'),
+				t('pages.achievements.iot.parkingMgmtPage.current.item4', 'Limited visibility into utilization KPIs and trends'),
+				t('pages.achievements.iot.parkingMgmtPage.current.item5', 'Operations are not standardized across locations'),
+			]
+
+		const effectsCards = vi
+			? VI.effects.items.map(title => ({ title, desc: '' }))
+			: [
+				{ title: t('pages.achievements.iot.parkingMgmtPage.effects.item1', 'Increase utilization and reduce search time'), desc: '' },
+				{ title: t('pages.achievements.iot.parkingMgmtPage.effects.item2', 'Improve revenue via demand-based pricing'), desc: '' },
+				{ title: t('pages.achievements.iot.parkingMgmtPage.effects.item3', 'Standardize operations and reduce manual workload'), desc: '' },
+				{ title: t('pages.achievements.iot.parkingMgmtPage.effects.item4', 'Deliver a simple, fast, transparent user experience'), desc: '' },
+			]
 		useEffect(() => {
-			document.title = '駐車場管理システム';
+			document.title = vi ? VI.title : t('pages.achievements.iot.parkingMgmtPage.title', 'Parking Management System');
 		let meta = document.querySelector(`meta[name="description"]`);
 		if (!meta) {
 			meta = document.createElement('meta');
 			meta.setAttribute('name', 'description');
 			document.head.appendChild(meta);
 		}
-		meta.setAttribute('content', '駐車場管理システム: 無人化運営・収益性向上・顧客体験改善・セキュアな車主向け付加価値サービスを提供');
+		meta.setAttribute('content', vi ? VI.intro : t('pages.achievements.iot.parkingMgmtPage.intro', 'Integrate vacancy detection, reservations, dynamic pricing, and online payments to improve utilization and customer experience.'));
 	}, []);
 
 	return (
@@ -18,15 +85,13 @@ export default function ParkingManagementSystem() {
             {/* Hero Section */}
                   <section className="py-20 px-6">
                     <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-                      <div className="flex-1 text-center md:text-left">
-                        <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-4">
-                          駐車場管理システム
-                        </h1>
-                       
-                        <p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
-                          データ化・精緻化・標準化を軸に、無人化運営・資源利用率向上・電子決済率向上を推進し、<br className="hidden sm:block" />
-					車主中心の付加価値サービス（予約・長期契約・整備予約・保険/金融）を統合管理します。
-                        </p>
+											<div className="flex-1 text-center md:text-left">
+												<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-4">
+													{vi ? VI.title : t('pages.achievements.iot.parkingMgmtPage.title', 'Parking Management System')}
+												</h1>
+												<p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
+													{vi ? VI.intro : t('pages.achievements.iot.parkingMgmtPage.intro', 'Integrate vacancy detection, reservations, dynamic pricing, and online payments to improve utilization and customer experience.')}
+												</p>
                         
                         <br />
                       </div>
@@ -38,25 +103,22 @@ export default function ParkingManagementSystem() {
 
 		
 
-			{/* 概要 */}
+			{/* Current Status & Challenges */}
 			<section className="py-12 sm:py-16 px-4 max-w-5xl mx-auto">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">概要</h2>
-				<p className="leading-relaxed text-gray-700 text-sm sm:text-base">
-					本システムは駐車場運営の中核情報（入出庫・契約・料金・決済・設備状態）を一元化し、標準化されたデータ構造で分析・最適化を可能にします。無人化を支える自動認識（ANPR/センサー）とキャッシュレス決済連携により収益性を強化し、利用率向上・コスト削減・不正抑止を同時に実現。さらに、予約・長期契約・整備/洗車・保険/金融など車主向け高付加価値サービスをアプリ / Web ポータルで提供し顧客体験を継続的に改善します。
-				</p>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">{vi ? VI.current.title : t('pages.achievements.iot.parkingMgmtPage.current.title', 'Current Status & Challenges')}</h2>
+				<ul className="list-disc list-inside space-y-2 text-gray-700 text-sm sm:text-base">
+						{currentItems.map((item, i) => (
+							<li key={i}>{item}</li>
+						))}
+				</ul>
 			</section>
 
-			{/* 導入効果 */}
+			{/* Effects */}
 			<section className="py-12 sm:py-16 bg-gray-50 px-4">
 				<div className="max-w-6xl mx-auto">
-					<h2 className="text-2xl sm:text-3xl font-bold mb-8 text-[#0066c5]">導入効果</h2>
+					<h2 className="text-2xl sm:text-3xl font-bold mb-8 text-[#0066c5]">{vi ? VI.effects.title : t('pages.achievements.iot.parkingMgmtPage.effects.title', 'Outcomes')}</h2>
 					<div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
-						{[
-							{ title: '収益性向上', desc: '動的料金・電子決済・回転率最適化で売上増加' },
-							{ title: '運営効率化', desc: '無人化・自動認識・集中管理で人件費/工数削減' },
-							{ title: '顧客体験改善', desc: '予約・ナビ・履歴照会・付加価値サービスで満足度向上' },
-							{ title: '不正/漏れ防止', desc: 'ANPR・センサー連携と監査ログで不正駐車/収受漏れを抑止' },
-						].map((c, i) => (
+						{effectsCards.map((c, i) => (
 							<div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sm:p-6 hover:shadow-md transition">
 								<h3 className="font-semibold text-lg mb-2 text-[#0066c5]">{c.title}</h3>
 								<p className="text-sm text-gray-600 leading-relaxed">{c.desc}</p>
@@ -66,14 +128,14 @@ export default function ParkingManagementSystem() {
 				</div>
 			</section>
 
-			{/* 主な機能 */}
+			{/* Key Features */}
 			<section className="py-12 sm:py-16 px-4 max-w-6xl mx-auto">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-8 text-[#0066c5]">主な機能</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-8 text-[#0066c5]">{vi ? VI.features.title : t('pages.achievements.iot.parkingMgmtPage.features.title', 'Key Features')}</h2>
 				<div className="grid gap-8 md:grid-cols-2">
 					<div>
-						<h3 className="text-xl font-semibold mb-4 text-[#0066c5]">運営側（管理端）</h3>
+						<h3 className="text-xl font-semibold mb-4 text-[#0066c5]">{vi ? VI.features.adminTitle : t('pages.achievements.iot.parkingMgmtPage.features.adminTitle', 'Admin')}</h3>
 						<ul className="space-y-3 text-sm sm:text-base text-gray-700">
-							{['料金徴収','会員/契約管理','車両検索','レポート/ダッシュボード','アラート通知','権限/ロール管理'].map((f,i)=>(
+							{((messages.pages?.achievements?.iot?.parkingMgmtPage?.features?.admin) as string[] || []).map((f,i)=>(
 								<li key={i} className="flex items-start gap-2">
 									<span className="mt-1 inline-block w-2 h-2 rounded-full bg-[#0066c5]"></span>{f}
 								</li>
@@ -81,9 +143,9 @@ export default function ParkingManagementSystem() {
 						</ul>
 					</div>
 					<div>
-						<h3 className="text-xl font-semibold mb-4 text-[#0066c5]">車主側（ユーザー）</h3>
+						<h3 className="text-xl font-semibold mb-4 text-[#0066c5]">{vi ? VI.features.driverTitle : t('pages.achievements.iot.parkingMgmtPage.features.driverTitle', 'Driver')}</h3>
 						<ul className="space-y-3 text-sm sm:text-base text-gray-700">
-							{['キャッシュレス決済','駐車場検索/ナビ','予約/長期契約','明細・利用履歴','整備/洗車予約','クーポン/プロモ'].map((f,i)=>(
+							{((messages.pages?.achievements?.iot?.parkingMgmtPage?.features?.driver) as string[] || []).map((f,i)=>(
 								<li key={i} className="flex items-start gap-2">
 									<span className="mt-1 inline-block w-2 h-2 rounded-full bg-[#0066c5]"></span>{f}
 								</li>
@@ -95,12 +157,12 @@ export default function ParkingManagementSystem() {
 
 			{/* システム構成 */}
 		
-      <section className="py-16 px-6 bg-gray-50" id="endpoints">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-2xl font-semibold text-[#0066c5] mb-3">システム構成</h3>
-          <p className="text-gray-600 mb-10">
-						三層クラウド（政府・企業・個人）連携により法令適合と拡張性を両立。ゲート/センサー/ANPR で入出庫を自動認識し、第三者決済（各種QR/カード）と API 経由で統合。疎結合設計で将来の機能追加を容易化します。
-          </p>
+			<section className="py-16 px-6 bg-gray-50" id="endpoints">
+				<div className="max-w-7xl mx-auto text-center">
+					<h3 className="text-2xl font-semibold text-[#0066c5] mb-3">{vi ? VI.architecture.title : t('pages.achievements.iot.parkingMgmtPage.architecture.title', 'System Architecture')}</h3>
+					<p className="text-gray-600 mb-10">
+												{vi ? VI.architecture.desc : t('pages.achievements.iot.parkingMgmtPage.architecture.desc', 'Integrate gate/sensor/ANPR for automated entry/exit, connect third-party payments (QR/cards) via APIs, and adopt a loosely coupled design for easy future expansion.')}
+					</p>
 
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center place-items-center">
             {[1,2,3,4].map(n => (
@@ -112,11 +174,11 @@ export default function ParkingManagementSystem() {
       </section>
 
 
-			{/* 連携・拡張 */}
+			{/* Integrations & Extensions */}
 			<section className="py-12 sm:py-16 px-4 max-w-5xl mx-auto">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">連携・拡張</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">{vi ? VI.integrations.title : t('pages.achievements.iot.parkingMgmtPage.integrations.title', 'Integrations & Extensions')}</h2>
 				<ul className="grid sm:grid-cols-2 gap-4 text-sm sm:text-base text-gray-700">
-					{['サードパーティ決済ゲートウェイ','既存POS/会計システム','CRM/BI/分析基盤','公開API・SDK提供','Webhook/イベント連携','SFTP/バッチ連携'].map((item,i)=>(
+					{((messages.pages?.achievements?.iot?.parkingMgmtPage?.integrations?.items) as string[] || []).map((item,i)=>(
 						<li key={i} className="flex items-start gap-2">
 							<span className="mt-1 inline-block w-2 h-2 rounded-full bg-[#0066c5]"></span>{item}
 						</li>
@@ -124,17 +186,12 @@ export default function ParkingManagementSystem() {
 				</ul>
 			</section>
 
-			{/* セキュリティ/コンプライアンス */}
+			{/* Security / Compliance */}
 			<section className="py-12 sm:py-16 bg-gray-50 px-4">
 				<div className="max-w-5xl mx-auto">
-					<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">セキュリティ / コンプライアンス</h2>
+					<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">{vi ? VI.security.title : t('pages.achievements.iot.parkingMgmtPage.security.title', 'Security / Compliance')}</h2>
 					<ul className="space-y-3 text-sm sm:text-base text-gray-700">
-						{[
-							'通信暗号化（TLS）と保存データの暗号化オプション',
-							'操作/認証/料金処理等の詳細ログと監査証跡',
-							'権限分離（管理/監査/運営/外部API）',
-							'個人情報保護（最小権限・マスキング・保持期間管理）'
-						].map((item,i)=>(
+						{((messages.pages?.achievements?.iot?.parkingMgmtPage?.security?.items) as string[] || []).map((item,i)=>(
 							<li key={i} className="flex items-start gap-2">
 								<span className="mt-1 inline-block w-2 h-2 rounded-full bg-[#0066c5]"></span>{item}
 							</li>
@@ -143,17 +200,16 @@ export default function ParkingManagementSystem() {
 				</div>
 			</section>
 
-			{/* 提供形態 */}
+			{/* Offering Model */}
 			<section className="py-12 sm:py-16 px-4 max-w-5xl mx-auto">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">提供形態</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">{vi ? VI.offering.title : t('pages.achievements.iot.parkingMgmtPage.offering.title', 'Offering Model')}</h2>
 				<p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-5">
-					クラウド/SaaS を基本提供。オンプレミスは要件定義後に個別相談。PoC で機能フィットと運営フローを検証し、段階的なスケールアウトで本番展開・最適化を進めます。
+					{vi ? VI.offering.desc : t('pages.achievements.iot.parkingMgmtPage.offering.desc', 'Default offering is Cloud/SaaS. On-premise is available upon requirements definition. Start with a PoC to validate automatic recognition and pricing models, then scale in phases for production rollout and optimization.')}
 				</p>
 				<ol className="space-y-3 text-sm sm:text-base text-gray-700 list-decimal list-inside">
-					<li>ヒアリング / 現状分析</li>
-					<li>PoC（自動認識・料金モデル検証）</li>
-					<li>本番構築（統合・移行・教育）</li>
-					<li>運用最適化（レポート分析 / 機能拡張）</li>
+										{((messages.pages?.achievements?.iot?.parkingMgmtPage?.offering?.steps) as string[] || []).map((step, i) => (
+					  <li key={i}>{step}</li>
+					))}
 				</ol>
 			</section>
 
@@ -162,17 +218,17 @@ export default function ParkingManagementSystem() {
       <div className=" px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={`${import.meta.env.BASE_URL}#contact`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
-            >
-              お問い合わせ
-            </a>
+						<a
+							href={`${import.meta.env.BASE_URL}#contact`}
+							className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
+						>
+							{t('cta.contact', 'Contact')}
+						</a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/iot`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
-              他の事例を見る
+							{t('cta.moreCases', 'See Other Cases')}
             </a>
           </div>
         </div>

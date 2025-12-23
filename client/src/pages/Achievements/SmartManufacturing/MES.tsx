@@ -5,17 +5,19 @@
 // 3) ギャラリーに自動で表示されます。
 
 import { assetPath } from "../../../utils/assetPath";
+import { useT } from '../../../hooks/useT'
 const galleryImages: string[] = [1,2,3].map(n => assetPath(`SmartManufacturing/mes/${n}.png`));
 
 export default function MesIntro() {
+	const { t } = useT()
 	return (
 		<main className="min-h-screen bg-white text-gray-900">
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">MES（製造実行システム）</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">{t('pages.achievements.sm.mesPage.title', 'MES — Manufacturing Execution System')}</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
-						MESは生産プロセスの透明性を高め、品質と生産性の向上を支援します。
+						{t('pages.achievements.sm.mesPage.intro', 'MES enhances production transparency and supports improvements in quality and productivity.')}
 					</p>
 
 					{/* ギャラリー */}
@@ -26,7 +28,7 @@ export default function MesIntro() {
 								{galleryImages.map((src, idx) => (
 									<div key={src + idx} className="bg-white rounded-xl shadow overflow-hidden">
 										<div className="h-56 sm:h-64 lg:h-72 flex items-center justify-center bg-white p-2">
-											<img src={src} alt={`MES 画像 ${idx + 1}`} className="h-full max-h-full w-auto max-w-full object-contain" loading="lazy" />
+											<img src={src} alt={t('pages.achievements.sm.mesPage.galleryAlt', `MES image ${idx + 1}`)} className="h-full max-h-full w-auto max-w-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								))}
@@ -38,8 +40,8 @@ export default function MesIntro() {
 										key={i}
 										className="rounded-xl border-2 border-dashed border-gray-300 bg-white text-center text-gray-500 h-56 sm:h-64 lg:h-72 flex flex-col items-center justify-center"
 									>
-										<p className="font-medium">画像なし</p>
-										<p className="text-sm mt-1">/images/mes/ にファイルを追加し、上の配列にパスを記載してください</p>
+										<p className="font-medium">{t('pages.achievements.sm.mesPage.noImage', 'No image')}</p>
+										<p className="text-sm mt-1">{t('pages.achievements.sm.mesPage.addHint', 'Add files under /SmartManufacturing/mes/ and list them in the array above.')}</p>
 									</div>
 								))}
 							</div>
@@ -63,39 +65,39 @@ export default function MesIntro() {
 
 			{/* 主な機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{t('pages.achievements.sm.mesPage.features.title', 'Key Features')}</h2>
 				<div className="mt-6 grid md:grid-cols-2 gap-6">
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">工程ルート管理</h3>
-						<p className="text-gray-700">品目ごとの標準ルートと代替ルートを管理し、工程の流れを可視化。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.route.title', 'Process Route Management')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.route.desc', 'Manage standard and alternative routes per item to visualize process flow.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">工程仕様・SOP</h3>
-						<p className="text-gray-700">作業手順・基準値・注意点を標準化し、現場のブレを抑制。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.sop.title', 'Work Instructions & SOP')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.sop.desc', 'Standardize procedures, control limits, and cautions to reduce variability on the floor.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">品質検査管理・ワークベンチ</h3>
-						<p className="text-gray-700">工程内/出荷検査を一元管理し、判定・記録・不適合処置を効率化。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.qa.title', 'Quality Inspection & Workbench')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.qa.desc', 'Centralize in-process and shipment inspections; streamline judgments, records, and nonconformance handling.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">資材供給・裁断</h3>
-						<p className="text-gray-700">現場へのタイムリーな資材投入と裁断ロスの最小化を支援。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.material.title', 'Material Supply & Cutting')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.material.desc', 'Support timely supply to the shop floor and minimize cutting loss.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">設備点検計画（日次／年次）</h3>
-						<p className="text-gray-700">日次・年次点検の計画と履歴を管理し、稼働安定と故障予防を実現。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.maintenance.title', 'Equipment Inspection Plan (Daily/Annual)')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.maintenance.desc', 'Manage plans and history to stabilize operations and prevent failures.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">工位・パラメータ管理</h3>
-						<p className="text-gray-700">各工程・工位の条件やパラメータを管理し、品質の再現性を担保。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.params.title', 'Workstation & Parameter Management')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.params.desc', 'Manage conditions and parameters per process/workstation to ensure repeatable quality.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">受注処理・遅延レポート</h3>
-						<p className="text-gray-700">受注の進捗と滞留/遅延を可視化し、早期の是正対応を促進。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.orders.title', 'Order Progress & Delay Reports')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.orders.desc', 'Visualize progress and backlogs/delays with alerts to drive early corrective actions.')}</p>
 					</div>
 					<div className="bg-white rounded-xl border p-6">
-						<h3 className="font-semibold mb-2">稼働ボード（リアルタイム状況）</h3>
-						<p className="text-gray-700">ライン/工位のリアルタイム状況を見える化し、現場の即応を支援。</p>
+						<h3 className="font-semibold mb-2">{t('pages.achievements.sm.mesPage.features.operation.title', 'Operations Board (Real-time)')}</h3>
+						<p className="text-gray-700">{t('pages.achievements.sm.mesPage.features.operation.desc', 'Visualize real-time status across lines/workstations to support immediate response on the floor.')}</p>
 					</div>
 				</div>
 			</section>
@@ -103,21 +105,21 @@ export default function MesIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">MESの詳細資料・デモのご依頼</h3>
-					<p className="text-gray-700 mb-6">貴社の生産形態・品質要件に合わせて、適用範囲と導入ステップをご提案します。</p>
+					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">{t('pages.achievements.sm.mesPage.cta.title', 'Request MES materials & demo')}</h3>
+					<p className="text-gray-700 mb-6">{t('pages.achievements.sm.mesPage.cta.desc', 'We tailor scope and rollout steps to your production model and quality requirements.')}</p>
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
 								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
-								お問い合わせ
+								{t('cta.contact', 'Contact Us')}
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
-								他の事例を見る
+								{t('cta.moreCases', 'See More Cases')}
 							</a>
 						</div>
 				</div>

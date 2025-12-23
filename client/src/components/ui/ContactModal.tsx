@@ -6,12 +6,65 @@ type ContactModalProps = {
   onClose: () => void;
 };
 
+import { useI18n } from '../../context/I18nContext';
+
 export default function ContactModal({ open, onClose }: ContactModalProps) {
+  const { locale } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", title: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [mailtoHref, setMailtoHref] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Labels for each language
+  const LABELS = {
+    ja: {
+      title: 'お問い合わせ',
+      subtitle: 'ご相談はお気軽にご連絡ください。',
+      name: 'お名前',
+      email: 'メールアドレス',
+      subject: '件名',
+      message: 'メッセージ',
+      cancel: 'キャンセル',
+      send: '送信',
+      required: 'は必須です。',
+      sent: '送信が完了しました。',
+      thanks: 'お問い合わせいただきありがとうございます。担当者よりご連絡いたします。',
+      close: '閉じる',
+      sending: '送信中...'
+    },
+    en: {
+      title: 'Contact Us',
+      subtitle: 'Feel free to reach out for any inquiry.',
+      name: 'Name',
+      email: 'Email Address',
+      subject: 'Subject',
+      message: 'Message',
+      cancel: 'Cancel',
+      send: 'Send',
+      required: 'is required.',
+      sent: 'Message sent.',
+      thanks: 'Thank you for your inquiry. We will get back to you soon.',
+      close: 'Close',
+      sending: 'Sending...'
+    },
+    vi: {
+      title: 'Liên hệ',
+      subtitle: 'Vui lòng liên hệ với chúng tôi nếu bạn có bất kỳ thắc mắc nào.',
+      name: 'Họ và tên',
+      email: 'Địa chỉ email',
+      subject: 'Chủ đề',
+      message: 'Nội dung',
+      cancel: 'Hủy',
+      send: 'Gửi',
+      required: 'là bắt buộc.',
+      sent: 'Đã gửi thành công.',
+      thanks: 'Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất.',
+      close: 'Đóng',
+      sending: 'Đang gửi...'
+    }
+  };
+  const L = LABELS[locale] || LABELS.ja;
 
   // Close on ESC
   useEffect(() => {
@@ -41,7 +94,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      setError("お名前、メールアドレス、メッセージは必須です。");
+      setError(`${L.name}, ${L.email}, ${L.message} ${L.required}`);
       return;
     }
     setError("");
@@ -56,14 +109,14 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
       if (res.success) {
         setSubmitted(true);
       } else {
-        setError(res.error?.message || "送信に失敗しました。時間をおいて再度お試しください。");
+        setError(res.error?.message || (locale === 'en' ? 'Failed to send. Please try again later.' : locale === 'vi' ? 'Gửi thất bại. Vui lòng thử lại sau.' : '送信に失敗しました。時間をおいて再度お試しください。'));
       }
     } catch (err: any) {
-      const msg = err?.message || "送信中にエラーが発生しました。"
+      const msg = err?.message || (locale === 'en' ? 'An error occurred while sending.' : locale === 'vi' ? 'Có lỗi khi gửi.' : '送信中にエラーが発生しました。')
       // If it's a network-level failure (browser shows "Failed to fetch"), offer a mailto fallback
       if (typeof msg === 'string' && (msg.includes('Failed to fetch') || msg.toLowerCase().includes('network'))) {
         const to = 'info@mail.tkhtec.org'
-        const subject = encodeURIComponent(form.title?.trim() || 'お問い合わせ')
+        const subject = encodeURIComponent(form.title?.trim() || L.title)
         const bodyLines = [
           `Name: ${form.name}`,
           `Email: ${form.email}`,
@@ -71,7 +124,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
         ]
         const body = encodeURIComponent(bodyLines.join('\n'))
         setMailtoHref(`mailto:${to}?subject=${subject}&body=${body}`)
-        setError('サーバーに接続できませんでした。代わりにメールクライアントで送信するには下のリンクを使ってください。')
+        setError(locale === 'en' ? 'Could not connect to server. Use the link below to send via email client.' : locale === 'vi' ? 'Không thể kết nối máy chủ. Hãy dùng liên kết dưới để gửi qua email.' : 'サーバーに接続できませんでした。代わりにメールクライアントで送信するには下のリンクを使ってください。')
       } else {
         setError(msg)
       }
@@ -107,15 +160,15 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
             </svg>
           </button>
           <div className="p-6 sm:p-8">
-            <h2 className="text-xl sm:text-2xl text-center font-bold mb-2 text-[#0066c5]">お問い合わせ</h2>
-            <p className="text-gray-600 text-center mb-4">ご相談はお気軽にご連絡ください。</p>
+            <h2 className="text-xl sm:text-2xl text-center font-bold mb-2 text-[#0066c5]">{L.title}</h2>
+            <p className="text-gray-600 text-center mb-4">{L.subtitle}</p>
 
             {/* Form */}
             {submitted ? (
               <div className="text-center py-10">
-                <p className="text-lg text-[#0066c5] font-semibold mb-2">送信が完了しました。</p>
-                <p className="text-gray-600 text-sm">お問い合わせいただきありがとうございます。担当者よりご連絡いたします。</p>
-                <button onClick={closeAndReset} className="mt-6 px-6 py-2 rounded-lg bg-[#0066c5] text-white font-semibold hover:opacity-90">閉じる</button>
+                <p className="text-lg text-[#0066c5] font-semibold mb-2">{L.sent}</p>
+                <p className="text-gray-600 text-sm">{L.thanks}</p>
+                <button onClick={closeAndReset} className="mt-6 px-6 py-2 rounded-lg bg-[#0066c5] text-white font-semibold hover:opacity-90">{L.close}</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
@@ -126,7 +179,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   </div>
                 )}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">お名前 <span className="text-red-500">*</span></label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{L.name} <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     id="name"
@@ -138,7 +191,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">メールアドレス <span className="text-red-500">*</span></label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{L.email} <span className="text-red-500">*</span></label>
                   <input
                     type="email"
                     id="email"
@@ -150,7 +203,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">件名</label>
+                  <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">{L.subject}</label>
                   <input
                     type="text"
                     id="title"
@@ -161,7 +214,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">メッセージ <span className="text-red-500">*</span></label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{L.message} <span className="text-red-500">*</span></label>
                   <textarea
                     id="message"
                     name="message"
@@ -173,13 +226,13 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   />
                 </div>
                 <div className="flex gap-3 justify-end pt-2">
-                  <button type="button" onClick={closeAndReset} className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">キャンセル</button>
+                  <button type="button" onClick={closeAndReset} className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50">{L.cancel}</button>
                   <button
                     type="submit"
                     disabled={loading}
                     className="px-6 py-2 rounded-lg bg-[#0066c5] text-white font-semibold shadow transition-transform duration-200 transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {loading ? "送信中..." : "送信"}
+                    {loading ? L.sending : L.send}
                   </button>
                 </div>
               </form>

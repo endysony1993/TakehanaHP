@@ -1,43 +1,45 @@
 import { assetPath } from "../../../utils/assetPath";
+import { useT } from '../../../hooks/useT'
 export default function AIInspection() {
+  const { t } = useT()
   return (
     <section className="text-center py-20 bg-gradient-to-b from-white to-gray-50">
       {/* Title */}
-  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">AI撮影テンプレート</h2>
+  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#0066c5]">{t('pages.achievements.ai.inspectionPage.title', 'Mẫu chụp ảnh bằng AI')}</h2>
 
       <p className="text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed text-base sm:text-lg">
-        風景写真、アニメのワンシーンとの合成、スタイル化されたイラストまで、AI撮影テンプレートで一枚一枚の写真が創造性と驚きに満ちた作品になります。
+        {t('pages.achievements.ai.inspectionPage.intro', 'Từ ảnh phong cảnh, ghép cảnh anime cho đến minh họa theo phong cách, mỗi bức ảnh đều trở thành một tác phẩm sáng tạo đầy bất ngờ với mẫu chụp ảnh bằng AI.')}
       </p>
 
       {/* Client Request / Solution / Skills Section */}
       <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
         {/* Client Request */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">クライアントのご要望</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">{t('pages.achievements.ai.inspectionPage.client.title', 'Yêu cầu từ khách hàng')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>AIを活用した新しい写真体験サービスを開発したい</li>
-            <li>ユーザーが簡単に多様なテンプレートで写真を生成できる仕組みが必要</li>
-            <li>高品質な合成・スタイル変換を短時間で実現したい</li>
+            <li>{t('pages.achievements.ai.inspectionPage.client.item1', 'Phát triển dịch vụ trải nghiệm chụp ảnh mới dựa trên AI')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.client.item2', 'Cần cơ chế để người dùng có thể tạo ảnh dễ dàng với nhiều mẫu khác nhau')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.client.item3', 'Đạt chất lượng ghép ảnh và chuyển đổi phong cách cao trong thời gian ngắn')}</li>
           </ul>
         </div>
         {/* Our Solution */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">当社のソリューション</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">{t('pages.achievements.ai.inspectionPage.solution.title', 'Giải pháp của chúng tôi')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>AI画像合成・スタイル変換アルゴリズムを独自開発</li>
-            <li>Webアプリ・スマホアプリで直感的な操作UIを設計</li>
-            <li>クラウド上で高速な画像処理・保存を実現</li>
+            <li>{t('pages.achievements.ai.inspectionPage.solution.item1', 'Tự phát triển thuật toán ghép ảnh và chuyển đổi phong cách bằng AI')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.solution.item2', 'Thiết kế UI trực quan cho web/app di động')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.solution.item3', 'Xử lý và lưu trữ ảnh tốc độ cao trên đám mây')}</li>
           </ul>
         </div>
         {/* Skills & Techniques */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">技術・スキル</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3">{t('pages.achievements.ai.inspectionPage.skills.title', 'Công nghệ & kỹ năng')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>AI画像処理（GAN・スタイル変換）</li>
-            <li>React/TypeScriptによるフロントエンド開発</li>
-            <li>Python（FastAPI）によるAIサーバー構築</li>
-            <li>クラウドインフラ（AWS/GCP）活用</li>
-            <li>UI/UX設計・多言語対応</li>
+            <li>{t('pages.achievements.ai.inspectionPage.skills.item1', 'Xử lý ảnh bằng AI (GAN, chuyển đổi phong cách)')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.skills.item2', 'Phát triển front-end với React/TypeScript')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.skills.item3', 'Xây dựng máy chủ AI bằng Python (FastAPI)')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.skills.item4', 'Khai thác hạ tầng đám mây (AWS/GCP)')}</li>
+            <li>{t('pages.achievements.ai.inspectionPage.skills.item5', 'Thiết kế UI/UX và hỗ trợ đa ngôn ngữ')}</li>
           </ul>
         </div>
       </div>
@@ -50,12 +52,12 @@ export default function AIInspection() {
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[500px]"
             style={{ backgroundImage: `url(${assetPath('AI/AIInspection/fuji-template.jpg')})` }}
-            aria-label="風景写真テンプレート"
+            aria-label={t('pages.achievements.ai.inspectionPage.scenic.aria', 'Mẫu ảnh phong cảnh')}
           />
           <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">風景写真テンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">{t('pages.achievements.ai.inspectionPage.scenic.title', 'Mẫu ảnh phong cảnh')}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              富士山、東京タワー、奈良、伏見稲荷など、日本各地の名所を背景にしたAI合成写真を作成します。
+              {t('pages.achievements.ai.inspectionPage.scenic.desc', 'Tạo ảnh ghép AI với nền là các danh thắng khắp Nhật Bản như núi Phú Sĩ, tháp Tokyo, Nara, Fushimi Inari, v.v.')}
             </p>
           </div>
         </div>
@@ -65,12 +67,12 @@ export default function AIInspection() {
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[500px]"
             style={{ backgroundImage: `url(${assetPath('AI/AIInspection/cosplay-template.jpg')})` }}
-            aria-label="コスプレテンプレート"
+            aria-label={t('pages.achievements.ai.inspectionPage.cosplay.aria', 'Mẫu cosplay')}
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">コスプレテンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">{t('pages.achievements.ai.inspectionPage.cosplay.title', 'Mẫu cosplay')}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              AIがあなたを人気キャラクターや名画の登場人物に変身させます。
+              {t('pages.achievements.ai.inspectionPage.cosplay.desc', 'AI biến bạn thành nhân vật nổi tiếng hoặc nhân vật trong các tác phẩm kinh điển.')}
             </p>
           </div>
         </div>
@@ -83,12 +85,12 @@ export default function AIInspection() {
           <div
             className="w-full flex-1 bg-cover bg-center min-h-[200px] sm:min-h-[600px]"
             style={{ backgroundImage: `url(${assetPath('AI/AIInspection/anime-template.jpg')})` }}
-            aria-label="アニメ取景地テンプレート"
+            aria-label={t('pages.achievements.ai.inspectionPage.anime.aria', 'Mẫu bối cảnh anime')}
           />
           <div className="p-6 flex-1 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">アニメ取景地テンプレート</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#0066c5]">{t('pages.achievements.ai.inspectionPage.anime.title', 'Mẫu bối cảnh anime')}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              「君の名は。」や「千と千尋の神隠し」など、人気アニメの舞台でキャラクターと一緒に撮影したような合成写真を作成します。
+              {t('pages.achievements.ai.inspectionPage.anime.desc', 'Tạo ảnh ghép như thể chụp cùng nhân vật tại bối cảnh các anime nổi tiếng như “Your Name” hay “Spirited Away”.')}
             </p>
           </div>
         </div>
@@ -103,13 +105,13 @@ export default function AIInspection() {
               onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
-              お問い合わせ
+              {t('cta.contact', 'Liên hệ')}
             </a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/ai`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
-              他の事例を見る
+              {t('cta.moreCases', 'Xem thêm các dự án khác')}
             </a>
           </div>
         </div>

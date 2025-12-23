@@ -1,3 +1,1096 @@
 {
-  "welcome": "Welcome to My Company"
+  "nav.services": "Services",
+  "nav.achievements": "Achievements",
+  "nav.company": "Company",
+  "nav.home": "Home",
+  "nav.dev": { "header": "Development Models", "project": "Project-based", "lab": "Lab-based" },
+  "nav.delivery": { "header": "Delivery Models", "offshore": "Offshore", "onsite": "Onsite" },
+  "nav.ach": { "ai": "AI", "iot": "IoT", "smart": "Smart Manufacturing", "others": "Others" },
+  "nav.company": { "about": "Company", "partners": "Partners" },
+  "cta.contact": "Contact",
+  "cta.moreCases": "See Other Cases",
+  "items": {
+    "one": "{{count}} item",
+    "other": "{{count}} items"
+  },
+  "lang": { "ja": "Japanese", "en": "English", "vi": "Vietnamese" },
+  "home": {
+    "achievements": {
+      "title": "Our Work",
+      "ai": { "title": "AI", "desc": "AI image analysis and prediction" },
+      "iot": { "title": "IoT", "desc": "Production efficiency with IoT" },
+      "smart": { "title": "Smart Manufacturing", "desc": "ERP, MES, APS, WMS customization" },
+      "others": { "title": "Others", "desc": "CRM, business systems, more" }
+    }
+  },
+  "pages": {
+    "flood": {
+      "title": "River Flood Monitoring IoT",
+      "overview": {
+        "title": "Overview",
+        "point1": "Detect water surface with AI",
+        "point2": "Specify danger levels and overflow detection areas per target directly on images",
+        "point3": "Judge danger level and overflow",
+        "point4": "Auto-detect riverbanks and auto-set danger/overflow areas via AI"
+      },
+      "system": {
+        "title": "System Architecture",
+        "desc": "The system consists of (1) Device ID Registration, (2) Camera Settings Management, and (3) Latest Snapshot Retrieval, integrating Admin Web, Edge, Web/API server, database, and object storage.",
+        "block1": {
+          "title": "① Device ID Registration",
+          "point1": "Device ID request / ID matching",
+          "point2": "Device ID registration API",
+          "point3": "Register into device management table"
+        },
+        "block2": {
+          "title": "② Camera Settings Management",
+          "point1": "List/select cameras",
+          "point2": "APIs to get/update camera settings",
+          "point3": "Save settings and apply"
+        },
+        "block3": {
+          "title": "③ Latest Snapshot Retrieval",
+          "point1": "Request/receive snapshots",
+          "point2": "Search API for latest snapshot",
+          "point3": "Store/reference in object storage"
+        }
+      },
+      "benefits": {
+        "title": "Benefits",
+        "point1": "Early detection of overflow/danger levels enables rapid response",
+        "point2": "AI auto-area setting reduces operational workload",
+        "point3": "Highly extensible design via Admin/Web/API/storage integration"
+      }
+    },
+    "productShelf": {
+      "title": "Product Shelf Recognition AI",
+      "overview": {
+        "title": "Overview",
+        "point1": "Staff take in-store photos (refrigerated, ambient, fresh)",
+        "point2": "Combine multiple photos into one and quantify shelf displays using image recognition",
+        "point3": "Verify improved accuracy and speed of quantification"
+      },
+      "asis": {
+        "title": "Process Details (As‑Is)",
+        "step1": "Step 1: Shoot in-store photos and upload",
+        "step2": "Step 2: Manual quantitative evaluation from images",
+        "step3": "Step 3: Create reports; used for MD evaluations, on-site PDCA, and HQ marketing PDCA"
+      },
+      "tobe": {
+        "title": "Process Details (To‑Be)",
+        "step1": "Step 1: Shoot in-store photos and upload",
+        "step2": "Step 2: Automate quantitative evaluation and report generation in the system",
+        "step3": "Step 3: Strengthen MD evaluation, on-site PDCA, and POS report integration"
+      },
+      "benefits": {
+        "title": "Benefits",
+        "point1": "Quantification and visualization accelerate improvement cycles in physical stores",
+        "point2": "Automate manual checks to standardize evaluations and reduce workload",
+        "point3": "Strengthen measurement of effectiveness via POS/report integrations"
+      }
+    },
+    
+    
+    "achievements": {
+      "sm": {
+        "apsPage": {
+          "title": "APS — Advanced Production Scheduling",
+          "intro": "APS provides intelligent planning tools to improve accuracy and efficiency in production scheduling.",
+          "galleryAlt": "APS image",
+          "noImage": "No image",
+          "addHint": "Add files under /SmartManufacturing/aps/ and list them in the array above.",
+          "features": {
+            "title": "Key Features",
+            "order": {
+              "title": "Order List Management",
+              "desc": "Prioritize orders by due date, quantity, and business rules to support fast, sound planning decisions."
+            },
+            "stock": {
+              "title": "Stock Matching & Shortage Detection",
+              "desc": "Match demand and stock in real time to detect shortages early and prevent shop-floor issues."
+            },
+            "report": {
+              "title": "Matching Result Reports",
+              "desc": "Generate reports clarifying actions for fulfillments, shortages, procurement, and substitutes."
+            },
+            "shortageSummary": {
+              "title": "Shortage Summary",
+              "desc": "Consolidate shortages by item/series to streamline replenishment and supplier coordination."
+            },
+            "plan": {
+              "title": "Production Plan Management",
+              "desc": "Create feasible plans considering constraints and smoothly deploy instructions to the shop floor."
+            },
+            "capacity": {
+              "title": "Capacity Board (Visualization)",
+              "desc": "Visualize equipment/process loads to identify bottlenecks and level across lines/shifts."
+            },
+            "orderCheck": {
+              "title": "Order Feasibility Check",
+              "desc": "Validate feasibility and priority for on-time delivery, with alerts to prevent delays."
+            },
+            "stockAlert": {
+              "title": "Stock Alert Rules",
+              "item1": "Common/non-common item logic",
+              "item2": "Consider sales history",
+              "item3": "Auto notifications under threshold"
+            }
+          },
+          "cta": {
+            "title": "Request APS materials & demo",
+            "desc": "We tailor scope and rollout steps to your product mix and operations."
+          }
+          },
+          "productSelectionPage": {
+            "title": "Product Selection Support System",
+            "intro": "A platform that integrates diverse requirements, specs, and market trends to quickly select optimal products/configurations. Enables sales, engineering, and procurement to decide using shared indicators.",
+            "features": {
+              "title": "Six Key Functions",
+              "integrate": {
+                "title": "Data Integration & Analytics",
+                "desc": "Integrate sales, customers, product specs, past cases, and defect history; quantify selection decisions via cross-analysis."
+              },
+              "efficiency": {
+                "title": "Improve Selection Efficiency",
+                "desc": "Semi-automate requirements input → candidate narrowing → comparison → recommendation to shorten proposal lead time."
+              },
+              "sales": {
+                "title": "Strengthen Sales & Market Response",
+                "desc": "Reference demand trends, competitors, and price bands; propose optimal configurations and upsell/cross-sell opportunities."
+              },
+              "cx": {
+                "title": "Improve Customer Experience",
+                "desc": "Present high-fit candidates and clear comparison criteria to boost confidence and decision speed."
+              },
+              "risk": {
+                "title": "Reduce Errors & Risk",
+                "desc": "Early-warn spec omissions, incompatibilities, and stock/supply constraints to prevent rework costs."
+              },
+              "tech": {
+                "title": "Technical Matching & Validation",
+                "desc": "Check technical fit and future extensibility; reduce risks from PoC to mass production."
+              }
+            },
+            "cta": {
+              "title": "Details & Adoption Consultation",
+              "desc": "We support phased adoption from requirements definition to evaluation environment setup to production rollout. Contact us to start."
+            }
+        }
+        ,
+        "quotationPage": {
+          "title": "Quotation Management System",
+          "intro": "A standard quotation platform that increases win probability while securing profits and control. Strengthens speed, accuracy, reusability, and auditability together.",
+          "features": {
+            "title": "Key Features",
+            "template": {
+              "title": "Template Quotation Structure",
+              "desc": "Template structure, cost elements, and margin rates based on past wins/losses to boost speed and accuracy."
+            },
+            "calc": {
+              "title": "Auto Cost & Margin Calculation",
+              "desc": "Aggregate materials, labor, outsourcing, logistics to compute margin rate and profit in real time."
+            },
+            "workflow": {
+              "title": "Versioning & Approval Workflow",
+              "desc": "Keep revision history; compare diffs and manage role-based approvals (Sales → Manager → Executive)."
+            },
+            "sim": {
+              "title": "Price Adjustment & Simulation",
+              "desc": "Adjust quantity/term/payment/FX/campaigns to explore optimal price bands."
+            },
+            "risk": {
+              "title": "Risk/Exception Detection",
+              "desc": "Warn on margin threshold breaches, stock constraints, supply lead time, and compliance issues."
+            },
+            "standard": {
+              "title": "Standardize Submission Quality",
+              "desc": "Unify layout/terminology and include attachment checklists to standardize customer-facing deliverables."
+            }
+          },
+          "data": {
+            "title": "Data Model",
+            "case": "Case (customer, industry, status, expected close)",
+            "items": "Items (sku, model, qty, unit price, cost, stock)",
+            "costs": "Cost elements (materials, labor, outsourcing, logistics, overhead)",
+            "adjust": "Adjustment factors (discount type, rate, applicable term)",
+            "approvals": "Approval history (stage, approver, datetime, comment)",
+            "version": "Quotation version (number, author, compare marker)",
+            "risk": "Risk flags (margin threshold, supply constraints, compliance)"
+          },
+          "logic": {
+            "title": "Pricing Logic",
+            "sum": "Sum cost components (item cost + labor + outsourcing + logistics + overhead)",
+            "initial": "Initial margin/profit calc (refer standard margin table)",
+            "recalc": "Recalculate margin/unit price by conditions/qty/term",
+            "threshold": "Check margin/profit thresholds (warn/re-adjust)",
+            "market": "Optional competitor/market price band reference adjustments",
+            "flow": "Approval flow (e.g., Sales <15% → Manager 10–15% → Executive <10%)",
+            "final": "Finalize version and generate deliverables (PDF/Excel/portal)"
+          },
+          "ops": {
+            "title": "Operational Key Points",
+            "governance": "Template governance (periodic reviews and diff approvals)",
+            "marginReview": "Annual review of margin thresholds (cost changes/market conditions)",
+            "sla": "Set approval SLAs (avoid opportunity loss due to delays)",
+            "exception": "Separate route for exceptions (strategic/large deals/stock clearance)",
+            "fx": "Auto-update FX and purchase prices (external API or ERP)",
+            "audit": "Full retention of revision history for audits"
+          },
+          "kpi": {
+            "title": "KPIs",
+            "leadTime": "Quotation lead time (first draft / final)",
+            "margin": "Median margin rate / count below threshold",
+            "stay": "Average stay per approval step",
+            "win": "Post-submission win rate",
+            "template": "Template usage (standard vs exception)",
+            "quote": "Re-quotation rate (spec change / errors / price adjustments)",
+            "requote": "Re-quotation rate (spec change / errors / price adjustments)"
+          },
+          "risks": {
+            "title": "Risks & Controls",
+            "margin": "Chronic margin threshold breaches",
+            "version": "Mis-submission due to version confusion",
+            "subjective": "Subjective price adjustments",
+            "costUpdate": "Profit deviation due to delayed cost updates",
+            "delay": "Opportunity loss due to approval delays",
+            "invalid": "Invalid condition application"
+          },
+          "controls": {
+            "margin": "Auto alerts + enforced approvals + monthly reviews",
+            "version": "Auto numbering + lock deprecated versions + diff UI",
+            "subjective": "Record all adjustments + clarify role permissions",
+            "costUpdate": "Cost master reminders + update date audits",
+            "delay": "SLA alerts + alternate approver setup",
+            "invalid": "Predefined rules + require exception reasons"
+          },
+          "check": {
+            "title": "Pre-submission Checklist",
+            "cost": "Is cost master latest (check update date)?",
+            "margin": "Not below margin thresholds?",
+            "consistency": "Consistency in quantity/model/config?",
+            "exception": "Approval records for exceptions (special price/campaign)?",
+            "format": "Standard submission format (layout/terminology)?",
+            "requirements": "No missing customer requirements (delivery/payment/support scope)?",
+            "diff": "Explainable differences vs past similar cases (price/config)?"
+          },
+          "cta": {
+            "title": "Request Quotation Materials & Demo",
+            "desc": "We propose template design and cost linkage optimization tailored to your sales process and product mix."
+          }
+        }
+        ,
+        "mesPage": {
+          "title": "MES — Manufacturing Execution System",
+          "intro": "MES enhances production transparency and supports improvements in quality and productivity.",
+          "galleryAlt": "MES image",
+          "noImage": "No image",
+          "addHint": "Add files under /SmartManufacturing/mes/ and list them in the array above.",
+          "features": {
+            "title": "Key Features",
+            "route": {
+              "title": "Process Route Management",
+              "desc": "Manage standard and alternative routes per item to visualize process flow."
+            },
+            "sop": {
+              "title": "Work Instructions & SOP",
+              "desc": "Standardize procedures, control limits, and cautions to reduce variability on the floor."
+            },
+            "qa": {
+              "title": "Quality Inspection & Workbench",
+              "desc": "Centralize in-process and shipment inspections; streamline judgments, records, and nonconformance handling."
+            },
+            "material": {
+              "title": "Material Supply & Cutting",
+              "desc": "Support timely supply to the shop floor and minimize cutting loss."
+            },
+            "maintenance": {
+              "title": "Equipment Inspection Plan (Daily/Annual)",
+              "desc": "Manage plans and history to stabilize operations and prevent failures."
+            },
+            "params": {
+              "title": "Workstation & Parameter Management",
+              "desc": "Manage conditions and parameters per process/workstation to ensure repeatable quality."
+            },
+            "orders": {
+              "title": "Order Progress & Delay Reports",
+              "desc": "Visualize progress and backlogs/delays with alerts to drive early corrective actions."
+            },
+            "operation": {
+              "title": "Operations Board (Real-time)",
+              "desc": "Visualize real-time status across lines/workstations to support immediate response on the floor."
+            }
+          },
+          "cta": {
+            "title": "Request MES materials & demo",
+            "desc": "We tailor scope and rollout steps to your production model and quality requirements."
+          }
+        }
+        ,
+        "wmsPage": {
+          "title": "WMS — Warehouse Management System",
+          "intro": "WMS unifies warehouse operations to improve inventory accuracy and operational efficiency.",
+          "galleryAlt": "WMS image",
+          "noImage": "No image",
+          "addHint": "Add files under /SmartManufacturing/wms/ and list them in the array above.",
+          "features": {
+            "title": "Key Features",
+            "inventory": {
+              "title": "Inventory Management",
+              "desc": "Manage lot/serial/location; ensure accurate inbound/outbound and inventory visibility."
+            },
+            "stocktake": {
+              "title": "Stocktaking",
+              "desc": "Support cycle counts and full counts; correct discrepancies early and reduce effort."
+            },
+            "layout": {
+              "title": "Warehouse Layout & E‑paper",
+              "desc": "Optimize placement and display via zone/shelf/location settings integrated with e‑paper."
+            },
+            "pda": {
+              "title": "On‑site Operations via PDA",
+              "desc": "Streamline receiving, shipping, movements, and picking via PDA; reduce mis‑operations."
+            }
+          },
+          "cta": {
+            "title": "Request WMS materials & demo",
+            "desc": "We tailor rollout steps and configurations to your warehouse scale and operations."
+          }
+        }
+      },
+      "view": "View Details",
+      "sections": {
+        "ai": {
+          "title": "AI Case Studies",
+          "desc": "A selection of implementations leveraging AI."
+        },
+        "iot": {
+          "title": "IoT Case Studies",
+          "desc": "Examples of monitoring and analytics integrating IoT devices with the cloud."
+        },
+        "sm": {
+          "title": "Smart Manufacturing",
+          "desc": "Solutions that improve productivity, quality, and operational optimization in manufacturing."
+        },
+        "other": {
+          "title": "Other Case Studies",
+          "desc": "Cross-industry projects showcasing diverse initiatives."
+        }
+      },
+      "ai": {
+        "inspectionPage": {
+          "title": "AI Photo Templates",
+          "intro": "From scenic blends to anime scenes and styled illustrations, AI photo templates turn each photo into a creative, surprising piece.",
+          "client": {
+            "title": "Client Requests",
+            "item1": "Develop a new AI-powered photo experience service",
+            "item2": "Enable users to easily generate photos with diverse templates",
+            "item3": "Achieve high-quality compositing and style transfer quickly"
+          },
+          "solution": {
+            "title": "Our Solution",
+            "item1": "Custom AI algorithms for image compositing and style transfer",
+            "item2": "Intuitive UI for web and mobile apps",
+            "item3": "Fast image processing and storage on the cloud"
+          },
+          "skills": {
+            "title": "Technologies & Skills",
+            "item1": "AI image processing (GAN, style transfer)",
+            "item2": "Front-end with React/TypeScript",
+            "item3": "AI server with Python (FastAPI)",
+            "item4": "Cloud infrastructure (AWS/GCP)",
+            "item5": "UI/UX design and multilingual support"
+          },
+          "scenic": {
+            "aria": "Scenic photo template",
+            "title": "Scenic Photo Template",
+            "desc": "Create AI composite photos with Japan landmarks as backgrounds — Mt. Fuji, Tokyo Tower, Nara, Fushimi Inari, and more."
+          },
+          "cosplay": {
+            "aria": "Cosplay template",
+            "title": "Cosplay Template",
+            "desc": "AI transforms you into popular characters or figures from famous artworks."
+          },
+          "anime": {
+            "aria": "Anime scene template",
+            "title": "Anime Scene Template",
+            "desc": "Generate composite photos as if taken on the stage of popular anime like “Your Name” or “Spirited Away.”"
+          }
+          ,
+          "aivisaPage": {
+            "title": "AI Visa | Multilingual Guidance for Japan Visa",
+            "intro": "Clearly organize required documents for each status of residence in multiple languages. With AI Q&A and an HSP Points Calculator, it supports procedures aligned with the latest standards.",
+            "challenges": {
+              "title": "User/Operations Challenges",
+              "item1": "Provide accurate, multilingual guidance for the latest Japan visa information",
+              "item2": "Improve self-resolution rate via AI-based Q&A",
+              "item3": "Follow policy changes quickly and prevent incorrect guidance"
+            },
+            "solution": {
+              "title": "Solution",
+              "item1": "Structure requirements/documents by status of residence and provide them in multiple languages",
+              "item2": "AI Q&A with auto language detection for instant answers",
+              "item3": "Visualize eligibility with the HSP points calculator"
+            },
+            "skills": {
+              "title": "Technologies & Skills",
+              "item1": "HTML / CSS",
+              "item2": "Tailwind CSS",
+              "item3": "React",
+              "item4": "TypeScript",
+              "item5": "Java",
+              "item6": "PostgreSQL"
+            },
+            "features": {
+              "title": "Key features",
+              "item1": "AI Q&A (auto language detection)",
+              "item2": "Guides for requirements/documents by status of residence",
+              "item3": "Templates for document checks",
+              "item4": "Conversation history with context retention",
+              "item5": "Admin console (content/glossary/multilingual operations)",
+              "item6": "HSP points calculator"
+            },
+            "gallery": {
+              "title": "Screens",
+              "image1Alt": "AI Visa screen image",
+              "imageAlt2": "AI Visa screen image 2",
+              "imageAlt3": "AI Visa screen image 3",
+              "imageAlt4": "AI Visa screen image 4"
+            },
+            "effects": {
+              "item1": { "title": "Reduce operating costs", "desc": "Multilingual auto-replies and structured guides reduce inquiry load." },
+              "item2": { "title": "Increase self-resolution rate", "desc": "AI Q&A and structured data promote first-response resolution." },
+              "item3": { "title": "Prevent incorrect guidance", "desc": "Source citations and update management ensure compliance with latest standards." }
+            }
+          }
+          ,
+          "carGptPage": {
+            "title": "Car Service GPT",
+            "subtitle": "LLM-powered in-car service assistant",
+            "heroDesc": "Multi-end connectivity (Mini App / App / In-car), feature guide, masked vehicle data integration",
+            "challenges": {
+              "title": "Challenges",
+              "item1": "Driver information is fragmented and hard to search",
+              "item2": "Low efficiency in after-sales support",
+              "item3": "Services across channels are not unified"
+            },
+            "solution": {
+              "title": "Solution",
+              "desc1": "Car Service GPT enables natural language interactions powered by large language models.",
+              "desc2": "It unifies in-car systems, mobile apps, and mini-programs.",
+              "desc3": "Users quickly access feature explanations, usage guides, and service information."
+            },
+            "endpoints": {
+              "title": "Multi-end support",
+              "desc": "Connect mini apps, smartphone apps, and in-car systems to deliver a consistent experience everywhere.",
+              "caption": "Unified UI for mini app / app / in-car app"
+            },
+            "features": {
+              "title": "Key features",
+              "item1": "Multi-round QA and intent recognition",
+              "item2": "Vehicle feature search and usage guide",
+              "item3": "Secure integration with masked data",
+              "item4": "Automated service booking and ticket management"
+            },
+            "effects": {
+              "title": "Adoption impact (examples)",
+              "searchTime": "Search time",
+              "selfSolve": "Self-resolution rate",
+              "updateRate": "Update rate"
+            }
+          }
+        },
+        "inspection": {
+          "title": "Automated Visual Inspection with AI",
+          "desc": "Improve inspection accuracy and reduce decision time using deep-learning defect detection models."
+        },
+        "shelf": {
+          "title": "Product Shelf Recognition AI",
+          "desc": "AI quantifies shelf photos—planograms, SKUs, display. Automate checks for faster, standardized results."
+        },
+        "carGpt": {
+          "title": "Automotive Service GPT",
+          "desc": "Integrate vehicle data; AI assists drivers via natural language. Connect with in-vehicle systems and apps to automate services."
+        },
+        "visa": {
+          "title": "AI Visa — Multilingual Guidance for Japan Visa",
+          "desc": "Boost FAQ accuracy and first-response rate using vector search + generative AI. Automate guidance aligned with the latest standards."
+        }
+      },
+      "iot": {
+        "smartParkingPage": {
+          "title": "Smart Parking",
+          "intro": "Smart parking automates entry/exit and vacancy using ALPR and sensors, provides seamless timing and multi-payment support, visualizes operations and revenue, reduces unpaid incidents, standardizes operations, and delivers a smooth, transparent user experience with reduced wait times and improved turnover.",
+          "images": { "galleryAlt": "Smart Parking gallery image", "noImage": "No Image", "addHint": "Please add images to /Iot/SmartParkingSystem/" },
+          "current": {
+            "title": "Current Status & Challenges",
+            "item1": "High labor costs and inefficiency/errors from manual management",
+            "item2": "Frequent payment leakage/unpaid fees make accurate revenue management difficult",
+            "item3": "Hard to obtain real-time vacancy information",
+            "item4": "No integration with government/traffic systems",
+            "item5": "Time-consuming space search leads to low satisfaction"
+          },
+          "solution": {
+            "title": "Solutions",
+            "item1": "Automate entry/exit via ALPR; monitor spaces by camera and geomagnetic sensors",
+            "item2": "Automatic timing/charging; support multiple payment methods",
+            "item3": "Guide, check rates, and pay via web/app/mini app",
+            "item4": "Admin platform for analytics, fee management, and visualization",
+            "item5": "API integration with government systems (unpaid notices, data sharing)",
+            "item6": "Operational automation to reduce labor costs and improve accuracy"
+          },
+          "effects": {
+            "title": "Outcomes",
+            "item1": "Reduce wait times at entry/exit and guide users smoothly",
+            "item2": "Fully automated charging to maximize revenue and prevent leakage",
+            "item3": "Streamline and standardize operations; continuously improve KPIs",
+            "item4": "Simple, transparent, and fast user experience",
+            "item5": "Integrate with urban traffic data to contribute to smart city"
+          }
+        },
+        "parkingMgmtPage": {
+          "title": "Parking Management System",
+          "intro": "Integrate vacancy detection, reservations, dynamic pricing, and online payments to improve utilization and customer experience. Provide an admin console with dashboards and analytics to optimize operations.",
+          "images": { "galleryAlt": "Parking Management gallery image", "noImage": "No Image", "addHint": "Please add images to /Iot/ParkingManagementSystem/" },
+          "current": {
+            "title": "Current Status & Challenges",
+            "item1": "Manual spot tracking and paper-based reservations cause errors",
+            "item2": "Static pricing fails to reflect demand and reduces revenue",
+            "item3": "Payment processes are fragmented with low transparency",
+            "item4": "Limited visibility into utilization KPIs and trends",
+            "item5": "Operations are not standardized across locations"
+          },
+          "solution": {
+            "title": "Solutions",
+            "item1": "Detect vacancies via cameras/sensors and expose real-time availability",
+            "item2": "Enable reservations and dynamic pricing by time and demand",
+            "item3": "Support online payments (card, QR, wallet) with receipts",
+            "item4": "Admin platform for fee management, occupancy analytics, and dashboards",
+            "item5": "APIs for integration with city and operator systems"
+          },
+          "effects": {
+            "title": "Outcomes",
+            "item1": "Increase utilization and reduce search time",
+            "item2": "Improve revenue via demand-based pricing",
+            "item3": "Standardize operations and reduce manual workload",
+            "item4": "Deliver a simple, fast, transparent user experience",
+            "item5": "Provide data-driven insights for continuous optimization"
+          },
+          "features": {
+            "title": "Key Features",
+            "adminTitle": "Admin",
+            "driverTitle": "Driver",
+            "admin": [
+              "Fee collection",
+              "Member/contract management",
+              "Vehicle search",
+              "Reports/Dashboards",
+              "Alert notifications",
+              "Role/permission management"
+            ],
+            "driver": [
+              "Cashless payments",
+              "Parking search/Navigation",
+              "Reservations/Long-term contracts",
+              "Statements/Usage history",
+              "Maintenance/Car wash booking",
+              "Coupons/Promotions"
+            ]
+          },
+          "architecture": {
+            "title": "System Architecture",
+            "desc": "Integrate gate/sensor/ANPR for automated entry/exit, connect third-party payments (QR/cards) via APIs, and adopt a loosely coupled design for easy future expansion."
+          },
+          "integrations": {
+            "title": "Integrations & Extensions",
+            "items": [
+              "Third-party payment gateways",
+              "Existing POS/Accounting systems",
+              "CRM/BI/Analytics platforms",
+              "Public APIs/SDKs",
+              "Webhook/Event integration",
+              "SFTP/Batch jobs"
+            ]
+          },
+          "security": {
+            "title": "Security / Compliance",
+            "items": [
+              "TLS communication encryption and optional data-at-rest encryption",
+              "Detailed logs for operations/auth/payment processing with audit trails",
+              "Separation of privileges (admin/audit/operations/external APIs)",
+              "Personal data protection (least privilege, masking, retention management)"
+            ]
+          },
+          "offering": {
+            "title": "Offering Model",
+            "desc": "Default offering is Cloud/SaaS. On-premise is available upon requirements definition. Start with a PoC to validate automatic recognition and pricing models, then scale in phases for production rollout and optimization.",
+            "steps": [
+              "Discovery / Current-state analysis",
+              "PoC (ANPR integration / pricing model validation)",
+              "Production build (integration / migration / training)",
+              "Operations optimization (report analysis / feature expansion)"
+            ]
+          }
+        },
+        "batteryPage": {
+          "title": "Mobile Battery Share",
+          "intro": "A real-time IoT-linked system connecting the admin platform, charging cabinets, and mobile app to manage rental, return, and operational status of mobile batteries. It delivers convenient charging for users and opens new business opportunities for operators.",
+          "client": {
+            "title": "Client Requests",
+            "item1": "Launch mobile battery rental in urban areas and malls",
+            "item2": "Provide an easy flow for users to borrow and return",
+            "item3": "Operators need instant visibility into operations and stock"
+          },
+          "solution": {
+            "title": "Our Solution",
+            "item1": "Build a real-time management system via IoT integration",
+            "item2": "Design a seamless experience across app, web, and cabinets",
+            "item3": "Analyze data and optimize operations in the admin platform"
+          },
+          "skills": {
+            "title": "Technologies & Skills",
+            "item1": "IoT device control and data integration",
+            "item2": "Front-end with React/TypeScript",
+            "item3": "API/admin system with Node.js/Express",
+            "item4": "Cloud infrastructure (AWS/Azure)",
+            "item5": "UI/UX design and multilingual support"
+          },
+          "images": {
+            "overviewAlt": "Mobile battery share system overview",
+            "managementAlt": "Admin management screens",
+            "cabinetAlt": "Charging cabinet device",
+            "mobileAlt": "Mobile app screen"
+          },
+          "overview": {
+            "title": "System Overview",
+            "desc": "Three parts — admin system, mobile app, and charging cabinets. Real-time data integration balances user convenience and operational efficiency."
+          },
+          "management": {
+            "title": "Admin System",
+            "desc": "Acts as the ‘brain’: monitors rental/return, battery levels, and cabinet placement in real time; supports user management, statistics, and incident alerts."
+          },
+          "cabinet": {
+            "title": "Charging Cabinet",
+            "desc": "Physical device for borrowing/returning batteries. High capacity, fast charging, anti-theft design; smart detection manages charge status to ensure full batteries are available."
+          },
+          "mobile": {
+            "title": "Mobile App",
+            "desc": "The direct user touchpoint. Find nearby cabinets, reserve, scan to borrow, and return easily; includes online support and feedback."
+          }
+        },
+        "battery": {
+          "title": "Mobile Battery Share",
+          "desc": "Collect usage and lending/return data via IoT; visualize utilization and location-by-location trends."
+        },
+        "smartParking": {
+          "title": "Smart Parking",
+          "desc": "AI automates entry/exit, vacancy, and payments. Visualize usage and revenue."
+        },
+        "parkingMgmt": {
+          "title": "Parking Management System",
+          "desc": "Detect vacancies, reservations, pricing, and payments to boost utilization and experience."
+        },
+        "flood": {
+          "title": "River Flood Monitoring",
+          "desc": "Monitor water levels and rainfall in real time with IoT sensors; reduce flood risk via anomaly detection and early warnings."
+        },
+        "plate": {
+          "title": "License Plate Analysis",
+          "desc": "Recognize license plates with high accuracy using AI; streamline automation and efficiency in parking, logistics, and security."
+        }
+      },
+      "smart": {
+        "aps": {
+          "title": "APS (Production Scheduling)",
+          "desc": "Balance on-time delivery and inventory turnover using scheduling that considers demand forecasts and constraints."
+        },
+        "mes": {
+          "title": "MES (Manufacturing Execution System)",
+          "desc": "Analyze bottlenecks using equipment operation data; reduce changeover time and improve OEE."
+        },
+        "wms": {
+          "title": "WMS (Warehouse Management System)",
+          "desc": "Manage inbound/outbound, inventory, and locations centrally; improve traceability and stock-taking accuracy."
+        },
+        "productSelection": {
+          "title": "Product Selection System",
+          "desc": "Auto-match products to needs; streamline analysis and standardize proposals."
+        },
+        "quotation": {
+          "title": "Quotation Management System",
+          "desc": "Create quotes, control versions, and approve faster with templates and history."
+        }
+      },
+      "other": {
+        "sap": {
+          "title": "SAP Implementation & Optimization",
+          "desc": "Support requirements, design, implementation, and operations across FI/CO, SD, MM; build integrations with surrounding systems and data platforms."
+        },
+        "salesforce": {
+          "title": "Salesforce Implementation & Enablement",
+          "desc": "Support design, implementation, and operational adoption for Sales Cloud/Service Cloud; improve sales productivity via MA integration and dashboard visualization."
+        }
+      }
+    },
+    
+        "services": {
+          "delivery": {
+            "onsite": {
+              "title": "Onsite Development",
+              "hero": "We work directly at your site, aligning with on-the-ground context to drive fast decisions and tight collaboration. Ideal for high-security requirements or projects needing close stakeholder coordination.",
+              "reasons": {
+                "title": "Onsite Advantages",
+                "subtitle": "Shortest path to value with on-site immersion",
+                "decision": { "title": "Faster Decisions", "desc": "Face-to-face communication resolves questions immediately; quickly adapt to requirement changes and priority adjustments." },
+                "security": { "title": "High Security Fit", "desc": "Operate under your security policies — network segregation, dedicated devices, and more." },
+                "knowledge": { "title": "Capture Field Knowledge", "desc": "Work closely with business owners and related departments to translate tacit knowledge into specifications for better quality." }
+              },
+              "model": {
+                "title": "Operations & Quality",
+                "subtitle": "Team, process, and governance",
+                "proc": { "title": "Operating Process", "item1": "Kanban (updated daily)", "item2": "Weekly ceremonies (review/retro)", "item3": "Stakeholder progress reporting" },
+                "qa": { "title": "Quality Management", "item1": "Defined acceptance criteria (DoD)", "item2": "Code review / static analysis", "item3": "Automated tests — E2E / performance" },
+                "sec": { "title": "Security/Authentication", "item1": "Device and account management", "item2": "Authorization design / MFA", "item3": "Audit logs / change management" }
+              },
+              "scope": {
+                "title": "Typical Support",
+                "subtitle": "From PMO and requirements to operations",
+                "item1": "PM/PMO and vendor control",
+                "item2": "Requirements, process organization, documentation",
+                "item3": "Design, implementation, review",
+                "item4": "Test planning, automation, UAT support",
+                "item5": "Release management, operations handover",
+                "item6": "Security review support",
+                "item7": "User training, FAQ documentation",
+                "item8": "Onsite Kaizen improvements"
+              },
+              "cta": {
+                "title": "Start with Discovery",
+                "desc": "Run a 1–2 week onsite discovery phase to identify issues, validate hypotheses, and plan collaboratively.",
+                "contact": "Contact"
+              }
+            },
+            "offshore": {
+              "title": "Offshore Development",
+              "hero": "We build with a global team to balance speed and cost. Japan-side PM/BrSE handle requirements and quality, combined with overseas engineers' execution power.",
+              "reasons": {
+                "title": "Why Choose Us",
+                "subtitle": "Optimize quality, speed, and cost",
+                "cost": { "title": "Cost Optimization", "desc": "Leverage overseas labor while reviewing to Japan-quality standards. Reduce TCO and enable continuous development." },
+                "speed": { "title": "Speed & Flexibility", "desc": "Multi-site setup ensures throughput. Agile operations respond quickly to spec changes." },
+                "jp": { "title": "Japanese Communication", "desc": "BrSE/PM accompany from requirements to acceptance. Documents and meetings proceed smoothly in Japanese." }
+              },
+              "model": {
+                "title": "Team & Operation",
+                "subtitle": "An operating model that drives results",
+                "comm": { "title": "Communication Design", "item1": "Weekly scrum (review/retro)", "item2": "Daily stand-up (15 min)", "item3": "Task visibility (Jira/Backlog)" },
+                "qa": { "title": "Quality Assurance", "item1": "Dual reviews (dev/QA)", "item2": "Automated tests and CI/CD", "item3": "Release gates and Definition of Done" },
+                "sec": { "title": "Security/Governance", "item1": "Separation of privileges and audit logs", "item2": "Data loss prevention (DLP)", "item3": "Contracts/NDA & personal data protection" }
+              },
+              "scope": {
+                "title": "Typical Scope",
+                "subtitle": "Web/Mobile/Cloud/Data/AI",
+                "item1": "Front-end (React/Next.js)",
+                "item2": "Back-end (Node.js/Java)",
+                "item3": "Mobile (iOS/Android)",
+                "item4": "Cloud (AWS/Azure/GCP)",
+                "item5": "Data Engineering",
+                "item6": "MLOps/LLM Applications",
+                "item7": "QA / Test Automation",
+                "item8": "Operations/Monitoring/SRE"
+              },
+              "cta": {
+                "title": "Start small and validate",
+                "desc": "Begin with a two-week trial sprint. Execute end-to-end: scope definition → implementation → review.",
+                "contact": "Contact"
+              }
+            }
+          },
+          "development": {
+            "project": {
+              "title": "Project-based Development",
+              "intro": "Project-based development is a model where we undertake systems and apps end-to-end based on clear requirements, schedules, and budgets. We deliver high-quality results with one-stop coverage from requirements to design, development, testing, and delivery.",
+              "features": {
+                "title": "Features",
+                "item1": "Ideal for projects with clear requirements, schedule, and cost",
+                "item2": "Experienced PMs and engineers provide unified management",
+                "item3": "Commitment to quality, schedule, and cost",
+                "item4": "Post‑delivery maintenance and operations support available"
+              },
+              "flow": {
+                "title": "Process",
+                "step1": "Requirements hearing, estimation, and proposal",
+                "step2": "Requirements definition and design",
+                "step3": "System development and testing",
+                "step4": "Delivery, release, and operations support"
+              },
+              "cta": {
+                "title": "Start with a small PoC or fixed estimate",
+                "desc": "Validate via a 2–4 week PoC or a fixed estimate for a well-defined scope. Execute define → design → implement → review quickly, then align on final estimate and schedule.",
+                "contact": "Contact"
+              }
+            },
+            "lab": {
+              "title": "Lab-based Development",
+              "intro": "Lab-based development assembles a dedicated client team to deliver flexible, continuous development and operations. It responds quickly to changing requirements and new features, ideal for building long-term partnerships.",
+              "features": {
+                "title": "Features",
+                "item1": "Continuous development and operations support by a dedicated team",
+                "item2": "Flexible response to requirement changes and additional development",
+                "item3": "Close communication and transparency with the client",
+                "item4": "Cost optimization and efficient resource utilization"
+              },
+              "flow": {
+                "title": "Process",
+                "step1": "Requirements hearing and team proposal",
+                "step2": "Spin-up of the dedicated team and kickoff",
+                "step3": "Continuous development and operations via agile",
+                "step4": "Regular progress reporting, reviews, and improvement proposals"
+              },
+              "cta": {
+                "title": "Start with a dedicated team trial",
+                "desc": "Begin with 2–3 members for 1–2 months. Validate requirement organization → development → review for ongoing operations, then flexibly scale team size and skills after go-live.",
+                "contact": "Contact"
+              }
+            }
+          }
+        },
+    "company": {
+      "title": "Company Profile",
+      "about": { "title": "About Takehana Japan Co., Ltd." },
+      "info": {
+        "name": "Company Name",
+        "nameValue": "Takehana Japan Co., Ltd.",
+        "founded": "Founded",
+        "foundedValue": "2022",
+        "capital": "Capital",
+        "capitalValue": "JPY 5,000,000",
+        "ceo": "Representative",
+        "ceoValue": "He Xin",
+        "address": "Address",
+        "addressValue": "7F, Suishin Bldg., 1-11-1 Kitasaiwai, Nishi-ku, Yokohama, Kanagawa 220-0004",
+        "business": "Business",
+        "businessValue": "AI, IoT, enterprise systems; DX consulting; offshore/on-site development",
+        "group": "Affiliated Company",
+        "groupValue": "Dalian Zhuhua Technology Co., Ltd. (China HQ)"
+      },
+      "philosophy": {
+        "title": "Corporate Philosophy",
+        "text": "Connecting the future with technology — We harness cutting-edge IT and a global perspective to contribute to the sustainable growth of our customers, society, and employees.",
+        "desc": "Connecting the future with technology — We harness cutting-edge IT and a global perspective to contribute to the sustainable growth of our customers, society, and employees."
+      },
+      "history": {
+        "title": "History",
+        "item1": "2016: Established China Headquarters (Dalian Zhuhua Technology Co., Ltd.)",
+        "item2": "2018: Strengthened organizational capabilities in AI and IoT",
+        "item3": "2021: Expanded DX consulting business",
+        "item4": "2022: Established Takehana Japan Co., Ltd."
+      },
+      "company": {
+        "index": {
+          "title": "Company",
+          "aboutTitle": "About",
+          "aboutDesc": "Learn about our company overview, mission, and history.",
+          "teamTitle": "Team",
+          "teamDesc": "Meet the people driving our innovation and growth.",
+          "partnersTitle": "Partners",
+          "partnersDesc": "Explore our trusted partners and collaborations.",
+          "go": "View"
+        },
+        "about": {
+          "title": "Company Overview",
+          "sectionTitle": "About Takehana Japan Co., Ltd."
+        },
+        "info": {
+          "nameLabel": "Company Name",
+          "nameValue": "Takehana Japan Co., Ltd.",
+          "establishedLabel": "Established",
+          "establishedValue": "2022",
+          "capitalLabel": "Capital",
+          "capitalValue": "JPY 5,000,000",
+          "representativeLabel": "Representative",
+          "representativeValue": "Xin He",
+          "locationLabel": "Location",
+          "locationValue": "7F, Suishin Building, 1-11-1 Kitasaiwai, Nishi-ku, Yokohama, Kanagawa 220-0004, Japan",
+          "businessLabel": "Business",
+          "businessValue": "AI, IoT, Business Systems; DX Consulting; Offshore/Onsite Development",
+          "affiliatesLabel": "Affiliated Company",
+          "affiliatesValue": "Dalian Zhuhua Technology Co., Ltd. (China HQ)"
+        },
+        "philosophy": {
+          "title": "Corporate Philosophy",
+          "text": "Connecting the future with technology — We harness cutting-edge IT and a global perspective to contribute to the sustainable growth of our customers, society, and employees.",
+          "desc": "Connecting the future with technology — We harness cutting-edge IT and a global perspective to contribute to the sustainable growth of our customers, society, and employees."
+        },
+        "history": {
+          "title": "History",
+          "items": [
+            { "date": "2016", "event": "Established China Headquarters (Dalian Zhuhua Technology Co., Ltd.)" },
+            { "date": "2018", "event": "Strengthened organizational capabilities in AI and IoT" },
+            { "date": "2021", "event": "Expanded DX consulting business" },
+            { "date": "2022", "event": "Established Takehana Japan Co., Ltd." }
+          ],
+          "item1": "2016: Established China Headquarters (Dalian Zhuhua Technology Co., Ltd.)",
+          "item2": "2018: Strengthened organizational capabilities in AI and IoT",
+          "item3": "2021: Expanded DX consulting business",
+          "item4": "2022: Established Takehana Japan Co., Ltd."
+        },
+        "team": {
+          "title": "Team",
+          "description": "Meet the team supporting our growth.",
+          "members": {
+            "ceo": {
+              "name": "Xin He",
+              "role": "CEO",
+              "bio": "Leads strategy and growth with extensive experience in AI/IoT."
+            },
+            "cto": {
+              "name": "(CTO Name)",
+              "role": "CTO",
+              "bio": "Drives technology strategy and product development; expert in cloud, data, and security."
+            },
+            "leadAi": {
+              "name": "(AI Lead Name)",
+              "role": "AI Lead",
+              "bio": "Responsible for R&D in machine learning and computer vision."
+            }
+          },
+          "note": "Sample information. Actual team composition may change."
+        },
+        "partners": {
+          "title": "Partners",
+          "logoAlt": "Partner logo"
+        }
+      }
+    }
+    ,
+    "home": {
+      "hero": {
+        "line1": "Drives global DX using AI/IoT,",
+        "line2": "Maximizing manufacturing output and efficiency"
+      },
+      "achievements": {
+        "view": "View Details",
+        "sections": {
+          "ai": {
+            "title": "AI Case Studies",
+            "desc": "A selection of implementations leveraging AI."
+          },
+          "iot": {
+            "title": "IoT Case Studies",
+            "desc": "Examples of monitoring and analytics integrating IoT devices with the cloud."
+          },
+          "smart": {
+            "title": "Smart Manufacturing",
+            "desc": "Solutions that improve productivity, quality, and operational optimization in manufacturing."
+          },
+          "other": {
+            "title": "Other Case Studies",
+            "desc": "Cross-industry projects showcasing diverse initiatives."
+          }
+        },
+        "ai": {
+          "inspection": {
+            "title": "Automated Visual Inspection with AI",
+            "desc": "Improve inspection accuracy and reduce decision time using deep-learning defect detection models."
+          },
+          "shelf": {
+            "title": "Product Shelf Recognition AI",
+            "desc": "AI quantifies shelf photos—planograms, SKUs, display. Automate checks for faster, standardized results."
+          },
+          "carGpt": {
+            "title": "Automotive Service GPT",
+            "desc": "Integrate vehicle data; AI assists drivers via natural language. Connect with in-vehicle systems and apps to automate services."
+          },
+          "visa": {
+            "title": "AI Visa — Multilingual Guidance for Japan Visa",
+            "desc": "Boost FAQ accuracy and first-response rate using vector search + generative AI. Automate guidance aligned with the latest standards."
+          },
+          "shelf2": {
+            "title": "Shelf Recognition",
+            "desc": "Automatically recognize product placement from shelf images to support inventory management and display optimization."
+          }
+        },
+        "iot": {
+          "battery": {
+            "title": "Mobile Battery Share",
+            "desc": "Collect usage and lending/return data via IoT; visualize utilization and location-by-location trends."
+          },
+          "smartParking": {
+            "title": "Smart Parking",
+            "desc": "Automate entry/exit and vacancy with AI plate recognition and sensors. Support online payments and timed billing; visualize utilization and revenue."
+          },
+          "parkingMgmt": {
+            "title": "Parking Management System",
+            "desc": "Integrate detection of vacancies, reservations, price optimization, and online payments to improve utilization and customer experience."
+          },
+          "flood": {
+            "title": "River Flood Monitoring",
+            "desc": "Monitor water levels and rainfall in real time with IoT sensors; reduce flood risk via anomaly detection and early warnings."
+          },
+          "plate": {
+            "title": "License Plate Analysis",
+            "desc": "Recognize license plates with high accuracy using AI; streamline automation and efficiency in parking, logistics, and security."
+          }
+        },
+        "smart": {
+          "aps": {
+            "title": "APS (Production Scheduling)",
+            "desc": "Balance on-time delivery and inventory turnover using scheduling that considers demand forecasts and constraints."
+          },
+          "mes": {
+            "title": "MES (Manufacturing Execution System)",
+            "desc": "Analyze bottlenecks using equipment operation data; reduce changeover time and improve OEE."
+          },
+          "wms": {
+            "title": "WMS (Warehouse Management System)",
+            "desc": "Manage inbound/outbound, inventory, and locations centrally; improve traceability and stock-taking accuracy."
+          },
+          "productSelection": {
+            "title": "Product Selection System",
+            "desc": "Automatically match products to requirements to streamline data analysis and comparison; improve selection accuracy and standardize proposals."
+          },
+          "quotation": {
+            "title": "Quotation Management System",
+            "desc": "Implement quote creation, version control, and approval workflows considering cost and margin; use history and templates to speed proposals."
+          }
+        },
+        "other": {
+          "sap": {
+            "title": "SAP Implementation & Operations Optimization",
+            "desc": "Support requirements, design, implementation, and operations across FI/CO, SD, MM; build integrations with surrounding systems and data platforms."
+          },
+          "salesforce": {
+            "title": "Salesforce Implementation & Enablement",
+            "desc": "Support design, implementation, and operational adoption for Sales Cloud/Service Cloud; improve sales productivity via MA integration and dashboard visualization."
+          }
+        }
+      },
+      "cta": { "contact": "Contact" },
+      "why": {
+        "title": "Our Strengths",
+        "desc": "Leveraging Japan and overseas bases, we deliver diverse solutions using cutting-edge technologies.",
+        "points": {
+          "onsite": "Onsite leadership",
+          "offshore": "Offshore delivery",
+          "performance": "High performance",
+          "lowRisk": "Low risk"
+        }
+      },
+      
+      "services": {
+        "title": "Services",
+        "project": { "title": "Project-based", "desc": "From requirements to release" },
+        "lab": { "title": "Lab-based", "desc": "Flexible, stable teams" },
+        "offshore": { "title": "Offshore", "desc": "Cost-effective overseas sites" },
+        "onsite": { "title": "Onsite", "desc": "Japan-side leaders manage quality" }
+      },
+      "skills": {
+        "title": "Tech Stack",
+        "frontend": "Front-End",
+        "backend": "Back-End",
+        "database": "Database / Middleware"
+      }
+      
+    }
+  }
 }

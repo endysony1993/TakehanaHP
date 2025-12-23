@@ -3,9 +3,12 @@ export type CaseItem = {
   description: string
   tags: string[]
   link?: string
+  titleKey?: string
+  descriptionKey?: string
 }
 
 import { Link } from 'react-router-dom';
+import { useT } from '../../hooks/useT'
 
 export default function CaseGrid({
   items,
@@ -16,6 +19,7 @@ export default function CaseGrid({
   headerTitle?: string
   headerDescription?: string
 }) {
+  const { t } = useT()
   return (
     <div className="container mx-auto px-4 py-10 sm:py-14">
       {(headerTitle || headerDescription) && (
@@ -38,9 +42,9 @@ export default function CaseGrid({
               <div className="absolute inset-x-0 top-0 h-1 bg-[#0066c5] rounded-t-xl" />
               <div className="p-5 sm:p-6">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-[#0066c5] transition-colors">
-                  {item.title}
+                  {item.titleKey ? t(item.titleKey, item.title) : item.title}
                 </h2>
-                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{item.descriptionKey ? t(item.descriptionKey, item.description) : item.description}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {item.tags.map((t, i) => (
                     <li
@@ -57,7 +61,7 @@ export default function CaseGrid({
                       to={item.link}
                       className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#0066c5] text-white text-sm font-semibold shadow transition-transform duration-200 transform hover:scale-110"
                     >
-                      <span>詳細を見る</span>
+                      <span>{t('pages.achievements.view', 'Xem chi tiết')}</span>
                       <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                         <circle cx="12" cy="12" r="11" fill="#fff" />
                         <path d="M10 8l4 4-4 4" stroke="#0066c5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />

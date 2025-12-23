@@ -1,102 +1,221 @@
 // 見積管理システム（Quotation）概要ページ
 // 画像の追加方法: `client/public/images/quotation/` に配置し、必要に応じて後でギャラリー領域を拡張可能。
 
+import { useT } from '../../../hooks/useT'
+import { useI18n } from '../../../context/I18nContext'
+
 export default function QuotationIntro() {
+	const { t } = useT()
+	const { locale } = useI18n()
+	const vi = locale === 'vi'
+
+	const VI = {
+		title: 'Hệ thống quản lý báo giá',
+		intro:
+			'Nền tảng báo giá tiêu chuẩn giúp tăng khả năng trúng thầu đồng thời đảm bảo lợi nhuận và kiểm soát. Tăng tốc độ, độ chính xác, khả năng tái sử dụng và kiểm toán.',
+		featuresTitle: 'Tính năng chính',
+		features: [
+			{
+				title: 'Chuẩn hóa cấu trúc báo giá',
+				desc:
+					'Chuẩn hóa cấu trúc, thành phần chi phí, tỷ suất lợi nhuận từ dữ liệu thắng/thua trước đây để tăng tốc độ và độ chính xác.',
+			},
+			{
+				title: 'Tự động tính chi phí & lợi nhuận',
+				desc:
+					'Tổng hợp vật tư, nhân công, thuê ngoài, logistics để tính tỷ suất lợi nhuận và lợi nhuận theo thời gian thực.',
+			},
+			{
+				title: 'Quản lý phiên bản & quy trình phê duyệt',
+				desc:
+					'Lưu lịch sử chỉnh sửa, so sánh chênh lệch và quản lý phê duyệt theo vai trò (Kinh doanh → Quản lý → Lãnh đạo).',
+			},
+			{
+				title: 'Điều chỉnh giá & mô phỏng điều kiện',
+				desc:
+					'Điều chỉnh số lượng/kỳ hạn/thanh toán/tỷ giá/khuyến mãi để tìm ra mức giá tối ưu.',
+			},
+			{
+				title: 'Phát hiện rủi ro/ngoại lệ',
+				desc:
+					'Cảnh báo vượt ngưỡng lợi nhuận, hạn chế tồn kho, thời gian cung ứng, và vấn đề tuân thủ.',
+			},
+			{
+				title: 'Chuẩn hóa chất lượng hồ sơ gửi',
+				desc:
+					'Thống nhất bố cục/thuật ngữ và checklist tài liệu đính kèm để chuẩn hóa hồ sơ gửi cho khách hàng.',
+			},
+		],
+		dataTitle: 'Mô hình dữ liệu',
+		dataModel: [
+			'Cơ hội (khách hàng, ngành, trạng thái, thời điểm kỳ vọng)',
+			'Hạng mục (mã, model, SL, đơn giá, giá vốn, tồn kho)',
+			'Thành phần chi phí (vật tư, nhân công, thuê ngoài, logistics, chi phí chung)',
+			'Yếu tố điều chỉnh (loại chiết khấu, tỷ lệ, thời hạn áp dụng)',
+			'Lịch sử phê duyệt (giai đoạn, người duyệt, thời gian, ghi chú)',
+			'Phiên bản báo giá (số, người tạo, đánh dấu so sánh)',
+			'Cờ rủi ro (ngưỡng lợi nhuận, hạn chế cung ứng, tuân thủ)',
+		],
+		logicTitle: 'Logic định giá',
+		logicSteps: [
+			'Tổng hợp thành phần chi phí (giá vốn hạng mục + nhân công + thuê ngoài + logistics + chi phí chung)',
+			'Tính ban đầu lợi nhuận/tỷ suất (tham chiếu bảng tỷ suất chuẩn)',
+			'Tính lại theo điều kiện/số lượng/kỳ hạn',
+			'Kiểm tra ngưỡng lợi nhuận (cảnh báo/điều chỉnh)',
+			'Điều chỉnh tham chiếu giá thị trường/cạnh tranh (tuỳ chọn)',
+			'Luồng phê duyệt (VD: Kinh doanh <15% → Quản lý 10–15% → Lãnh đạo <10%)',
+			'Chốt phiên bản và tạo tài liệu gửi (PDF/Excel/portal)',
+		],
+		opsTitle: 'Điểm vận hành quan trọng',
+		ops: [
+			'Quản trị cập nhật template (review định kỳ và duyệt chênh lệch)',
+			'Rà soát hàng năm ngưỡng lợi nhuận (biến động chi phí/thị trường)',
+			'Thiết lập SLA phê duyệt (tránh mất cơ hội do chậm trễ)',
+			'Luồng riêng cho ngoại lệ (chiến lược/đơn hàng lớn/xả hàng)',
+			'Tự động cập nhật tỷ giá và giá mua (API ngoài hoặc ERP)',
+			'Lưu toàn bộ lịch sử chỉnh sửa phục vụ kiểm toán',
+		],
+		kpiTitle: 'KPIs',
+		kpis: [
+			'Thời gian tạo báo giá (bản đầu / cuối)',
+			'Trung vị tỷ suất lợi nhuận / số lượng dưới ngưỡng',
+			'Thời gian lưu trung bình theo bước phê duyệt',
+			'Tỷ lệ thắng sau khi gửi',
+			'Tỷ lệ dùng template (chuẩn vs ngoại lệ)',
+			'Tỷ lệ báo giá lại (đổi yêu cầu / lỗi / điều chỉnh giá)',
+		],
+		risksTitle: 'Rủi ro & Kiểm soát',
+		risks: [
+			{ risk: 'Vượt ngưỡng lợi nhuận kéo dài', control: 'Cảnh báo tự động + buộc phê duyệt + review hàng tháng' },
+			{ risk: 'Nhầm lẫn phiên bản dẫn đến gửi sai', control: 'Đánh số tự động + khoá phiên bản cũ + UI so sánh chênh lệch' },
+			{ risk: 'Điều chỉnh giá mang tính chủ quan', control: 'Ghi nhận toàn bộ điều chỉnh + rõ ràng quyền hạn' },
+			{ risk: 'Sai lệch lợi nhuận do cập nhật chi phí chậm', control: 'Nhắc cập nhật master chi phí + kiểm tra ngày cập nhật' },
+			{ risk: 'Mất cơ hội do chậm phê duyệt', control: 'Cảnh báo SLA + thiết lập người duyệt thay thế' },
+			{ risk: 'Áp dụng điều kiện không hợp lệ', control: 'Quy tắc định trước + bắt buộc lý do ngoại lệ' },
+		],
+		checkTitle: 'Checklist trước khi gửi',
+		check: [
+			'Master chi phí mới nhất (kiểm tra ngày cập nhật)?',
+			'Không dưới ngưỡng lợi nhuận?',
+			'Nhất quán về số lượng/model/cấu hình?',
+			'Có bản ghi phê duyệt cho ngoại lệ (giá đặc biệt/khuyến mãi)?',
+			'Định dạng gửi chuẩn (bố cục/thuật ngữ)?',
+			'Không thiếu yêu cầu khách hàng (giao hàng/thanh toán/phạm vi hỗ trợ)?',
+			'Giải thích được khác biệt so với case tương tự trước đây (giá/cấu hình)?',
+		],
+		ctaTitle: 'Yêu cầu tài liệu & demo hệ thống báo giá',
+		ctaDesc:
+			'Đề xuất thiết kế template và tối ưu liên kết chi phí phù hợp quy trình kinh doanh và cơ cấu sản phẩm của bạn.',
+	}
 // ギャラリーに後で画像を追加するためのプレースホルダー（現在未使用）
 // const galleryImages: string[] = []
 
-	const functions = [
+	const functions = vi
+		? VI.features
+		: [
 		{
-			title: '見積構成のテンプレート化',
-			desc: '過去受注/失注データを基に構成・原価要素・利益率をテンプレート化し、作成スピードと精度を向上。',
+			title: t('pages.achievements.sm.quotationPage.features.template.title', 'Template Quotation Structure'),
+			desc: t('pages.achievements.sm.quotationPage.features.template.desc', 'Template structure, cost elements, and margin rates based on past wins/losses to boost speed and accuracy.'),
 		},
 		{
-			title: '原価・粗利の自動計算',
-			desc: '部材・工数・外注費・物流費などを集計し、粗利率や利益額をリアルタイム算出。',
+			title: t('pages.achievements.sm.quotationPage.features.calc.title', 'Auto Cost & Margin Calculation'),
+			desc: t('pages.achievements.sm.quotationPage.features.calc.desc', 'Aggregate materials, labor, outsourcing, logistics to compute margin rate and profit in real time.'),
 		},
 		{
-			title: 'バージョン管理と承認ワークフロー',
-			desc: '改訂履歴を保持し、差分比較と権限承認（営業→管理→役員）を統合管理。',
+			title: t('pages.achievements.sm.quotationPage.features.workflow.title', 'Versioning & Approval Workflow'),
+			desc: t('pages.achievements.sm.quotationPage.features.workflow.desc', 'Keep revision history; compare diffs and manage role-based approvals (Sales → Manager → Executive).'),
 		},
 		{
-			title: '価格調整と条件シミュレーション',
-			desc: '数量/期間/支払条件/為替/キャンペーンなどの要素を変更し、最適価格帯を探索。',
+			title: t('pages.achievements.sm.quotationPage.features.sim.title', 'Price Adjustment & Simulation'),
+			desc: t('pages.achievements.sm.quotationPage.features.sim.desc', 'Adjust quantity/term/payment/FX/campaigns to explore optimal price bands.'),
 		},
 		{
-			title: 'リスク・例外検知',
-			desc: '最低利益率割れ・在庫制約・供給リードタイム・法令/規約違反要素を警告。',
+			title: t('pages.achievements.sm.quotationPage.features.risk.title', 'Risk/Exception Detection'),
+			desc: t('pages.achievements.sm.quotationPage.features.risk.desc', 'Warn on margin threshold breaches, stock constraints, supply lead time, and compliance issues.'),
 		},
 		{
-			title: '提出品質の標準化',
-			desc: 'レイアウト・用語統一・添付資料チェックリストを組み込み、顧客向け提出物の品質を均一化。',
+			title: t('pages.achievements.sm.quotationPage.features.standard.title', 'Standardize Submission Quality'),
+			desc: t('pages.achievements.sm.quotationPage.features.standard.desc', 'Unify layout/terminology and include attachment checklists to standardize customer-facing deliverables.'),
 		},
 	]
 
-	const dataModel = [
-		'案件（顧客・業界・ステータス・期待受注時期）',
-		'構成アイテム（品目・型番・数量・単価・原価・在庫状況）',
-		'コスト要素（材料・工数・外注・物流・間接費配賦）',
-		'価格調整要素（割引種別・調整率・条件適用期間）',
-		'承認履歴（段階・承認者・日時・コメント）',
-		'見積バージョン（版番号・作成者・比較マーカー）',
-		'リスクフラグ（利益率閾値・供給制約・法令チェック）',
-	]
+	const dataModel = vi
+		? VI.dataModel
+		: [
+			t('pages.achievements.sm.quotationPage.data.case', 'Case (customer, industry, status, expected close)'),
+			t('pages.achievements.sm.quotationPage.data.items', 'Items (sku, model, qty, unit price, cost, stock)'),
+			t('pages.achievements.sm.quotationPage.data.costs', 'Cost elements (materials, labor, outsourcing, logistics, overhead)'),
+			t('pages.achievements.sm.quotationPage.data.adjust', 'Adjustment factors (discount type, rate, applicable term)'),
+			t('pages.achievements.sm.quotationPage.data.approvals', 'Approval history (stage, approver, datetime, comment)'),
+			t('pages.achievements.sm.quotationPage.data.version', 'Quotation version (number, author, compare marker)'),
+			t('pages.achievements.sm.quotationPage.data.risk', 'Risk flags (margin threshold, supply constraints, compliance)'),
+		]
 
-	const pricingLogicSteps = [
-		'原価構成の集計（品目原価 + 工数 + 外注 + 物流 + 間接費配賦）',
-		'利益率/利益額の初期算出（標準利益率テーブル参照）',
-		'条件/数量/期間に応じた利益率/単価の再計算',
-		'最低利益率・利益額閾値チェック（警告/再調整）',
-		'競合価格/市場価格帯の参考値補正（オプション）',
-		'承認フロー（例: 営業 < 15% 粗利 → 管理 10–15% → 役員 < 10%）',
-		'バージョン確定と提出物生成（PDF/Excel/顧客ポータル）',
-	]
+	const pricingLogicSteps = vi
+		? VI.logicSteps
+		: [
+			t('pages.achievements.sm.quotationPage.logic.sum', 'Sum cost components (item cost + labor + outsourcing + logistics + overhead)'),
+			t('pages.achievements.sm.quotationPage.logic.initial', 'Initial margin/profit calc (refer standard margin table)'),
+			t('pages.achievements.sm.quotationPage.logic.recalc', 'Recalculate margin/unit price by conditions/qty/term'),
+			t('pages.achievements.sm.quotationPage.logic.threshold', 'Check margin/profit thresholds (warn/re-adjust)'),
+			t('pages.achievements.sm.quotationPage.logic.market', 'Optional competitor/market price band reference adjustments'),
+			t('pages.achievements.sm.quotationPage.logic.flow', 'Approval flow (e.g., Sales <15% → Manager 10–15% → Executive <10%)'),
+			t('pages.achievements.sm.quotationPage.logic.final', 'Finalize version and generate deliverables (PDF/Excel/portal)'),
+		]
 
-	const operationalPoints = [
-		'テンプレート更新のガバナンス（定期レビューと差分承認）',
-		'最低利益率閾値の年次見直し（原価変動/市場環境反映）',
-		'承認 SLA の設定（遅延が案件機会を損なわないように）',
-		'例外案件（戦略案件/大型受注/在庫処分）の別管理ルート',
-		'為替・仕入価格の自動更新（外部 API or ERP 連携）',
-		'監査対応のための改訂履歴完全保持',
-	]
+	const operationalPoints = vi
+		? VI.ops
+		: [
+			t('pages.achievements.sm.quotationPage.ops.governance', 'Template governance (periodic reviews and diff approvals)'),
+			t('pages.achievements.sm.quotationPage.ops.marginReview', 'Annual review of margin thresholds (cost changes/market conditions)'),
+			t('pages.achievements.sm.quotationPage.ops.sla', 'Set approval SLAs (avoid opportunity loss due to delays)'),
+			t('pages.achievements.sm.quotationPage.ops.exception', 'Separate route for exceptions (strategic/large deals/stock clearance)'),
+			t('pages.achievements.sm.quotationPage.ops.fx', 'Auto-update FX and purchase prices (external API or ERP)'),
+			t('pages.achievements.sm.quotationPage.ops.audit', 'Full retention of revision history for audits'),
+		]
 
-	const kpis = [
-		'見積作成リードタイム（初回案 / 最終版）',
-		'粗利率中央値 / 閾値割れ件数',
-		'承認ステップごとの平均滞留時間',
-		'提出後受注転換率（Win Rate）',
-		'テンプレート利用率（標準 vs 例外）',
-		'再見積発生率（仕様変更 / ミス / 価格調整）',
-	]
+	const kpis = vi
+		? VI.kpis
+		: [
+			t('pages.achievements.sm.quotationPage.kpi.leadTime', 'Quotation lead time (first draft / final)'),
+			t('pages.achievements.sm.quotationPage.kpi.margin', 'Median margin rate / count below threshold'),
+			t('pages.achievements.sm.quotationPage.kpi.stay', 'Average stay per approval step'),
+			t('pages.achievements.sm.quotationPage.kpi.win', 'Post-submission win rate'),
+			t('pages.achievements.sm.quotationPage.kpi.template', 'Template usage (standard vs exception)'),
+			t('pages.achievements.sm.quotationPage.kpi.requote', 'Re-quotation rate (spec change / errors / price adjustments)'),
+		]
 
-	const risks = [
-		{ risk: '最低利益率割れの常態化', control: '自動警告 + 承認強制 + 月次レビュー' },
-		{ risk: 'バージョン混同による誤提出', control: '版番号自動付番 + 廃止版ロック + 差分比較 UI' },
-		{ risk: '属人的な価格調整', control: '調整履歴の全記録 + 権限ロールの明確化' },
-		{ risk: '原価更新遅れによる利益乖離', control: '原価マスタ更新リマインダー + 更新日付監査' },
-		{ risk: '承認遅延による機会損失', control: 'SLA アラート + 代替承認者設定' },
-		{ risk: '不正な条件適用', control: '条件適用ルールの事前定義 + 例外理由強制入力' },
-	]
+	const risks = vi
+		? VI.risks
+		: [
+			{ risk: t('pages.achievements.sm.quotationPage.risks.margin', 'Chronic margin threshold breaches'), control: t('pages.achievements.sm.quotationPage.controls.margin', 'Auto alerts + enforced approvals + monthly reviews') },
+			{ risk: t('pages.achievements.sm.quotationPage.risks.version', 'Mis-submission due to version confusion'), control: t('pages.achievements.sm.quotationPage.controls.version', 'Auto numbering + lock deprecated versions + diff UI') },
+			{ risk: t('pages.achievements.sm.quotationPage.risks.subjective', 'Subjective price adjustments'), control: t('pages.achievements.sm.quotationPage.controls.subjective', 'Record all adjustments + clarify role permissions') },
+			{ risk: t('pages.achievements.sm.quotationPage.risks.costUpdate', 'Profit deviation due to delayed cost updates'), control: t('pages.achievements.sm.quotationPage.controls.costUpdate', 'Cost master reminders + update date audits') },
+			{ risk: t('pages.achievements.sm.quotationPage.risks.delay', 'Opportunity loss due to approval delays'), control: t('pages.achievements.sm.quotationPage.controls.delay', 'SLA alerts + alternate approver setup') },
+			{ risk: t('pages.achievements.sm.quotationPage.risks.invalid', 'Invalid condition application'), control: t('pages.achievements.sm.quotationPage.controls.invalid', 'Predefined rules + require exception reasons') },
+		]
 
-	const checklist = [
-		'原価マスタは最新か（更新日付確認）',
-		'利益率閾値を下回っていないか',
-		'数量・型番・構成整合性はあるか',
-		'例外条件（特価/キャンペーン）の承認記録はあるか',
-		'提出フォーマット（レイアウト/用語）が標準か',
-		'顧客要件の漏れ（納期/支払条件/保守範囲）がないか',
-		'過去類似案件との差異（価格/構成）が説明可能か',
-	]
+	const checklist = vi
+		? VI.check
+		: [
+			t('pages.achievements.sm.quotationPage.check.cost', 'Is cost master latest (check update date)?'),
+			t('pages.achievements.sm.quotationPage.check.margin', 'Not below margin thresholds?'),
+			t('pages.achievements.sm.quotationPage.check.consistency', 'Consistency in quantity/model/config?'),
+			t('pages.achievements.sm.quotationPage.check.exception', 'Approval records for exceptions (special price/campaign)?'),
+			t('pages.achievements.sm.quotationPage.check.format', 'Standard submission format (layout/terminology)?'),
+			t('pages.achievements.sm.quotationPage.check.requirements', 'No missing customer requirements (delivery/payment/support scope)?'),
+			t('pages.achievements.sm.quotationPage.check.diff', 'Explainable differences vs past similar cases (price/config)?'),
+		]
 
 	return (
 		<main className="min-h-screen bg-white text-gray-900">
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">見積管理システム（Quotation）</h1>
+					  <h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">{vi ? VI.title : t('pages.achievements.sm.quotationPage.title', 'Quotation Management System')}</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
-						受注獲得確度を高めつつ、利益確保と統制を両立する見積管理の標準プラットフォームです。スピード・精度・再利用性・監査性を一体で強化します。
+						{vi ? VI.intro : t('pages.achievements.sm.quotationPage.intro', 'A standard quotation platform that increases win probability while securing profits and control. Strengthens speed, accuracy, reusability, and auditability together.')}
 					</p>
 
 					{/* ギャラリー プレースホルダー */}
@@ -130,7 +249,7 @@ export default function QuotationIntro() {
 
 			{/* 主な機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">主な機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.featuresTitle : t('pages.achievements.sm.quotationPage.features.title', 'Key Features')}</h2>
 				<div className="mt-6 grid md:grid-cols-2 gap-6">
 					{functions.map(f => (
 						<div key={f.title} className="bg-white rounded-xl border p-6">
@@ -143,7 +262,7 @@ export default function QuotationIntro() {
 
 			{/* データモデル */}
 			<section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">データモデル</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.dataTitle : t('pages.achievements.sm.quotationPage.data.title', 'Data Model')}</h2>
 
 				<ul className="mt-6 grid md:grid-cols-2 gap-4 list-disc pl-5 text-gray-800">
 					{dataModel.map(item => (
@@ -154,7 +273,7 @@ export default function QuotationIntro() {
 
 			{/* 価格決定ロジック */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">価格決定ロジック</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.logicTitle : t('pages.achievements.sm.quotationPage.logic.title', 'Pricing Logic')}</h2>
 				<ol className="mt-6 space-y-3 text-gray-800 list-decimal list-inside">
 					{pricingLogicSteps.map(step => (
 						<li key={step}>{step}</li>
@@ -164,7 +283,7 @@ export default function QuotationIntro() {
 
 			{/* 運用ポイント */}
 			<section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">運用上の重要ポイント</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.opsTitle : t('pages.achievements.sm.quotationPage.ops.title', 'Operational Key Points')}</h2>
 				<ul className="mt-6 grid md:grid-cols-2 gap-4 list-disc pl-5 text-gray-800">
 					{operationalPoints.map(p => (
 						<li key={p}>{p}</li>
@@ -174,7 +293,7 @@ export default function QuotationIntro() {
 
 			{/* KPI */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">KPI</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.kpiTitle : t('pages.achievements.sm.quotationPage.kpi.title', 'KPIs')}</h2>
 				<ul className="mt-6 grid md:grid-cols-2 gap-4 list-disc pl-5 text-gray-800">
 					{kpis.map(k => (
 						<li key={k}>{k}</li>
@@ -184,12 +303,12 @@ export default function QuotationIntro() {
 
 			{/* リスクとコントロール */}
 			<section className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 rounded-2xl">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">リスクとコントロール</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? VI.risksTitle : t('pages.achievements.sm.quotationPage.risks.title', 'Risks & Controls')}</h2>
 				<div className="mt-6 grid md:grid-cols-2 gap-6">
 					{risks.map(r => (
 						<div key={r.risk} className="bg-white rounded-xl border p-6">
 							<h3 className="font-semibold mb-1">{r.risk}</h3>
-							<p className="text-gray-700 text-sm">対策: {r.control}</p>
+							  <p className="text-gray-700 text-sm">{r.control}</p>
 						</div>
 					))}
 				</div>
@@ -197,7 +316,7 @@ export default function QuotationIntro() {
 
 			{/* チェックリスト */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">提出前チェックリスト</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{t('pages.achievements.sm.quotationPage.check.title', 'Pre-submission Checklist')}</h2>
 				<ul className="mt-6 space-y-2 list-disc list-inside text-gray-800">
 					{checklist.map(c => (
 						<li key={c}>{c}</li>
@@ -208,21 +327,21 @@ export default function QuotationIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-						<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">見積管理システムの詳細資料・デモのご依頼</h3>
-					<p className="text-gray-700 mb-6">貴社の営業プロセス・製品構成に合わせて、テンプレート設計と原価連携の最適化をご提案します。</p>
+							  <h3 className="text-xl font-semibold mb-3 text-[#0066c5]">{vi ? VI.ctaTitle : t('pages.achievements.sm.quotationPage.cta.title', 'Request Quotation Materials & Demo')}</h3>
+						<p className="text-gray-700 mb-6">{vi ? VI.ctaDesc : t('pages.achievements.sm.quotationPage.cta.desc', 'We propose template design and cost linkage optimization tailored to your sales process and product mix.')}</p>
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
 									<a
 										href={`${import.meta.env.BASE_URL}#contact`}
 										onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
 										className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 									>
-							お問い合わせ
+							  {t('cta.contact', 'Contact Us')}
 						</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
-							他の事例を見る
+							{t('cta.moreCases', 'See More Cases')}
 						</a>
 					</div>
 				</div>

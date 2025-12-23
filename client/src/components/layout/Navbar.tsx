@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import ServicesDropdown from '../ui/ServicesDropdown'
 import AchievementsDropdown from '../ui/AchievementsDropdown'
 import CompanyDropdown from '../ui/CompanyDropdown'
+import { useT } from '../../hooks/useT'
 import ContactModal from '../ui/ContactModal'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -76,21 +78,29 @@ export default function Navbar() {
 
   return (
     <>
+      {/* use translations */}
+      { /* eslint-disable-next-line @typescript-eslint/no-unused-vars */ }
+      { (() => { const { t } = useT(); return null })() }
+      { /* locale helper */ }
+      { (() => { const { locale } = useT(); (window as any).__locale = locale; return null })() }
       {/* Desktop nav */}
       <nav className="hidden sm:flex items-center justify-end gap-4 text-white">
         {/* <Link to="/" className="text-white hover:text-[#3C7FE6] text-lg">
           ホーム
         </Link> */}
-        <ServicesDropdown label="サービス" buttonClassName="text-lg" />
-        <AchievementsDropdown label="実績事例" buttonClassName="text-lg" />
-        <CompanyDropdown label="会社概要" buttonClassName="text-lg" />
+        <ServicesDropdown label={useT().locale === 'vi' ? 'Dịch vụ' : useT().t('nav.services', 'サービス')} buttonClassName="text-lg" />
+        <AchievementsDropdown label={useT().locale === 'vi' ? 'Dự án' : useT().locale === 'en' ? 'Our Work' : useT().t('nav.achievements', '実績事例')} buttonClassName="text-lg" />
+        <CompanyDropdown label={useT().locale === 'vi' ? 'Giới thiệu công ty' : useT().locale === 'en' ? 'About Us' : useT().t('nav.company', '会社概要')} buttonClassName="text-lg" />
+        <div className="mr-3">
+          <LanguageSwitcher />
+        </div>
         <button
           type="button"
           onClick={() => { closeAll(); setContactOpen(true) }}
-          className="text-white hover:text-[#3C7FE6] text-lg focus:outline-none focus:ring-2 focus:ring-[#3C7FE6] rounded"
+           className="ml-1 inline-flex items-center justify-center bg-gradient-to-r from-[#3C7FE6] via-[#4FC3F7] to-[#1976D2] text-white font-semibold rounded-full shadow-lg hover:from-[#1976D2] hover:to-[#3C7FE6] focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]/60 w-32 min-w-[8rem] h-11 transition-all duration-200 transform hover:scale-110"
           aria-label="お問い合わせフォームを開く"
         >
-          お問い合わせ
+          {useT().t('cta.contact', 'お問い合わせ')}
         </button>
       </nav>
 
@@ -124,13 +134,16 @@ export default function Navbar() {
               </button>
             </div>
             <ul className="divide-y divide-white/10 overflow-y-auto h-[calc(100vh-3.25rem)]">
+              <li className="px-5 py-3">
+                <LanguageSwitcher />
+              </li>
               <li>
                 <Link
                   to="/"
                   onClick={closeAll}
                   className="block px-5 py-4 text-white hover:bg-[#3C7FE6]/20"
                 >
-                  ホーム
+                  {useT().t('nav.home', 'ホーム')}
                 </Link>
               </li>
 
@@ -142,29 +155,35 @@ export default function Navbar() {
                   aria-expanded={openServices}
                   onClick={() => setOpenServices((v) => !v)}
                 >
-                  <span>サービス</span>
+                  <span>{useT().locale === 'en' ? 'Services' : useT().t('nav.services', 'サービス')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`h-4 w-4 transition-transform ${openServices ? 'rotate-180' : ''}`}>
                     <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
                   </svg>
                 </button>
                 {openServices && (
                   <div className="bg-[#034a8c]/80">
-                    <div className="px-5 pt-2 pb-1 text-xs font-semibold text-[#3C7FE6]">開発モデル</div>
+                    {/* Delivery Models (top) */}
+                    <div className="px-5 pt-2 pb-1 text-xs font-semibold text-[#3C7FE6]">
+                      {useT().locale === 'vi' ? 'Mô hình triển khai' : useT().locale === 'en' ? 'Delivery Models' : useT().t('nav.delivery.header', 'デリバリーモデル')}
+                    </div>
                     <ul className="px-3 pb-2">
                       <li>
-                        <Link to="/services/development/project-based" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">プロジェクト型</Link>
+                        <Link to="/services/delivery/offshore" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Offshore' : useT().locale === 'en' ? 'Offshore' : useT().t('nav.delivery.offshore', 'オフショア')}</Link>
                       </li>
                       <li>
-                        <Link to="/services/development/lab-based" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">ラボ型</Link>
+                        <Link to="/services/delivery/onsite" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Onsite' : useT().locale === 'en' ? 'Onsite' : useT().t('nav.delivery.onsite', 'オンサイト')}</Link>
                       </li>
                     </ul>
-                    <div className="px-5 pt-2 pb-1 text-xs font-semibold text-[#3C7FE6]">デリバリーモデル</div>
+                    {/* Development Models (bottom) */}
+                    <div className="px-5 pt-2 pb-1 text-xs font-semibold text-[#3C7FE6] mt-4">
+                      {useT().locale === 'vi' ? 'Mô hình phát triển' : useT().locale === 'en' ? 'Development Models' : useT().t('nav.dev.header', '開発モデル')}
+                    </div>
                     <ul className="px-3 pb-3">
                       <li>
-                        <Link to="/services/delivery/offshore" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">オフショア</Link>
+                        <Link to="/services/development/project-based" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Dự án' : useT().locale === 'en' ? 'Project-based' : useT().t('nav.dev.project', 'プロジェクト型')}</Link>
                       </li>
                       <li>
-                        <Link to="/services/delivery/onsite" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">オンサイト</Link>
+                        <Link to="/services/development/lab-based" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Mô hình Lab' : useT().locale === 'en' ? 'Lab-based' : useT().t('nav.dev.lab', 'ラボ型')}</Link>
                       </li>
                     </ul>
                   </div>
@@ -179,18 +198,18 @@ export default function Navbar() {
                   aria-expanded={openAchievements}
                   onClick={() => setOpenAchievements((v) => !v)}
                 >
-                  <span>実績事例</span>
+                  <span>{useT().locale === 'en' ? 'Our Work' : useT().t('nav.achievements', '実績事例')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`h-4 w-4 transition-transform ${openAchievements ? 'rotate-180' : ''}`}>
                     <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
                   </svg>
                 </button>
                 {openAchievements && (
-                  <ul className="bg-[#034a8c]/80 px-2 py-2">
-                    <li><Link to="/achievements/ai" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">AI</Link></li>
-                    <li><Link to="/achievements/iot" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">IoT</Link></li>
-                    <li><Link to="/achievements/smart-manufacturing" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">製造業向けソリューション</Link></li>
-                    <li><Link to="/achievements/others" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">その他</Link></li>
-                  </ul>
+                    <ul className="bg-[#034a8c]/80 px-2 py-2">
+                      <li><Link to="/achievements/ai" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'AI' : useT().locale === 'en' ? 'AI' : useT().t('nav.ach.ai', 'AI')}</Link></li>
+                      <li><Link to="/achievements/iot" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'IoT' : useT().locale === 'en' ? 'IoT' : useT().t('nav.ach.iot', 'IoT')}</Link></li>
+                      <li><Link to="/achievements/smart-manufacturing" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Giải pháp cho sản xuất' : useT().locale === 'en' ? 'Smart Manufacturing' : useT().t('nav.ach.smart', '製造業向けソリューション')}</Link></li>
+                      <li><Link to="/achievements/others" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Khác' : useT().locale === 'en' ? 'Others' : useT().t('nav.ach.others', 'その他')}</Link></li>
+                    </ul>
                 )}
               </li>
 
@@ -202,16 +221,16 @@ export default function Navbar() {
                   aria-expanded={openCompany}
                   onClick={() => setOpenCompany((v) => !v)}
                 >
-                  <span>会社概要</span>
+                  <span>{useT().locale === 'vi' ? 'Về chúng tôi' : useT().locale === 'en' ? 'About Us' : useT().t('nav.company', '会社概要')}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`h-4 w-4 transition-transform ${openCompany ? 'rotate-180' : ''}`}>
                     <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
                   </svg>
                 </button>
                 {openCompany && (
                   <ul className="bg-[#034a8c]/80 px-2 py-2">
-                    <li><Link to="/company/about" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">会社概要</Link></li>
+                    <li><Link to="/company/about" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Giới thiệu công ty' : useT().locale === 'en' ? 'Company Profile' : useT().t('nav.company.about', '会社概要')}</Link></li>
                     {/* <li><Link to="/company/team" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">チーム紹介</Link></li> */}
-                    <li><Link to="/company/partners" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">パートナー</Link></li>
+                    <li><Link to="/company/partners" onClick={closeAll} className="block rounded-md px-2 py-2 text-sm text-white hover:bg-[#3C7FE6]/20">{useT().locale === 'vi' ? 'Đối tác' : useT().locale === 'en' ? 'Partners' : useT().t('nav.company.partners', 'パートナー')}</Link></li>
                   </ul>
                 )}
               </li>
@@ -223,7 +242,7 @@ export default function Navbar() {
                   className="block w-full text-left px-5 py-4 text-white hover:bg-[#3C7FE6]/20 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                   aria-label="お問い合わせフォームを開く"
                 >
-                  お問い合わせ
+                  {useT().t('cta.contact', 'お問い合わせ')}
                 </button>
               </li>
             </ul>

@@ -2,21 +2,22 @@
   "name": "server",
   "private": true,
   "version": "0.1.0",
-"type": "commonjs",
+  "type": "commonjs",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "test:health": "tsx tests/health.test.ts",
     "deploy": "npm run build && echo 'Backend build completed.'"
-
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
+    "mailparser": "^3.9.0",
     "morgan": "^1.10.0",
-    "nodemailer": "^7.0.10"
+    "nodemailer": "^7.0.10",
+    "smtp-server": "^3.16.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

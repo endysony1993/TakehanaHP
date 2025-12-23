@@ -8,7 +8,7 @@ export default function DefaultLayout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 container mx-auto  ">
+      <main className="flex-1 container mx-auto">
         <Outlet />
       </main>
       <Footer />

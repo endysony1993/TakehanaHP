@@ -31,6 +31,7 @@ import {
   SiOracle,
   SiPostgresql,
 } from "react-icons/si";
+import { useT } from "../hooks/useT";
 import {
   TbCode,
   TbApps,
@@ -44,97 +45,11 @@ import {
 } from "react-icons/tb";
 
 // Dummy reference to satisfy TypeScript noUnusedLocals in certain incremental builds
-// (icons are also used within JSX skill arrays below, but some build modes were flagging them)
 void [SiC, SiCplusplus];
-
-const achievementsLinks = [
-  {
-    title: "AI関連",
-    desc: "AI画像解析・予測システムなどの導入支援",
-    to: "/achievements/ai",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#7B61FF] to-[#5A45D6] shadow-sm mb-4 mx-auto">
-        <RiBrainLine size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "IoT関連",
-    desc: "IoT連携による生産効率化",
-    to: "/achievements/iot",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#34D399] to-[#059669] shadow-sm mb-4 mx-auto">
-        <RiWifiLine size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "製造業向けソリューション",
-    desc: "ERP・MES・APS・WMS カスタマイズ支援",
-    to: "/achievements/smart-manufacturing",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] shadow-sm mb-4 mx-auto">
-        <RiBuilding2Line size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "その他",
-    desc: "CRM、業務管理システムなど多様な開発実績",
-    to: "/achievements/others",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#60A5FA] to-[#2563EB] shadow-sm mb-4 mx-auto">
-        <RiAppsLine size={26} color="#fff" />
-      </div>
-    ),
-  },
-];
-
-const servicesLinks = [
-  {
-    title: "請負型開発",
-    desc: "要件定義から納品まで一貫対応",
-    to: "/services/development/project-based",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#475569] to-[#64748B] shadow-sm mb-4 mx-auto">
-        <RiContractLine size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "ラボ型開発",
-    desc: "専属チーム体制で柔軟・安定した開発支援",
-    to: "/services/development/lab-based",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#84CC16] to-[#A3E635] shadow-sm mb-4 mx-auto">
-        <RiTeamLine size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "オフショア",
-    desc: "海外拠点活用でコスト最適化と体制強化",
-    to: "/services/delivery/offshore",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] shadow-sm mb-4 mx-auto">
-        <FaGlobe size={26} color="#fff" />
-      </div>
-    ),
-  },
-  {
-    title: "オンサイト",
-    desc: "日本側リーダーが品質・進行を直接管理",
-    to: "/services/delivery/onsite",
-    icon: () => (
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#E11D48] to-[#FB7185] shadow-sm mb-4 mx-auto">
-        <MdLocationOn size={26} color="#fff" />
-      </div>
-    ),
-  },
-];
 
 export default function Home() {
   const { hash } = useLocation();
+  const { t } = useT();
 
   useEffect(() => {
     if (hash === '#contact') {
@@ -148,6 +63,93 @@ export default function Home() {
     }
   }, [hash]);
 
+  // Build translated link arrays inside component to access `t`
+  const achievementsLinks = [
+    {
+      title: t('home.achievements.ai.title', 'AI関連'),
+      desc: t('home.achievements.ai.desc', 'AI画像解析・予測システムなどの導入支援'),
+      to: '/achievements/ai',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#7B61FF] to-[#5A45D6] shadow-sm mb-4 mx-auto">
+          <RiBrainLine size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('home.achievements.iot.title', 'IoT関連'),
+      desc: t('home.achievements.iot.desc', 'IoT連携による生産効率化'),
+      to: '/achievements/iot',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#34D399] to-[#059669] shadow-sm mb-4 mx-auto">
+          <RiWifiLine size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('home.achievements.smart.title', '製造業向けソリューション'),
+      desc: t('home.achievements.smart.desc', 'ERP・MES・APS・WMS カスタマイズ支援'),
+      to: '/achievements/smart-manufacturing',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] shadow-sm mb-4 mx-auto">
+          <RiBuilding2Line size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('home.achievements.others.title', 'その他'),
+      desc: t('home.achievements.others.desc', 'CRM、業務管理システムなど多様な開発実績'),
+      to: '/achievements/others',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#60A5FA] to-[#2563EB] shadow-sm mb-4 mx-auto">
+          <RiAppsLine size={26} color="#fff" />
+        </div>
+      ),
+    },
+  ];
+
+  const servicesLinks = [
+    {
+      title: t('pages.home.services.project.title', '請負型開発'),
+      desc: t('pages.home.services.project.desc', '要件定義から納品まで一貫対応'),
+      to: '/services/development/project-based',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#475569] to-[#64748B] shadow-sm mb-4 mx-auto">
+          <RiContractLine size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('pages.home.services.lab.title', 'ラボ型開発'),
+      desc: t('pages.home.services.lab.desc', '専属チーム体制で柔軟・安定した開発支援'),
+      to: '/services/development/lab-based',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#84CC16] to-[#A3E635] shadow-sm mb-4 mx-auto">
+          <RiTeamLine size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('pages.home.services.offshore.title', 'オフショア'),
+      desc: t('pages.home.services.offshore.desc', '海外拠点活用でコスト最適化と体制強化'),
+      to: '/services/delivery/offshore',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] shadow-sm mb-4 mx-auto">
+          <FaGlobe size={26} color="#fff" />
+        </div>
+      ),
+    },
+    {
+      title: t('pages.home.services.onsite.title', 'オンサイト'),
+      desc: t('pages.home.services.onsite.desc', '日本側リーダーが品質・進行を直接管理'),
+      to: '/services/delivery/onsite',
+      icon: () => (
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r from-[#E11D48] to-[#FB7185] shadow-sm mb-4 mx-auto">
+          <MdLocationOn size={26} color="#fff" />
+        </div>
+      ),
+    },
+  ];
+
   return (
   <div className="space-y-0 font-sans text-gray-800" style={{marginTop: 0}}>
       {/* Hero Section */}
@@ -159,17 +161,17 @@ export default function Home() {
         <div className="relative z-10 px-6 w-full">
 
           
-           <h1 className="text-3xl sm:text-3xl lg:text-2xl font-semibold mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-2">
-            竹華ジャパン株式会社は、AI・IoT・製造業向けソリューションで<br />
-            グローバルなDX推進を支援します。
+           <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-2xl font-semibold mb-8 sm:mb-10 max-w-3xl mx-auto leading-snug px-2">
+            {t('pages.home.hero.line1', '竹華ジャパン株式会社は、AI・IoT・製造業向けソリューションで')}<br />
+            {t('pages.home.hero.line2', 'グローバルなDX推進を支援します。')}
           </h1>
-         		<div className="flex flex-col sm:flex-row gap-3 justify-center">
+             <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 justify-center">
               <a
                   href={`${import.meta.env.BASE_URL}#contact`}
                   onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal')) }}
-                  className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
+                  className="inline-block lg:hidden px-6 py-3 rounded-full bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full max-w-[160px] text-base mx-auto"
                 >
-                  お問い合わせ
+                  {t('pages.home.cta.contact', 'お問い合わせ')}
                 </a>
 						
 						</div>
@@ -181,10 +183,10 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 md:flex items-center gap-4 sm:gap-12">
           <div className="md:w-1/2">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-5 text-[#0066c5]">
-              私たちの強み
+              {t('pages.home.why.title', '私たちの強み')}
             </h2>
             <p className="text-gray-600 mb-4 sm:mb-5 leading-relaxed">
-        日本と海外の両拠点を活かし、先端技術を用いた多様なソリューションを展開しています。
+        {t('pages.home.why.desc', '日本と海外の両拠点を活かし、先端技術を用いた多様なソリューションを展開しています。')}
             </p>
             <ul className="space-y-4 text-gray-800 text-base sm:text-lg">
               <li className="flex items-center gap-3">
@@ -200,7 +202,7 @@ export default function Home() {
                     </defs>
                   </svg>
                 </span>
-                <span className="font-semibold">オンサイトリード</span>
+                <span className="font-semibold">{t('pages.home.why.points.onsite', 'オンサイトリード')}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#6EC1E4] to-[#3C7FE6] text-white text-2xl font-bold shadow-lg animate-bounce">
@@ -215,7 +217,7 @@ export default function Home() {
                     </defs>
                   </svg>
                 </span>
-                <span className="font-semibold">オフショア推進</span>
+                <span className="font-semibold">{t('pages.home.why.points.offshore', 'オフショア推進')}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#6EC1E4] to-[#3C7FE6] text-white text-2xl font-bold shadow-lg animate-bounce">
@@ -230,7 +232,7 @@ export default function Home() {
                     </defs>
                   </svg>
                 </span>
-                <span className="font-semibold">高パフォーマンス</span>
+                <span className="font-semibold">{t('pages.home.why.points.performance', '高パフォーマンス')}</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#6EC1E4] to-[#3C7FE6] text-white text-2xl font-bold shadow-lg animate-bounce">
@@ -245,7 +247,7 @@ export default function Home() {
                     </defs>
                   </svg>
                 </span>
-                <span className="font-semibold">低リスク</span>
+                <span className="font-semibold">{t('pages.home.why.points.lowRisk', '低リスク')}</span>
               </li>
             </ul>
           </div>
@@ -263,7 +265,7 @@ export default function Home() {
       <section id="achievements" className="py-12 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">
-            実績
+            {t('home.achievements.title', '実績')}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {achievementsLinks.map((item, i) => (
@@ -294,7 +296,7 @@ export default function Home() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">
-            サービス
+            {t('pages.home.services.title', 'サービス')}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {servicesLinks.map((service, i) => (
@@ -324,7 +326,7 @@ export default function Home() {
   {/* Skills Section */}
       <section className="py-12 sm:py-20 bg-gray-50" id="skills">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">技術スタック</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-[#0066c5]">{t('pages.home.skills.title', '技術スタック')}</h2>
           {/* Categories */}
           <div className="space-y-12">
             {/* Front-End */}
@@ -338,7 +340,7 @@ export default function Home() {
                 </span>
                 <span className="relative inline-flex items-center">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] via-[#0066c5] to-[#312e81] font-extrabold tracking-wide">
-                    フロントエンド
+                    Front-end
                   </span>
                   <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#0ea5e9] via-[#27a4ff] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
                 </span>
@@ -382,7 +384,7 @@ export default function Home() {
                 </span>
                 <span className="relative inline-flex items-center">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#818CF8] to-[#312e81] font-extrabold tracking-wide">
-                    バックエンド
+                    Back-end
                   </span>
                   <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#6366F1] via-[#818CF8] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
                 </span>
@@ -420,7 +422,7 @@ export default function Home() {
                 </span>
                 <span className="relative inline-flex items-center">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D9488] via-[#31b8ff] to-[#312e81] font-extrabold tracking-wide">
-                    データベース / ミドルウェア
+                    Database / Middleware
                   </span>
                   <span className="absolute -bottom-2 left-0 h-[3px] w-2/3 bg-gradient-to-r from-[#0D9488] via-[#31b8ff] to-transparent rounded-full origin-left scale-x-75 group-hover:scale-x-100 transition-transform"></span>
                 </span>

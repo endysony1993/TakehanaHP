@@ -1,0 +1,21 @@
+# Ignore all dependencies and build output
+**/node_modules/**
+**/dist/**
+**/build/**
+**/.next/**
+**/.turbo/**
+**/.cache/**
+**/coverage/**
+**/logs/**
+
+# Ignore large tool binaries & compilers
+**/esbuild.exe
+**/esbuild/**
+**/lightningcss*.node
+**/typescript.js
+**/_tsc.js
+
+# Ignore big bundles / minified files / maps
+**/*.min.js
+**/*.bundle.js
+**/*.map

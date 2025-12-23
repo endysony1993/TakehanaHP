@@ -1,16 +1,17 @@
 import { assetPath } from "../../../utils/assetPath";
+import { useT } from '../../../hooks/useT'
 export default function MobileBatteryShare() {
+  const { t } = useT()
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header Section */}
-  <h2 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-6">
-          モバイルバッテリーシェアシステム
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#0066c5] mb-6">
+          {t('pages.achievements.iot.batteryPage.title', 'Hệ thống chia sẻ pin di động')}
         </h2>
         
         <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-         管理システム・充電スタンド・モバイルアプリが連携し、IoT技術を活用してモバイルバッテリーの貸出・返却・稼働状況をリアルタイムで管理。
-        ユーザーにとって便利な充電サービスを提供するとともに、運営者には新たなビジネス機会を創出します。
+          {t('pages.achievements.iot.batteryPage.intro', 'Hệ thống quản lý, trạm sạc và ứng dụng di động liên kết qua IoT để quản lý thời gian thực việc cho thuê, hoàn trả và trạng thái hoạt động của pin di động, mang lại dịch vụ sạc tiện lợi cho người dùng và cơ hội kinh doanh mới cho nhà vận hành.')}
         </p>
       </div>
 
@@ -18,31 +19,31 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-16 grid md:grid-cols-3 gap-8 px-6">
         {/* Client Request */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">クライアントのご要望</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">{t('pages.achievements.iot.batteryPage.client.title', 'Yêu cầu từ khách hàng')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>都市部や商業施設でのモバイルバッテリー貸出サービスを新規導入したい</li>
-            <li>ユーザーが簡単に借りて返却できる仕組みが必要</li>
-            <li>運営側がリアルタイムで稼働状況や在庫を把握したい</li>
+            <li>{t('pages.achievements.iot.batteryPage.client.item1', 'Triển khai dịch vụ cho thuê pin di động tại khu đô thị và trung tâm thương mại')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.client.item2', 'Cung cấp quy trình mượn/trả đơn giản cho người dùng')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.client.item3', 'Cho phép nhà vận hành giám sát vận hành và tồn kho theo thời gian thực')}</li>
           </ul>
         </div>
         {/* Our Solution */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">当社のソリューション</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">{t('pages.achievements.iot.batteryPage.solution.title', 'Giải pháp của chúng tôi')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>IoT連携によるリアルタイム管理システムを構築</li>
-            <li>アプリ・Web・充電スタンドを統合したシームレスなユーザー体験を設計</li>
-            <li>管理システムでのデータ分析・運用最適化機能を実装</li>
+            <li>{t('pages.achievements.iot.batteryPage.solution.item1', 'Xây dựng nền tảng quản lý thời gian thực qua liên kết IoT')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.solution.item2', 'Thiết kế trải nghiệm liền mạch giữa app, web và trạm sạc')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.solution.item3', 'Triển khai phân tích và tối ưu vận hành trong hệ thống quản trị')}</li>
           </ul>
         </div>
         {/* Skills & Techniques */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col">
-          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">技術・スキル</h3>
+          <h3 className="text-xl font-semibold text-[#0066c5] mb-3 text-center">{t('pages.achievements.iot.batteryPage.skills.title', 'Công nghệ & kỹ năng')}</h3>
           <ul className="text-gray-700 text-left list-disc list-inside space-y-2 flex-1">
-            <li>IoTデバイス制御・データ連携</li>
-            <li>React/TypeScriptによるフロントエンド開発</li>
-            <li>Node.js/ExpressによるAPI・管理システム構築</li>
-            <li>クラウドインフラ（AWS/Azure）活用</li>
-            <li>UI/UX設計・多言語対応</li>
+            <li>{t('pages.achievements.iot.batteryPage.skills.item1', 'Điều khiển thiết bị IoT và liên kết dữ liệu')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.skills.item2', 'Phát triển front-end với React/TypeScript')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.skills.item3', 'API/hệ thống quản trị với Node.js/Express')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.skills.item4', 'Hạ tầng đám mây (AWS/Azure)')}</li>
+            <li>{t('pages.achievements.iot.batteryPage.skills.item5', 'Thiết kế UI/UX và hỗ trợ đa ngôn ngữ')}</li>
           </ul>
         </div>
       </div>
@@ -51,14 +52,13 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center px-6">
         <div>
           <div className="w-full h-80 flex items-center justify-center">
-            <img src={assetPath('Iot/MobileBatteryShare/battery.png')} alt="バッテリーシェア概要" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/battery.png')} alt={t('pages.achievements.iot.batteryPage.images.overviewAlt', 'Tổng quan hệ thống chia sẻ pin')} className="h-80 object-contain" />
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">システム概要</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">{t('pages.achievements.iot.batteryPage.overview.title', 'Tổng quan hệ thống')}</h3>
           <p className="text-gray-700 leading-relaxed">
-            管理システム、モバイルアプリ、充電スタンドの三つの主要部分から構成される共有モバイルバッテリーシステムは、
-            データのリアルタイム連携を実現し、利便性と運営効率の両立を目指しています。
+            {t('pages.achievements.iot.batteryPage.overview.desc', 'Hệ thống gồm hệ thống quản trị, ứng dụng di động và trạm sạc, đồng bộ dữ liệu thời gian thực để cân bằng tiện ích người dùng và hiệu quả vận hành.')}
           </p>
         </div>
       </div>
@@ -66,15 +66,14 @@ export default function MobileBatteryShare() {
       {/* Section: 管理システム */}
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">管理システム</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">{t('pages.achievements.iot.batteryPage.management.title', 'Hệ thống quản trị')}</h3>
           <p className="text-gray-700 leading-relaxed">
-            管理システムはシステム全体の「頭脳」として機能し、貸出状況や電量状態、機柜の分布をリアルタイムで監視。
-            また、ユーザー管理、データ統計、故障予警などの機能を通じて、安定した運営を支援します。
+            {t('pages.achievements.iot.batteryPage.management.desc', 'Nền tảng quản trị là “bộ não” của hệ thống, giám sát trạng thái mượn/trả, mức pin và phân bố tủ theo thời gian thực; quản lý người dùng, phân tích và cảnh báo để vận hành ổn định.')}
           </p>
         </div>
         <div className="order-1 md:order-2">
           <div className="w-full h-64 flex items-center justify-center">
-            <img src={assetPath('Iot/MobileBatteryShare/management-side.png')} alt="管理システム" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/management-side.png')} alt={t('pages.achievements.iot.batteryPage.images.managementAlt', 'Màn hình hệ thống quản trị')} className="h-80 object-contain" />
           </div>
         </div>
       </div>
@@ -83,14 +82,13 @@ export default function MobileBatteryShare() {
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div>
           <div className="w-full h-64 flex items-center justify-center">
-            <img src={assetPath('Iot/MobileBatteryShare/cabinet-side.png')} alt="充電スタンド" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/cabinet-side.png')} alt={t('pages.achievements.iot.batteryPage.images.cabinetAlt', 'Thiết bị trạm sạc')} className="h-80 object-contain" />
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">充電スタンド</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">{t('pages.achievements.iot.batteryPage.cabinet.title', 'Trạm sạc')}</h3>
           <p className="text-gray-700 leading-relaxed">
-            充電スタンドはモバイルバッテリーの実際の貸出・返却を担う物理デバイスです。大容量・高速充電・防盗設計を備え、
-            内部のスマート認識技術により自動で充電状態を管理し、常に満電のモバイルバッテリーを提供します。
+            {t('pages.achievements.iot.batteryPage.cabinet.desc', 'Thiết bị vật lý đảm nhiệm mượn/trả pin. Dung lượng lớn, sạc nhanh, thiết kế chống trộm; nhận diện thông minh để tự động quản lý trạng thái sạc, luôn cung cấp pin đầy cho người dùng.')}
           </p>
         </div>
       </div>
@@ -98,16 +96,14 @@ export default function MobileBatteryShare() {
       {/* Section: モバイルアプリ */}
       <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-10 items-center px-6">
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">モバイルアプリ</h3>
+          <h3 className="text-2xl font-semibold text-[#0066c5] mb-4 text-center">{t('pages.achievements.iot.batteryPage.mobile.title', 'Ứng dụng di động')}</h3>
           <p className="text-gray-700 leading-relaxed">
-            モバイルアプリはユーザーとの直接の接点。アプリやミニプログラムを通じて、
-            近くの機柜検索、貸出予約、スキャン利用、返却操作などをスムーズに行えます。
-            また、オンラインサポートやフィードバック機能も搭載しています。
+            {t('pages.achievements.iot.batteryPage.mobile.desc', 'Ứng dụng di động là điểm chạm trực tiếp với người dùng. Qua app hoặc mini-program, người dùng có thể tìm tủ gần nhất, đặt mượn, quét để sử dụng và trả mượt mà, cùng hỗ trợ trực tuyến và phản hồi.')}
           </p>
         </div>
         <div className="order-1 md:order-2">
           <div className="w-full h-64 flex items-center justify-center">
-            <img src={assetPath('Iot/MobileBatteryShare/mobile-side.png')} alt="モバイルアプリ" className="h-80 object-contain" />
+            <img src={assetPath('Iot/MobileBatteryShare/mobile-side.png')} alt={t('pages.achievements.iot.batteryPage.images.mobileAlt', 'Mobile app screen')} className="h-80 object-contain" />
           </div>
         </div>
       </div>
@@ -122,13 +118,13 @@ export default function MobileBatteryShare() {
               href={`${import.meta.env.BASE_URL}#contact`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
-              お問い合わせ
+              {t('cta.contact', 'Liên hệ')}
             </a>
             <a
               href={`${import.meta.env.BASE_URL}achievements/iot`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
-              他の事例を見る
+              {t('cta.moreCases', 'Xem thêm các dự án khác')}
             </a>
           </div>
         </div>

@@ -1,31 +1,37 @@
 // 製品選定支援システム（概要）
 // 画像の追加方法: `client/public/images/product-selection/` に配置し、必要に応じて後でギャラリー領域を拡張可能。
 
+import { useT } from '../../../hooks/useT'
+import { useI18n } from '../../../context/I18nContext'
+
 export default function ProductSelectionIntro() {
+	const { t } = useT()
+	const { locale } = useI18n()
+	const vi = locale === 'vi'
 	const functions = [
 		{
-			title: 'データ統合・分析',
-			desc: '営業・顧客・製品仕様・過去案件・不具合履歴などを統合し、横断分析で選定判断を定量化。',
+			title: vi ? 'Tích hợp dữ liệu & phân tích' : t('pages.achievements.sm.productSelectionPage.features.integrate.title', 'Data Integration & Analytics'),
+			desc: vi ? 'Tích hợp doanh số, khách hàng, thông số sản phẩm, case trước và lịch sử lỗi; định lượng quyết định lựa chọn bằng phân tích chéo.' : t('pages.achievements.sm.productSelectionPage.features.integrate.desc', 'Integrate sales, customers, product specs, past cases, and defect history; quantify selection decisions via cross-analysis.'),
 		},
 		{
-			title: '選定効率の向上',
-			desc: '要件入力→候補絞り込み→比較→推奨までを半自動化し、提案リードタイムを短縮。',
+			title: vi ? 'Tăng hiệu quả lựa chọn' : t('pages.achievements.sm.productSelectionPage.features.efficiency.title', 'Improve Selection Efficiency'),
+			desc: vi ? 'Bán tự động: nhập yêu cầu → thu hẹp ứng viên → so sánh → khuyến nghị; rút ngắn thời gian đề xuất.' : t('pages.achievements.sm.productSelectionPage.features.efficiency.desc', 'Semi-automate requirements input → candidate narrowing → comparison → recommendation to shorten proposal lead time.'),
 		},
 		{
-			title: '販売支援・市場対応力の強化',
-			desc: '需要トレンド・競合情報・価格帯を参照し、最適構成とアップセル/クロスセル機会を提示。',
+			title: vi ? 'Tăng cường bán hàng & phản ứng thị trường' : t('pages.achievements.sm.productSelectionPage.features.sales.title', 'Strengthen Sales & Market Response'),
+			desc: vi ? 'Tham chiếu xu hướng nhu cầu, đối thủ, khung giá; đề xuất cấu hình tối ưu và cơ hội up‑sell/cross‑sell.' : t('pages.achievements.sm.productSelectionPage.features.sales.desc', 'Reference demand trends, competitors, and price bands; propose optimal configurations and upsell/cross-sell opportunities.'),
 		},
 		{
-			title: '顧客体験の向上',
-			desc: '適合率の高い候補提示と明確な比較観点により、納得性と意思決定スピードを向上。',
+			title: vi ? 'Cải thiện trải nghiệm khách hàng' : t('pages.achievements.sm.productSelectionPage.features.cx.title', 'Improve Customer Experience'),
+			desc: vi ? 'Trình bày ứng viên phù hợp cao và tiêu chí so sánh rõ ràng để tăng tin cậy và tốc độ quyết định.' : t('pages.achievements.sm.productSelectionPage.features.cx.desc', 'Present high-fit candidates and clear comparison criteria to boost confidence and decision speed.'),
 		},
 		{
-			title: 'ミスとリスクの削減',
-			desc: '仕様抜け・互換性不一致・在庫/供給制約を早期警告し、再提案コストを抑制。',
+			title: vi ? 'Giảm lỗi & rủi ro' : t('pages.achievements.sm.productSelectionPage.features.risk.title', 'Reduce Errors & Risk'),
+			desc: vi ? 'Cảnh báo sớm thiếu thông số, không tương thích và hạn chế tồn kho/cung ứng để tránh chi phí làm lại.' : t('pages.achievements.sm.productSelectionPage.features.risk.desc', 'Early-warn spec omissions, incompatibilities, and stock/supply constraints to prevent rework costs.'),
 		},
 		{
-			title: '技術マッチング・検証支援',
-			desc: '構成要素の技術適合性・将来拡張性をチェックし、PoC～量産移行のリスクを低減。',
+			title: vi ? 'Ghép kỹ thuật & thẩm định' : t('pages.achievements.sm.productSelectionPage.features.tech.title', 'Technical Matching & Validation'),
+			desc: vi ? 'Kiểm tra phù hợp kỹ thuật và khả năng mở rộng; giảm rủi ro từ PoC đến sản xuất hàng loạt.' : t('pages.achievements.sm.productSelectionPage.features.tech.desc', 'Check technical fit and future extensibility; reduce risks from PoC to mass production.'),
 		},
 	]
 
@@ -34,16 +40,16 @@ export default function ProductSelectionIntro() {
 			{/* ヒーロー */}
 			<section className="bg-gradient-to-b from-gray-50 to-white">
 				<div className="max-w-6xl mx-auto px-6 py-16">
-					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">製品選定支援システム</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-[#0066c5] text-center">{vi ? 'Hệ thống chọn sản phẩm' : t('pages.achievements.sm.productSelectionPage.title', 'Product Selection Support System')}</h1>
 					<p className="mt-4 text-gray-700 text-center max-w-3xl mx-auto">
-						多様化する要件・仕様・市場動向を統合分析し、最適な製品/構成を迅速に選定するための支援プラットフォームです。営業・技術・調達が共通指標で意思決定できる環境を整備します。
+						{vi ? 'Nền tảng tích hợp yêu cầu, thông số và xu hướng thị trường để nhanh chóng lựa chọn sản phẩm/cấu hình tối ưu. Cho phép kinh doanh, kỹ thuật và mua hàng ra quyết định theo chỉ số chung.' : t('pages.achievements.sm.productSelectionPage.intro', 'A platform that integrates diverse requirements, specs, and market trends to quickly select optimal products/configurations. Enables sales, engineering, and procurement to decide using shared indicators.')}
 					</p>
 				</div>
 			</section>
 
 			{/* 6つの機能 */}
 			<section className="max-w-6xl mx-auto px-6 py-12">
-				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">6つの機能</h2>
+				<h2 className="text-2xl font-semibold text-center text-[#0066c5]">{vi ? '6 chức năng chính' : t('pages.achievements.sm.productSelectionPage.features.title', 'Six Key Functions')}</h2>
 				<div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{functions.map(f => (
 						<div key={f.title} className="bg-white rounded-xl border p-6 shadow-sm hover:shadow-md transition">
@@ -57,21 +63,21 @@ export default function ProductSelectionIntro() {
 			{/* CTA */}
 			<section className="max-w-6xl mx-auto px-6 py-16">
 				<div className="rounded-2xl border p-8 text-center">
-					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">詳細・導入相談</h3>
-					<p className="text-gray-700 mb-6">要件定義～評価環境整備～本番展開まで段階的な導入をご支援します。まずはお気軽にお問い合わせください。</p>
+					<h3 className="text-xl font-semibold mb-3 text-[#0066c5]">{vi ? 'Trao đổi chi tiết & áp dụng' : t('pages.achievements.sm.productSelectionPage.cta.title', 'Details & Adoption Consultation')}</h3>
+					<p className="text-gray-700 mb-6">{vi ? 'Hỗ trợ áp dụng theo giai đoạn từ định nghĩa yêu cầu → dựng môi trường đánh giá → triển khai vận hành. Liên hệ để bắt đầu.' : t('pages.achievements.sm.productSelectionPage.cta.desc', 'We support phased adoption from requirements definition to evaluation environment setup to production rollout. Contact us to start.')}</p>
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<a
 								href={`${import.meta.env.BASE_URL}#contact`}
 								onClick={(e)=>{e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal'))}}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
-								お問い合わせ
+								{t('cta.contact', 'Contact Us')}
 							</a>
 							<a
 								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
-								他の事例を見る
+								{t('cta.moreCases', 'See More Cases')}
 							</a>
 						</div>
 				</div>

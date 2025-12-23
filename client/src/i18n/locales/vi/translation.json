@@ -1,3 +1,802 @@
 {
-  "welcome": "Chào mừng đến với công ty của chúng tôi"
+  "nav.services": "Dịch vụ",
+  "nav.achievements": "Dự án",
+  "nav.company": "Công ty",
+  "nav.home": "Trang chủ",
+  "nav.dev": { "header": "Mô hình phát triển", "project": "Dự án", "lab": "Mô hình Lab" },
+  "nav.delivery": { "header": "Mô hình triển khai", "offshore": "Offshore", "onsite": "Onsite" },
+  "nav.ach": { "ai": "AI", "iot": "IoT", "smart": "Giải pháp cho sản xuất", "others": "Khác" },
+  "nav.company": { "about": "Công ty", "partners": "Đối tác" },
+  "cta.contact": "Liên hệ",
+  "cta.moreCases": "Xem thêm các dự án",
+  "items": { "one": "{{count}} mục", "other": "{{count}} mục" },
+  "lang": { "ja": "Tiếng Nhật", "en": "Tiếng Anh", "vi": "Tiếng Việt" },
+  "home": {
+    "achievements": {
+      "title": "Dự án",
+      "ai": { "title": "AI", "desc": "AI phân tích hình ảnh và dự báo" },
+      "iot": { "title": "IoT", "desc": "Nâng cao hiệu quả sản xuất nhờ liên kết IoT" },
+      "smart": { "title": "Giải pháp cho sản xuất", "desc": "Hệ thống ERP, MES, APS, WMS theo yêu cầu" },
+      "others": { "title": "Khác", "desc": "SAP, Salesforce" }
+    }
+  },
+  "pages_ext": {
+    "home": {
+      "hero": {
+        "line1": "Takehana Japan thúc đẩy Chuyển đổi Số (DX) toàn cầu bằng các giải pháp AI/IoT tiên tiến,",
+        "line2": "giúp tối ưu hóa vận hành và đạt hiệu suất vượt trội trong sản xuất.",
+        "cta": { "contact": "Liên hệ" }
+      },
+      "why": {
+        "title": "Điểm mạnh của chúng tôi",
+        "desc": "Khai thác lợi thế giữa Nhật Bản và nước ngoài, chúng tôi cung cấp các giải pháp đa dạng dựa trên công nghệ tiên tiến.",
+        "points": {
+          "onsite": "Dẫn dắt onsite",
+          "offshore": "Thúc đẩy offshore",
+          "performance": "Hiệu năng cao",
+          "lowRisk": "Rủi ro thấp"
+        }
+      },
+      "services": {
+        "title": "Dịch vụ",
+        "project": { "title": "Phát triển theo dự án", "desc": "Phụ trách trọn vẹn từ yêu cầu đến bàn giao" },
+        "lab": { "title": "Phát triển mô hình Lab", "desc": "Đội ngũ chuyên trách, linh hoạt và ổn định" },
+        "offshore": { "title": "Offshore", "desc": "Tối ưu chi phí" },
+        "onsite": { "title": "Onsite", "desc": "Trực tiếp quản lý chất lượng và tiến độ" }
+      },
+      "skills": {
+        "title": "Công nghệ",
+        "frontend": "Front‑end",
+        "backend": "Back‑end",
+        "database": "Database / Middleware"
+      }
+    },
+    "achievements": {
+      "view": "Xem chi tiết",
+      "sections": {
+        "ai": { "title": "Các dự án AI", "desc": "Một số ví dụ triển khai tận dụng AI." },
+        "iot": { "title": "Các dự án IoT", "desc": "Ví dụ về giám sát và phân tích kết hợp thiết bị IoT với đám mây." },
+        "sm": { "title": "Giải pháp cho sản xuất", "desc": "Giới thiệu các giải pháp nâng cao năng suất, chất lượng và tối ưu hoá vận hành trong sản xuất." },
+        "other": { "title": "Các dự án khác", "desc": "Các dự án đa dạng thực hiện xuyên nhiều ngành." }
+      },
+      "iot": {
+        "smartParkingPage": {
+          "title": "Bãi đỗ xe thông minh",
+          "intro": "Tự động hoá vào/ra và trạng thái trống bằng ALPR và cảm biến; hỗ trợ tính giờ và nhiều phương thức thanh toán; trực quan hoá vận hành và doanh thu, giảm thất thoát, chuẩn hoá quy trình và mang lại trải nghiệm minh bạch, mượt mà cho người dùng.",
+          "images": { "galleryAlt": "Ảnh thư viện bãi đỗ xe thông minh", "noImage": "Chưa có ảnh", "addHint": "Vui lòng thêm ảnh vào /Iot/SmartParkingSystem/" },
+          "current": {
+            "title": "Hiện trạng & thách thức",
+            "item1": "Chi phí nhân công cao; sai sót/không hiệu quả do quản lý thủ công",
+            "item2": "Dễ xảy ra thất thoát/không thanh toán, khó quản lý doanh thu chính xác",
+            "item3": "Khó nắm bắt trạng thái trống theo thời gian thực",
+            "item4": "Không tích hợp hệ thống chính quyền/giao thông",
+            "item5": "Mất thời gian tìm chỗ; mức độ hài lòng thấp"
+          },
+          "solution": {
+            "title": "Giải pháp",
+            "item1": "Tự động hoá vào/ra bằng ALPR; giám sát chỗ đỗ bằng camera/cảm biến địa từ",
+            "item2": "Tự động tính giờ/thu phí; hỗ trợ nhiều phương thức thanh toán",
+            "item3": "Hướng dẫn, kiểm tra phí và thanh toán qua web/app/mini app",
+            "item4": "Nền tảng quản trị cho phân tích, quản lý phí và trực quan hoá",
+            "item5": "Tích hợp API với hệ thống chính quyền (thông báo chưa thanh toán/chia sẻ dữ liệu)",
+            "item6": "Tự động hoá vận hành để giảm chi phí và tăng độ chính xác"
+          },
+          "effects": {
+            "title": "Hiệu quả",
+            "item1": "Giảm mạnh thời gian chờ khi vào/ra; dẫn hướng người dùng mượt mà",
+            "item2": "Tự động hoá thu phí hoàn toàn để tối đa hoá doanh thu và ngăn thất thoát",
+            "item3": "Chuẩn hoá và giảm tải vận hành; cải thiện KPI liên tục",
+            "item4": "Trải nghiệm người dùng đơn giản, minh bạch và nhanh chóng",
+            "item5": "Tích hợp dữ liệu giao thông đô thị, đóng góp cho thành phố thông minh"
+          }
+        },
+        "batteryPage": {
+          "title": "Hệ thống chia sẻ pin di động",
+          "intro": "Hệ thống quản lý, trạm sạc và ứng dụng di động được liên kết, sử dụng công nghệ IoT để quản lý thời gian thực việc cho thuê, hoàn trả và tình trạng hoạt động của pin di động. Hệ thống vừa mang lại dịch vụ sạc tiện lợi cho người dùng, vừa tạo ra cơ hội kinh doanh mới cho nhà vận hành.",
+          "client": {
+            "title": "Yêu cầu từ khách hàng",
+            "item1": "Triển khai dịch vụ cho thuê pin di động tại khu đô thị và trung tâm thương mại",
+            "item2": "Cần cơ chế để người dùng dễ dàng mượn và trả",
+            "item3": "Nhà vận hành cần nắm bắt tức thời tình trạng hoạt động và tồn kho"
+          },
+          "solution": {
+            "title": "Giải pháp của chúng tôi",
+            "item1": "Xây dựng hệ thống quản lý thời gian thực thông qua liên kết IoT",
+            "item2": "Thiết kế trải nghiệm liền mạch giữa app, web và trạm sạc",
+            "item3": "Phân tích dữ liệu và tối ưu vận hành trên hệ thống quản lý"
+          },
+          "skills": {
+            "title": "Công nghệ & kỹ năng",
+            "item1": "Điều khiển thiết bị IoT và liên kết dữ liệu",
+            "item2": "Front-end với React/TypeScript",
+            "item3": "API/hệ thống quản lý bằng Node.js/Express",
+            "item4": "Hạ tầng đám mây (AWS/Azure)",
+            "item5": "Thiết kế UI/UX và hỗ trợ đa ngôn ngữ"
+          },
+          "images": {
+            "overviewAlt": "Tổng quan hệ thống chia sẻ pin",
+            "managementAlt": "Màn hình hệ thống quản lý",
+            "cabinetAlt": "Thiết bị trạm sạc",
+            "mobileAlt": "Màn hình ứng dụng di động"
+          },
+          "overview": { "title": "Tổng quan hệ thống", "desc": "Hệ thống gồm ba phần: hệ thống quản lý, ứng dụng di động và trạm sạc. Dữ liệu được liên kết thời gian thực nhằm cân bằng tiện ích cho người dùng và hiệu quả vận hành." },
+          "management": { "title": "Hệ thống quản lý", "desc": "Đóng vai trò \"bộ não\" của hệ thống: giám sát mượn/trả, mức pin và phân bố tủ theo thời gian thực; hỗ trợ quản lý người dùng, thống kê dữ liệu và cảnh báo sự cố." },
+          "cabinet": { "title": "Trạm sạc", "desc": "Thiết bị vật lý đảm nhiệm mượn/trả pin. Dung lượng lớn, sạc nhanh, thiết kế chống trộm; công nghệ nhận diện thông minh tự động quản lý trạng thái sạc để luôn cung cấp pin đầy." },
+          "mobile": { "title": "Ứng dụng di động", "desc": "Điểm chạm trực tiếp với người dùng. Cho phép tìm tủ gần nhất, đặt mượn, quét để sử dụng và trả dễ dàng; tích hợp hỗ trợ trực tuyến và phản hồi." }
+        },
+        "battery": { "title": "Chia sẻ pin di động", "desc": "Thu thập dữ liệu sử dụng và mượn/trả bằng IoT; trực quan hoá tần suất và xu hướng theo địa điểm." },
+        "smartParking": { "title": "Bãi đỗ xe thông minh", "desc": "Tự động hoá vào/ra và chỗ trống bằng AI nhận diện biển số và cảm biến. Hỗ trợ thanh toán online, tính phí theo thời gian; trực quan hoá công suất và doanh thu." },
+        "parkingMgmt": { "title": "Hệ thống quản lý bãi xe", "desc": "Tích hợp phát hiện trống, đặt chỗ, tối ưu giá và thanh toán online để nâng cao công suất và trải nghiệm khách hàng." }
+      },
+      "ai": {
+        "aivisaPage": {
+          "title": "AI Visa | Hướng dẫn visa Nhật đa ngôn ngữ",
+          "intro": "Sắp xếp rõ ràng tài liệu cần thiết theo từng tư cách lưu trú bằng nhiều ngôn ngữ. Với Hỏi đáp AI và bộ tính điểm HSP, hệ thống hỗ trợ thủ tục theo tiêu chuẩn mới nhất.",
+          "challenges": {
+            "title": "Thách thức người dùng/vận hành",
+            "item1": "Cung cấp hướng dẫn visa Nhật mới nhất một cách chính xác và đa ngôn ngữ",
+            "item2": "Tăng tỷ lệ tự giải quyết nhờ Hỏi đáp AI",
+            "item3": "Theo kịp thay đổi quy định và giảm sai sót hướng dẫn"
+          },
+          "solution": {
+            "title": "Giải pháp",
+            "item1": "Cấu trúc yêu cầu/tài liệu theo tư cách lưu trú và cung cấp đa ngôn ngữ",
+            "item2": "Hỏi đáp AI với tự động nhận diện ngôn ngữ để trả lời tức thì",
+            "item3": "Hiển thị khả năng đáp ứng bằng bộ tính điểm HSP"
+          },
+          "skills": {
+            "title": "Công nghệ & Kỹ năng",
+            "item1": "HTML / CSS",
+            "item2": "Tailwind CSS",
+            "item3": "React",
+            "item4": "TypeScript",
+            "item5": "Java",
+            "item6": "PostgreSQL"
+          },
+          "features": {
+            "title": "Tính năng chính",
+            "item1": "Hỏi đáp bằng AI (tự động nhận diện ngôn ngữ)",
+            "item2": "Hướng dẫn yêu cầu/tài liệu theo từng tư cách lưu trú",
+            "item3": "Mẫu kiểm tra tài liệu",
+            "item4": "Lưu ngữ cảnh theo lịch sử hội thoại",
+            "item5": "Trang quản trị (nội dung/từ điển/vận hành đa ngôn ngữ)",
+            "item6": "Tính điểm HSP"
+          },
+          "gallery": {
+            "title": "Hình ảnh màn hình",
+            "image1Alt": "Ảnh màn hình AI Visa",
+            "imageAlt2": "Ảnh màn hình AI Visa 2",
+            "imageAlt3": "Ảnh màn hình AI Visa 3",
+            "imageAlt4": "Ảnh màn hình AI Visa 4"
+          },
+          "effects": {
+            "item1": { "title": "Giảm chi phí vận hành", "desc": "Giảm tải nhờ trả lời tự động đa ngôn ngữ và hướng dẫn có cấu trúc." },
+            "item2": { "title": "Tăng tỷ lệ tự giải quyết", "desc": "Hỏi đáp AI và dữ liệu có cấu trúc thúc đẩy giải quyết ngay ở phản hồi đầu." },
+            "item3": { "title": "Giảm sai sót hướng dẫn", "desc": "Trích dẫn nguồn và quản lý cập nhật giúp tuân thủ tiêu chuẩn mới nhất." }
+          }
+        },
+        "carGptPage": {
+          "title": "Car Service GPT",
+          "subtitle": "Trợ lý dịch vụ trên xe chạy bằng LLM",
+          "heroDesc": "Kết nối đa nền tảng (Mini App / App / Trong xe), hướng dẫn tính năng, tích hợp dữ liệu xe đã được che giấu",
+          "challenges": {
+            "title": "Thách thức",
+            "item1": "Thông tin người lái phân tán, khó tìm kiếm",
+            "item2": "Hiệu quả hỗ trợ hậu mãi thấp",
+            "item3": "Dịch vụ đa kênh chưa được hợp nhất"
+          },
+          "solution": {
+            "title": "Giải pháp",
+            "desc1": "Car Service GPT cho phép tương tác ngôn ngữ tự nhiên với mô hình ngôn ngữ lớn.",
+            "desc2": "Hợp nhất hệ thống trong xe, ứng dụng di động và mini app.",
+            "desc3": "Người dùng nhanh chóng truy cập giải thích tính năng, hướng dẫn sử dụng và thông tin dịch vụ."
+          },
+          "endpoints": {
+            "title": "Hỗ trợ đa nền tảng",
+            "desc": "Kết nối mini app, ứng dụng điện thoại và hệ thống trong xe để mang lại trải nghiệm nhất quán ở mọi nơi.",
+            "caption": "Giao diện hợp nhất cho mini app / app / ứng dụng trong xe"
+          },
+          "features": {
+            "title": "Tính năng chính",
+            "item1": "Hỏi đáp nhiều vòng và nhận diện ý định",
+            "item2": "Tìm kiếm tính năng xe và hướng dẫn sử dụng",
+            "item3": "Tích hợp an toàn với dữ liệu đã che giấu",
+            "item4": "Tự động hóa đặt lịch dịch vụ và quản lý vé"
+          },
+          "effects": {
+            "title": "Hiệu quả triển khai (ví dụ)",
+            "searchTime": "Thời gian tìm kiếm",
+            "selfSolve": "Tỷ lệ tự giải quyết",
+            "updateRate": "Tỷ lệ cập nhật"
+          }
+        }
+      }
+    },
+    "smart": {
+      "aps": {
+        "title": "APS (Lập lịch sản xuất)",
+        "desc": "Cân bằng đúng hạn giao hàng và vòng quay tồn kho bằng lập lịch xét đến dự báo nhu cầu và các ràng buộc."
+      },
+      
+      "productSelection": {
+        "title": "Hệ thống chọn sản phẩm",
+        "desc": "Tự động ghép sản phẩm theo yêu cầu để tăng tốc phân tích dữ liệu và so sánh; nâng độ chính xác lựa chọn và chuẩn hoá đề xuất."
+      },
+      "quotation": {
+        "title": "Hệ thống quản lý báo giá",
+        "desc": "Triển khai tạo báo giá, quản lý phiên bản và quy trình phê duyệt có xét giá thành và biên lợi nhuận; dùng lịch sử và mẫu để tăng tốc đề xuất."
+      }
+    },
+    "other": {
+      "sap": {
+        "title": "Triển khai & tối ưu vận hành SAP",
+        "desc": "Hỗ trợ yêu cầu, thiết kế, triển khai và vận hành cho FI/CO, SD, MM; xây dựng kết nối hệ thống xung quanh và nền tảng dữ liệu."
+      },
+      "salesforce": {
+        "title": "Triển khai & khai thác Salesforce",
+        "desc": "Hỗ trợ thiết kế, triển khai và cố gắng vận hành cho Sales Cloud/Service Cloud; nâng năng suất bán hàng qua tích hợp MA và trực quan hoá dashboard."
+      }
+    },
+    "company": {
+      "title": "Hồ sơ công ty",
+      "about": { "title": "Giới thiệu về Takehana Japan Co., Ltd." },
+      "info": {
+        "name": "Tên công ty",
+        "nameValue": "Takehana Japan Co., Ltd.",
+        "founded": "Thành lập",
+        "foundedValue": "2022",
+        "capital": "Vốn điều lệ",
+        "capitalValue": "5.000.000 JPY",
+        "ceo": "Người đại diện",
+        "ceoValue": "He Xin",
+        "address": "Địa chỉ",
+        "addressValue": "Tầng 7, Tòa Suishin, 1-11-1 Kitasaiwai, Nishi-ku, Yokohama, Kanagawa 220-0004",
+        "business": "Lĩnh vực kinh doanh",
+        "businessValue": "AI, IoT, hệ thống doanh nghiệp; tư vấn DX; phát triển offshore/on-site",
+        "group": "Công ty liên kết",
+        "groupValue": "Dalian Zhuhua Technology Co., Ltd. (Trụ sở Trung Quốc)"
+      },
+      "index": {
+        "desc": "Khám phá tổng quan, đội ngũ và đối tác của công ty.",
+        "about": "Giới thiệu",
+        "aboutDesc": "Thông tin công ty, triết lý và lịch sử",
+        "team": "Đội ngũ",
+        "teamDesc": "Thành viên với chuyên môn đa dạng",
+        "partners": "Đối tác",
+        "partnersDesc": "Các công ty và tổ chức hợp tác"
+      },
+      "partners": { "title": "Đối tác", "logoAlt": "Logo đối tác" },
+      "philosophy": {
+        "title": "Triết lý",
+        "desc": "Kết nối tương lai bằng công nghệ — Đồng hành cùng khách hàng, xã hội và nhân viên để gặt hái sự phát triển bền vững, bằng sức mạnh của công nghệ số và tư duy quốc tế."
+      },
+      "history": {
+        "title": "Lịch sử",
+        "item1": "2016: Thành lập trụ sở Trung Quốc (Dalian Zhuhua Technology Co., Ltd.)",
+        "item2": "2018: Tăng cường năng lực AI/IoT",
+        "item3": "2021: Mở rộng tư vấn DX",
+        "item4": "2022: Thành lập Takehana Japan Co., Ltd."
+      }
+    },
+    "flood": {
+      "title": "IoT giám sát lũ sông",
+      "overview": {
+        "title": "Tổng quan",
+        "point1": "Phát hiện mặt nước bằng AI",
+        "point2": "Chỉ định mức nguy hiểm và vùng tràn theo đối tượng",
+        "point3": "Phán đoán mức nguy hiểm và tràn",
+        "point4": "Tự động phát hiện bờ kè và thiết lập vùng nguy hiểm/tràn"
+      },
+      "system": {
+        "title": "Cấu trúc hệ thống",
+        "desc": "Gồm ① đăng ký ID thiết bị, ② quản lý cài đặt camera, ③ lấy snapshot mới nhất; tích hợp Web quản lý, Edge, máy chủ Web/API, CSDL và Object Storage.",
+        "block1": { "title": "① Đăng ký ID thiết bị", "point1": "Yêu cầu/đối chiếu ID thiết bị", "point2": "API đăng ký ID thiết bị", "point3": "Ghi vào bảng thiết bị" },
+        "block2": { "title": "② Quản lý cài đặt camera", "point1": "Liệt kê/chọn camera", "point2": "API lấy/cập nhật cài đặt", "point3": "Lưu và áp dụng" },
+        "block3": { "title": "③ Lấy snapshot mới nhất", "point1": "Yêu cầu/nhận snapshot", "point2": "API tìm snapshot mới nhất", "point3": "Lưu/tham chiếu object storage" }
+      },
+      "benefits": {
+        "title": "Lợi ích",
+        "point1": "Phát hiện sớm để phản ứng nhanh",
+        "point2": "Giảm tải vận hành nhờ thiết lập vùng tự động",
+        "point3": "Thiết kế mở rộng nhờ tích hợp Web/API/storage"
+      }
+    },
+    "licensePlate": {
+      "title": "AI nhận dạng biển số xe",
+      "overview": { "title": "Tổng quan", "point1": "Phát hiện biển số và OCR", "point2": "Chỉ định vùng biển số trên ảnh", "point3": "Ghi và tra cứu kết quả" },
+      "benefits": { "title": "Lợi ích", "point1": "Tự động hóa quản lý vào/ra", "point2": "Tối ưu giám sát và nhật ký", "point3": "Dễ tích hợp hệ thống sẵn có" },
+      "image1Alt": "Sơ đồ tổng quan nhận dạng biển số"
+    },
+    "productShelf": {
+      "title": "AI nhận diện kệ hàng",
+      "overview": { "title": "Tổng quan", "point1": "Nhân viên chụp ảnh tại cửa hàng (lạnh/thường/tươi sống)", "point2": "Ghép nhiều ảnh thành một và định lượng trưng bày kệ bằng nhận diện hình ảnh", "point3": "Kiểm chứng độ chính xác và tốc độ định lượng được cải thiện" },
+      "asis": { "title": "Chi tiết quy trình (As‑Is)", "step1": "Bước 1: Chụp ảnh tại cửa hàng và tải lên", "step2": "Bước 2: Đánh giá định lượng thủ công từ hình ảnh", "step3": "Bước 3: Lập bảng; dùng cho đánh giá MD, PDCA tại hiện trường, PDCA marketing tại trụ sở" },
+      "tobe": { "title": "Chi tiết quy trình (To‑Be)", "step1": "Bước 1: Chụp ảnh tại cửa hàng và tải lên", "step2": "Bước 2: Tự động hoá đánh giá định lượng và lập bảng trong hệ thống", "step3": "Bước 3: Tăng cường đánh giá MD, PDCA tại hiện trường và liên kết báo cáo POS" },
+      "benefits": { "title": "Lợi ích", "point1": "Định lượng và trực quan hóa giúp tăng tốc chu trình cải thiện tại cửa hàng", "point2": "Tự động hóa kiểm tra bằng mắt để chuẩn hóa đánh giá và giảm khối lượng công việc", "point3": "Tăng cường đo lường hiệu quả qua tích hợp POS và báo cáo" }
+    }
+  }
+  ,
+  "pages": {
+    "services": {
+      "delivery": {
+        "offshore": {
+          "title": "Phát triển Offshore",
+          "hero": "Tối ưu chi phí và tốc độ bằng đội ngũ ở nước ngoài. PM/BrSE phía Nhật phụ trách yêu cầu và chất lượng, kết hợp năng lực triển khai của kỹ sư nước ngoài để đảm bảo kết quả.",
+          "reasons": {
+            "title": "Lý do lựa chọn",
+            "subtitle": "Tối ưu cân bằng giữa chất lượng, tốc độ và chi phí",
+            "cost": { "title": "Tối ưu chi phí", "desc": "Tận dụng nhân lực nước ngoài, vẫn đảm bảo tiêu chuẩn chất lượng Nhật Bản. Giảm TCO và duy trì phát triển liên tục." },
+            "speed": { "title": "Tốc độ và linh hoạt", "desc": "Đa điểm giúp tăng thông lượng. Vận hành Agile phản hồi nhanh thay đổi yêu cầu." },
+            "jp": { "title": "Giao tiếp tiếng Nhật", "desc": "BrSE/PM đồng hành từ yêu cầu tới nghiệm thu. Tài liệu và cuộc họp đều bằng tiếng Nhật, thúc đẩy tiến độ trôi chảy." }
+          },
+          "model": {
+            "title": "Mô hình tổ chức và cách vận hành",
+            "subtitle": "Mô hình vận hành gắn liền với kết quả",
+            "comm": {
+              "title": "Thiết kế giao tiếp",
+              "item1": "Scrum hàng tuần (Review/Retro)",
+              "item2": "Standup hằng ngày (15 phút)",
+              "item3": "Minh bạch task (Jira/Backlog)"
+            },
+            "qa": {
+              "title": "Đảm bảo chất lượng",
+              "item1": "Double review (Dev/QA)",
+              "item2": "Test tự động và CI/CD",
+              "item3": "Cổng phát hành và Definition of Done"
+            },
+            "sec": {
+              "title": "Bảo mật/Governance",
+              "item1": "Tách quyền và log kiểm toán",
+              "item2": "Chống mang thông tin ra ngoài (DLP)",
+              "item3": "Hợp đồng/NDA và bảo vệ dữ liệu cá nhân"
+            }
+          },
+          "scope": {
+            "title": "Phạm vi hỗ trợ",
+            "subtitle": "Từ Web/Mobile/Cloud/Data/AI",
+            "item1": "Front‑end (React/Next.js)",
+            "item2": "Back‑end (Node.js/Java)",
+            "item3": "Mobile (iOS/Android)",
+            "item4": "Cloud (AWS/Azure/GCP)",
+            "item5": "Kỹ sư dữ liệu",
+            "item6": "MLOps/Ứng dụng LLM",
+            "item7": "QA/kiểm thử tự động",
+            "item8": "Vận hành/giám sát/SRE"
+          },
+          "cta": {
+            "title": "Khởi động nhỏ để kiểm chứng",
+            "desc": "Có thể bắt đầu bằng sprint thử nghiệm 2 tuần. Thực hiện trọn vẹn từ định nghĩa phạm vi → triển khai → review.",
+            "contact": "Liên hệ"
+          }
+        }
+        ,
+        "onsite": {
+          "title": "Phát triển Onsite",
+          "hero": "Làm việc trực tiếp tại hiện trường để ra quyết định nhanh và phối hợp chặt chẽ, thúc đẩy phát triển hiệu quả. Phù hợp cho dự án yêu cầu bảo mật cao hoặc cần điều phối nhiều bên liên quan.",
+          "reasons": {
+            "title": "Thế mạnh của Onsite",
+            "subtitle": "Gắn với hiện trường để tạo giá trị nhanh nhất",
+            "decision": { "title": "Ra quyết định nhanh", "desc": "Trao đổi trực tiếp giải quyết thắc mắc ngay. Linh hoạt điều chỉnh ưu tiên và thay đổi yêu cầu." },
+            "security": { "title": "Tuân thủ bảo mật cao", "desc": "Vận hành theo chính sách bảo mật của khách hàng như tách mạng, thiết bị chuyên dụng." },
+            "knowledge": { "title": "Thu nhận tri thức hiện trường", "desc": "Phối hợp chặt với nghiệp vụ để chuyển hóa tri thức ngầm thành đặc tả, nâng chất lượng." }
+          },
+          "model": {
+            "title": "Vận hành và chất lượng",
+            "subtitle": "Tổ chức, quy trình, governance",
+            "proc": {
+              "title": "Quy trình vận hành",
+              "item1": "Kanban cập nhật hằng ngày",
+              "item2": "Định kỳ hàng tuần (Review/Retro)",
+              "item3": "Báo cáo tiến độ cho các bên liên quan"
+            },
+            "qa": {
+              "title": "Quản lý chất lượng",
+              "item1": "Tiêu chí chấp nhận (DoD) đã định nghĩa",
+              "item2": "Code review/phân tích tĩnh",
+              "item3": "Kiểm thử tự động, E2E/đo tải"
+            },
+            "sec": {
+              "title": "Bảo mật/Xác thực",
+              "item1": "Quản lý thiết bị và tài khoản",
+              "item2": "Thiết kế quyền và xác thực đa yếu tố",
+              "item3": "Nhật ký kiểm toán và quản lý thay đổi"
+            }
+          },
+          "scope": {
+            "title": "Nội dung hỗ trợ chính",
+            "subtitle": "Từ PMO, định nghĩa yêu cầu đến vận hành",
+            "item1": "PM/PMO và quản lý nhà thầu",
+            "item2": "Định nghĩa yêu cầu / sắp xếp nghiệp vụ / tài liệu hóa",
+            "item3": "Thiết kế, triển khai, review",
+            "item4": "Lập kế hoạch kiểm thử, tự động hoá, hỗ trợ UAT",
+            "item5": "Quản lý phát hành, bàn giao vận hành",
+            "item6": "Đáp ứng thẩm định bảo mật",
+            "item7": "Đào tạo người dùng và xây dựng FAQ",
+            "item8": "Cải tiến hiện trường (Kaizen)"
+          },
+          "cta": {
+            "title": "Bắt đầu bằng Discovery",
+            "desc": "Pha Discovery 1–2 tuần tại hiện trường: đồng hành phân tích vấn đề, kiểm chứng giả thuyết và lập kế hoạch.",
+            "contact": "Liên hệ"
+          }
+        }
+      },
+      "development": {
+        "lab": {
+          "title": "Phát triển mô hình Lab",
+          "intro": "Mô hình Lab với đội ngũ chuyên trách, linh hoạt quy mô.",
+          "features": {
+            "title": "Đặc điểm",
+            "item1": "Đội ngũ cố định theo tháng với cam kết năng lực",
+            "item2": "Linh hoạt điều chỉnh quy mô và kỹ năng",
+            "item3": "Quy trình chuẩn hoá: yêu cầu → thiết kế → phát triển → kiểm thử",
+            "item4": "Minh bạch chất lượng và tiến độ qua báo cáo định kỳ"
+          },
+          "flow": {
+            "title": "Quy trình Lab",
+            "step1": "Thiết lập đội ngũ và phạm vi",
+            "step2": "Vận hành sprint/Kanban",
+            "step3": "Đánh giá chất lượng và năng suất",
+            "step4": "Tối ưu chi phí và mở rộng kỹ năng"
+          },
+          "cta": {
+            "title": "Trao đổi mô hình Lab phù hợp",
+            "desc": "Đề xuất đội ngũ và quy mô phù hợp theo mục tiêu, cùng SLA/OKR minh bạch.",
+            "contact": "Liên hệ"
+          }
+        }
+      }
+    },
+    "home": {
+      "hero": {
+        "title": "Chúng tôi hỗ trợ chuyển đổi số toàn cầu",
+        "description": "Công ty Takehana Japan cung cấp các giải pháp cho AI, IoT và ngành sản xuất, hỗ trợ thúc đẩy DX trên toàn cầu.",
+        "line1": "Takehana Japan thúc đẩy DX toàn cầu bằng AI/IoT, ",
+        "line2": "tối ưu hóa quy trình và mang lại hiệu suất đột phá cho sản xuất."
+      },
+      "ourStrengths": {
+        "title": "Điểm mạnh của chúng tôi",
+        "description": "Đội ngũ kỹ sư chất lượng cao của chúng tôi tại Nhật Bản và Trung Quốc luôn sẵn sàng để triển khai các giải pháp đa dạng và chinh phục mọi dự án phức tạp."
+      },
+      "why": {
+        "title": "Điểm mạnh của chúng tôi",
+        "desc": "Đội ngũ kỹ sư chất lượng cao của chúng tôi tại Nhật Bản và Trung Quốc luôn sẵn sàng để triển khai các giải pháp đa dạng và chinh phục mọi dự án phức tạp.",
+        "points": {
+          "onsite": "Dẫn dắt onsite",
+          "offshore": "Thúc đẩy offshore",
+          "performance": "Hiệu năng cao",
+          "lowRisk": "Rủi ro thấp"
+        }
+      },
+      "services": {
+        "title": "Dịch vụ",
+        "project": { "title": "Phát triển theo dự án", "desc": "Phụ trách trọn vẹn từ yêu cầu đến bàn giao" },
+        "lab": { "title": "Phát triển mô hình Lab", "desc": "Đội ngũ chuyên trách, linh hoạt và ổn định" },
+        "offshore": { "title": "Offshore", "desc": "Tối ưu chi phí" },
+        "onsite": { "title": "Onsite", "desc": "Trực tiếp quản lý chất lượng và tiến độ" }
+      },
+      "skills": {
+        "title": "Công nghệ",
+        "frontend": "Front‑end",
+        "backend": "Back‑end"
+      }
+    },
+    "services": {
+      "development": {
+        "project": {
+          "title": "Phát triển theo dự án",
+          "intro": "Mô hình phát triển dự án nhận trọn gói dựa trên yêu cầu, thời hạn và ngân sách rõ ràng. Chúng tôi cung cấp chất lượng cao từ yêu cầu đến thiết kế, phát triển, kiểm thử và bàn giao.",
+          "features": {
+            "title": "Đặc điểm",
+            "item1": "Phù hợp với dự án có yêu cầu, lịch và chi phí rõ ràng",
+            "item2": "Quản lý tập trung bởi PM và kỹ sư giàu kinh nghiệm",
+            "item3": "Cam kết về chất lượng, thời hạn và chi phí",
+            "item4": "Hỗ trợ bảo trì/vận hành sau bàn giao"
+          },
+          "flow": {
+            "title": "Quy trình phát triển theo dự án",
+            "step1": "Lắng nghe yêu cầu, báo giá và đề xuất",
+            "step2": "Thiết kế chi tiết và lập kế hoạch",
+            "step3": "Phát triển và kiểm thử",
+            "step4": "Bàn giao và hỗ trợ vận hành"
+          },
+          "cta": {
+            "title": "Bắt đầu bằng PoC nhỏ hoặc báo giá cố định",
+            "desc": "PoC 2–4 tuần hoặc phạm vi cố định rõ ràng để kiểm chứng. Thực hiện nhanh các bước: yêu cầu → thiết kế → triển khai → review, và thống nhất báo giá cùng lịch trình.",
+            "contact": "Liên hệ"
+          }
+        }
+      }
+    },
+    "achievements": {
+      "sections": {
+        "other": {
+          "title": "Các dự án khác",
+          "desc": "Các dự án đa dạng thực hiện xuyên nhiều ngành."
+        },
+        "sm": {
+          "title": "Giải pháp cho sản xuất",
+          "desc": "Giới thiệu các giải pháp nâng cao năng suất, chất lượng và tối ưu hoá vận hành trong sản xuất."
+        }
+      },
+      "other": {
+        "sap": {
+          "title": "Triển khai & tối ưu vận hành SAP",
+          "desc": "Hỗ trợ yêu cầu, thiết kế, triển khai và vận hành cho FI/CO, SD, MM; xây dựng kết nối hệ thống xung quanh và nền tảng dữ liệu."
+        },
+        "salesforce": {
+          "title": "Triển khai & khai thác Salesforce",
+          "desc": "Hỗ trợ thiết kế, triển khai và định hình vận hành cho Sales Cloud/Service Cloud; nâng năng suất bán hàng."
+        }
+      },
+      "smart": {
+        "aps": {
+          "title": "APS (Lập lịch sản xuất)",
+          "desc": "Cân bằng đúng hạn giao hàng và vòng quay tồn kho bằng lập lịch xét đến dự báo và các ràng buộc."
+        },
+        "mes": {
+          "title": "MES (Hệ thống thực thi sản xuất)",
+          "desc": "Phân tích điểm nghẽn từ dữ liệu thiết bị để rút ngắn thời gian chuyển đổi và cải thiện OEE."
+        },
+        "wms": {
+          "title": "WMS (Quản lý kho)",
+          "desc": "Quản lý tập trung nhập/xuất, tồn kho và vị trí; nâng độ chính xác kiểm kê và truy xuất."
+        },
+        "wmsPage": {
+          "title": "WMS — Hệ thống quản lý kho",
+          "intro": "WMS hợp nhất vận hành kho để nâng độ chính xác tồn kho và hiệu quả vận hành.",
+          "galleryAlt": "Ảnh WMS {{index}}",
+          "noImage": "Chưa có ảnh",
+          "addHint": "Thêm ảnh vào /SmartManufacturing/wms/ và liệt kê đường dẫn trong mảng phía trên.",
+          "features": {
+            "title": "Tính năng chính",
+            "inventory": {
+              "title": "Quản lý tồn kho",
+              "desc": "Quản lý lô/sê‑ri/vị trí; đảm bảo nhập/xuất chính xác và minh bạch tồn kho."
+            },
+            "stocktake": {
+              "title": "Kiểm kê",
+              "desc": "Hỗ trợ kiểm kê vòng và kiểm kê toàn bộ; phát hiện chênh lệch sớm và giảm công sức."
+            },
+            "layout": {
+              "title": "Bố cục kho & giấy điện tử",
+              "desc": "Tối ưu bố trí qua vùng/kệ/vị trí; tích hợp hiển thị bằng e‑paper."
+            },
+            "pda": {
+              "title": "Vận hành hiện trường bằng PDA",
+              "desc": "Tăng tốc nhập, xuất, di chuyển và picking qua PDA; giảm thao tác sai."
+            }
+          },
+          "cta": {
+            "title": "Yêu cầu tài liệu & demo WMS",
+            "desc": "Điều chỉnh bước triển khai và cấu hình phù hợp quy mô kho và vận hành của bạn."
+          }
+        },
+        "productSelection": {
+          "title": "Hệ thống chọn sản phẩm",
+          "desc": "Tự động ghép sản phẩm theo yêu cầu, tăng tốc phân tích/so sánh và chuẩn hoá đề xuất."
+        },
+        "productSelectionPage": {
+          "title": "Hệ thống chọn sản phẩm",
+          "intro": "Nền tảng tích hợp yêu cầu, thông số và xu hướng thị trường để nhanh chóng lựa chọn sản phẩm/cấu hình tối ưu. Cho phép kinh doanh, kỹ thuật và mua hàng ra quyết định theo chỉ số chung.",
+          "features": {
+            "title": "6 chức năng chính",
+            "integrate": {
+              "title": "Tích hợp dữ liệu & phân tích",
+              "desc": "Tích hợp doanh số, khách hàng, thông số sản phẩm, case trước và lịch sử lỗi; định lượng quyết định lựa chọn bằng phân tích chéo."
+            },
+            "efficiency": {
+              "title": "Tăng hiệu quả lựa chọn",
+              "desc": "Bán tự động: nhập yêu cầu → thu hẹp ứng viên → so sánh → khuyến nghị; rút ngắn thời gian đề xuất."
+            },
+            "sales": {
+              "title": "Tăng cường bán hàng & phản ứng thị trường",
+              "desc": "Tham chiếu xu hướng nhu cầu, đối thủ, khung giá; đề xuất cấu hình tối ưu và cơ hội up‑sell/cross‑sell."
+            },
+            "cx": {
+              "title": "Cải thiện trải nghiệm khách hàng",
+              "desc": "Trình bày ứng viên phù hợp cao và tiêu chí so sánh rõ ràng để tăng tin cậy và tốc độ quyết định."
+            },
+            "risk": {
+              "title": "Giảm lỗi & rủi ro",
+              "desc": "Cảnh báo sớm thiếu thông số, không tương thích và hạn chế tồn kho/cung ứng để tránh chi phí làm lại."
+            },
+            "tech": {
+              "title": "Ghép kỹ thuật & thẩm định",
+              "desc": "Kiểm tra phù hợp kỹ thuật và khả năng mở rộng; giảm rủi ro từ PoC đến sản xuất hàng loạt."
+            }
+          },
+          "cta": {
+            "title": "Trao đổi chi tiết & áp dụng",
+            "desc": "Hỗ trợ áp dụng theo giai đoạn từ định nghĩa yêu cầu → dựng môi trường đánh giá → triển khai vận hành. Liên hệ để bắt đầu."
+          }
+        },
+        "quotation": {
+          "title": "Hệ thống quản lý báo giá",
+          "desc": "Tạo báo giá có xét giá vốn và lợi nhuận; quản lý phiên bản và phê duyệt để tăng tốc và kiểm soát."
+        }
+      },
+      "sm": {
+        "apsPage": {
+          "title": "APS — Lập lịch sản xuất nâng cao",
+          "intro": "APS cung cấp công cụ lập kế hoạch thông minh để nâng cao độ chính xác và hiệu quả trong lập lịch sản xuất.",
+          "galleryAlt": "Ảnh APS",
+          "noImage": "Chưa có ảnh",
+          "addHint": "Thêm ảnh vào /SmartManufacturing/aps/ và liệt kê đường dẫn trong mảng phía trên.",
+          "features": {
+            "title": "Tính năng chính",
+            "order": {
+              "title": "Quản lý danh sách đơn hàng",
+              "desc": "Ưu tiên đơn hàng theo hạn giao, số lượng và quy tắc nghiệp vụ để hỗ trợ ra quyết định nhanh và hợp lý."
+            },
+            
+            "stock": {
+              "title": "Ghép tồn & phát hiện thiếu",
+              "desc": "Ghép nhu cầu với tồn kho theo thời gian thực để phát hiện thiếu sớm và tránh sự cố tại hiện trường."
+            },
+            "report": {
+              "title": "Báo cáo kết quả ghép",
+              "desc": "Tạo báo cáo làm rõ hành động cho các trường hợp đủ/thiếu, mua sắm và thay thế."
+            },
+            "shortageSummary": {
+              "title": "Tổng hợp thiếu hụt",
+              "desc": "Hợp nhất thiếu hụt theo mã/sê-ri để đơn giản hoá bổ sung và phối hợp nhà cung cấp."
+            },
+            "plan": {
+              "title": "Quản lý kế hoạch sản xuất",
+              "desc": "Lập kế hoạch khả thi có xét các ràng buộc và triển khai chỉ thị xuống hiện trường một cách trơn tru."
+            },
+            "capacity": {
+              "title": "Bảng công suất (Trực quan hoá)",
+              "desc": "Trực quan hoá tải thiết bị/quy trình để nhận diện nút thắt và cân bằng giữa các dây chuyền/ca."
+            },
+            "orderCheck": {
+              "title": "Thẩm định khả thi đơn hàng",
+              "desc": "Xác nhận khả thi và ưu tiên để giao đúng hạn, kèm cảnh báo nhằm ngăn trễ hạn."
+            },
+            "stockAlert": {
+              "title": "Quy tắc cảnh báo tồn kho",
+              "item1": "Logic mặt hàng dùng chung/không dùng chung",
+              "item2": "Xem xét lịch sử bán",
+              "item3": "Tự động thông báo khi dưới ngưỡng"
+            }
+          },
+          "cta": {
+            "title": "Yêu cầu tài liệu & demo APS",
+            "desc": "Chúng tôi điều chỉnh phạm vi và bước triển khai phù hợp với danh mục sản phẩm và vận hành của bạn."
+          }
+        }
+        ,
+                "mesPage": {
+          "title": "MES — Hệ thống thực thi sản xuất",
+          "intro": "MES tăng minh bạch cho quy trình sản xuất và hỗ trợ cải thiện chất lượng cũng như năng suất.",
+          "galleryAlt": "Ảnh MES",
+          "noImage": "Chưa có ảnh",
+          "addHint": "Thêm ảnh vào /SmartManufacturing/mes/ và liệt kê đường dẫn trong mảng phía trên.",
+          "features": {
+            "title": "Tính năng chính",
+            "route": {
+              "title": "Quản lý tuyến công đoạn",
+              "desc": "Quản lý tuyến chuẩn và tuyến thay thế theo từng mã hàng, trực quan hoá luồng công đoạn."
+            },
+            "sop": {
+              "title": "Hướng dẫn công việc & SOP",
+              "desc": "Chuẩn hoá quy trình, giá trị kiểm soát và lưu ý để giảm sai lệch tại hiện trường."
+            },
+            "qa": {
+              "title": "Quản lý kiểm tra chất lượng & Workbench",
+              "desc": "Tập trung kiểm tra trong công đoạn/xuất hàng; tối ưu phán định, ghi nhận và xử lý không phù hợp."
+            },
+            "material": {
+              "title": "Cấp phát vật tư & Cắt",
+              "desc": "Hỗ trợ cấp vật tư kịp thời cho hiện trường và giảm thiểu hao hụt khi cắt."
+            },
+            "maintenance": {
+              "title": "Kế hoạch kiểm tra thiết bị (Ngày/Năm)",
+              "desc": "Quản lý kế hoạch và lịch sử để ổn định vận hành và phòng ngừa hỏng hóc."
+            },
+            "params": {
+              "title": "Quản lý công đoạn & tham số",
+              "desc": "Quản lý điều kiện và tham số theo công đoạn/công vị để đảm bảo chất lượng lặp lại."
+            },
+            "orders": {
+              "title": "Tiến độ đơn hàng & báo cáo trễ",
+              "desc": "Trực quan hoá tiến độ và tồn đọng/trễ; cảnh báo để thúc đẩy khắc phục sớm."
+            },
+            "operation": {
+              "title": "Bảng vận hành (Thời gian thực)",
+              "desc": "Trực quan hoá trạng thái thời gian thực theo dây chuyền/công vị để hỗ trợ phản ứng tức thời."
+            }
+          },
+          "cta": {
+            "title": "Yêu cầu tài liệu & demo MES",
+            "desc": "Chúng tôi điều chỉnh phạm vi và bước triển khai phù hợp với mô hình sản xuất và yêu cầu chất lượng của bạn."
+          }
+          ,
+          "quotationPage": {
+            "title": "Hệ thống quản lý báo giá",
+            "intro": "Nền tảng báo giá tiêu chuẩn giúp tăng khả năng trúng thầu đồng thời đảm bảo lợi nhuận và kiểm soát. Tăng tốc độ, độ chính xác, khả năng tái sử dụng và kiểm toán.",
+            "features": {
+              "title": "Tính năng chính",
+              "template": { "title": "Chuẩn hóa cấu trúc báo giá", "desc": "Chuẩn hóa cấu trúc, thành phần chi phí, tỷ suất lợi nhuận từ dữ liệu thắng/thua trước đây để tăng tốc độ và độ chính xác." },
+              "calc": { "title": "Tự động tính chi phí & lợi nhuận", "desc": "Tổng hợp vật tư, nhân công, thuê ngoài, logistics để tính tỷ suất lợi nhuận và lợi nhuận theo thời gian thực." },
+              "workflow": { "title": "Quản lý phiên bản & quy trình phê duyệt", "desc": "Lưu lịch sử chỉnh sửa, so sánh chênh lệch và quản lý phê duyệt theo vai trò (Kinh doanh → Quản lý → Lãnh đạo)." },
+              "sim": { "title": "Điều chỉnh giá & mô phỏng điều kiện", "desc": "Điều chỉnh số lượng/kỳ hạn/thanh toán/tỷ giá/khuyến mãi để tìm ra mức giá tối ưu." },
+              "risk": { "title": "Phát hiện rủi ro/ngoại lệ", "desc": "Cảnh báo vượt ngưỡng lợi nhuận, hạn chế tồn kho, thời gian cung ứng, và vấn đề tuân thủ." },
+              "standard": { "title": "Chuẩn hóa chất lượng hồ sơ gửi", "desc": "Thống nhất bố cục/thuật ngữ và checklist tài liệu đính kèm để chuẩn hóa hồ sơ gửi cho khách hàng." }
+            },
+            "data": {
+              "title": "Mô hình dữ liệu",
+              "case": "Cơ hội (khách hàng, ngành, trạng thái, thời điểm kỳ vọng)",
+              "items": "Hạng mục (mã, model, SL, đơn giá, giá vốn, tồn kho)",
+              "costs": "Thành phần chi phí (vật tư, nhân công, thuê ngoài, logistics, chi phí chung)",
+              "adjust": "Yếu tố điều chỉnh (loại chiết khấu, tỷ lệ, thời hạn áp dụng)",
+              "approvals": "Lịch sử phê duyệt (giai đoạn, người duyệt, thời gian, ghi chú)",
+              "version": "Phiên bản báo giá (số, người tạo, đánh dấu so sánh)",
+              "risk": "Cờ rủi ro (ngưỡng lợi nhuận, hạn chế cung ứng, tuân thủ)"
+            },
+            "logic": {
+              "title": "Logic định giá",
+              "sum": "Tổng hợp thành phần chi phí (giá vốn hạng mục + nhân công + thuê ngoài + logistics + chi phí chung)",
+              "initial": "Tính ban đầu lợi nhuận/tỷ suất (tham chiếu bảng tỷ suất chuẩn)",
+              "recalc": "Tính lại theo điều kiện/số lượng/kỳ hạn",
+              "threshold": "Kiểm tra ngưỡng lợi nhuận (cảnh báo/điều chỉnh)",
+              "market": "Điều chỉnh tham chiếu giá thị trường/cạnh tranh (tuỳ chọn)",
+              "flow": "Luồng phê duyệt (VD: Kinh doanh <15% → Quản lý 10–15% → Lãnh đạo <10%)",
+              "final": "Chốt phiên bản và tạo tài liệu gửi (PDF/Excel/portal)"
+            },
+            "ops": {
+              "title": "Điểm vận hành quan trọng",
+              "governance": "Quản trị cập nhật template (review định kỳ và duyệt chênh lệch)",
+              "marginReview": "Rà soát hàng năm ngưỡng lợi nhuận (biến động chi phí/thị trường)",
+              "sla": "Thiết lập SLA phê duyệt (tránh mất cơ hội do chậm trễ)",
+              "exception": "Luồng riêng cho ngoại lệ (chiến lược/đơn hàng lớn/xả hàng)",
+              "fx": "Tự động cập nhật tỷ giá và giá mua (API ngoài hoặc ERP)",
+              "audit": "Lưu toàn bộ lịch sử chỉnh sửa phục vụ kiểm toán"
+            },
+            "kpi": {
+              "title": "KPIs",
+              "leadTime": "Thời gian tạo báo giá (bản đầu / cuối)",
+              "margin": "Trung vị tỷ suất lợi nhuận / số lượng dưới ngưỡng",
+              "stay": "Thời gian lưu trung bình theo bước phê duyệt",
+              "win": "Tỷ lệ thắng sau khi gửi",
+              "template": "Tỷ lệ dùng template (chuẩn vs ngoại lệ)",
+              "requote": "Tỷ lệ báo giá lại (đổi yêu cầu / lỗi / điều chỉnh giá)"
+            },
+            "risks": {
+              "title": "Rủi ro & Kiểm soát",
+              "margin": "Vượt ngưỡng lợi nhuận kéo dài",
+              "version": "Nhầm lẫn phiên bản dẫn đến gửi sai",
+              "subjective": "Điều chỉnh giá mang tính chủ quan",
+              "costUpdate": "Sai lệch lợi nhuận do cập nhật chi phí chậm",
+              "delay": "Mất cơ hội do chậm phê duyệt",
+              "invalid": "Áp dụng điều kiện không hợp lệ"
+            },
+            "controls": {
+              "margin": "Cảnh báo tự động + buộc phê duyệt + review hàng tháng",
+              "version": "Đánh số tự động + khoá phiên bản cũ + UI so sánh chênh lệch",
+              "subjective": "Ghi nhận toàn bộ điều chỉnh + rõ ràng quyền hạn",
+              "costUpdate": "Nhắc cập nhật master chi phí + kiểm tra ngày cập nhật",
+              "delay": "Cảnh báo SLA + thiết lập người duyệt thay thế",
+              "invalid": "Quy tắc định trước + bắt buộc lý do ngoại lệ"
+            },
+            "check": {
+              "title": "Checklist trước khi gửi",
+              "cost": "Master chi phí mới nhất (kiểm tra ngày cập nhật)?",
+              "margin": "Không dưới ngưỡng lợi nhuận?",
+              "consistency": "Nhất quán về số lượng/model/cấu hình?",
+              "exception": "Có bản ghi phê duyệt cho ngoại lệ (giá đặc biệt/khuyến mãi)?",
+              "format": "Định dạng gửi chuẩn (bố cục/thuật ngữ)?",
+              "requirements": "Không thiếu yêu cầu khách hàng (giao hàng/thanh toán/phạm vi hỗ trợ)?",
+              "diff": "Giải thích được khác biệt so với case tương tự trước đây (giá/cấu hình)?"
+            },
+            "cta": {
+              "title": "Yêu cầu tài liệu & demo hệ thống báo giá",
+              "desc": "Đề xuất thiết kế template và tối ưu liên kết chi phí phù hợp quy trình kinh doanh và cơ cấu sản phẩm của bạn."
+            }
+          }
+        }
+      }
+    }
+  }
 }

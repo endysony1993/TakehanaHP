@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useT } from '../../hooks/useT'
 
 export type ServicesDropdownProps = {
   label?: string
@@ -63,6 +64,8 @@ export default function ServicesDropdown({
       onMouseEnter={openNow}
       onMouseLeave={scheduleClose}
     >
+      { /* ensure i18n available */ }
+      { (() => { const { locale } = useT(); (window as any).__locale = locale; return null })() }
       <button
         type="button"
         className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:text-[#3C7FE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3C7FE6] ${buttonClassName}`}
@@ -95,40 +98,35 @@ export default function ServicesDropdown({
         onMouseLeave={scheduleClose}
       >
         <div className="w-[min(92vw,30rem)] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
-          <div className="grid grid-cols-1 gap-10 p-6 sm:p-8 md:grid-cols-2">
-            {/* 開発モデル（左） */}
-            <div className='ms-5'>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-[#0a58a3]">開発モデル</h3>
-              <ul className="mt-3 space-y-1.5">
-                <li>
-                  <MenuLink
-                    to="/services/development/project-based"
-                    title="請負型"
-                    onClick={() => setOpen(false)}
-                  />
-                </li>
-                <li>
-                  <MenuLink
-                    to="/services/development/lab-based"
-                    title="ラボ型"
-                    onClick={() => setOpen(false)}
-                  />
-                </li>
-              </ul>
-            </div>
-
-            {/* デリバリーモデル（右） */}
-            <div className='ms-10 me-5'>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-[#0a58a3]">デリバリーモデル</h3>
-              <ul className="mt-3 space-y-1.5">
-                <li>
-                  <MenuLink to="/services/delivery/offshore" title="オフショア" onClick={() => setOpen(false)} />
-                </li>
-                <li>
-                  <MenuLink to="/services/delivery/onsite" title="オンサイト" onClick={() => setOpen(false)} />
-                </li>
-              </ul>
-            </div>
+          <div className="p-6 sm:p-8">
+            {/* Delivery Models (top) */}
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-[#0a58a3]">{useT().locale === 'vi' ? 'Mô hình triển khai' : useT().locale === 'en' ? 'Delivery Models' : 'デリバリーモデル'}</h3>
+            <ul className="mt-3 space-y-1.5">
+              <li>
+                <MenuLink to="/services/delivery/offshore" title={useT().locale === 'vi' ? 'Offshore' : useT().locale === 'en' ? 'Offshore' : 'オフショア'} onClick={() => setOpen(false)} />
+              </li>
+              <li>
+                <MenuLink to="/services/delivery/onsite" title={useT().locale === 'vi' ? 'Onsite' : useT().locale === 'en' ? 'Onsite' : 'オンサイト'} onClick={() => setOpen(false)} />
+              </li>
+            </ul>
+            {/* Development Models (bottom) */}
+            <h3 className="mt-8 text-xs font-semibold uppercase tracking-wide text-[#0a58a3]">{useT().locale === 'vi' ? 'Mô hình phát triển' : useT().locale === 'en' ? 'Development Models' : '開発モデル'}</h3>
+            <ul className="mt-3 space-y-1.5">
+              <li>
+                <MenuLink
+                  to="/services/development/project-based"
+                  title={useT().locale === 'vi' ? 'Dự án' : useT().locale === 'en' ? 'Project-based' : '請負型'}
+                  onClick={() => setOpen(false)}
+                />
+              </li>
+              <li>
+                <MenuLink
+                  to="/services/development/lab-based"
+                  title={useT().locale === 'vi' ? 'Mô hình Lab' : useT().locale === 'en' ? 'Lab-based' : 'ラボ型'}
+                  onClick={() => setOpen(false)}
+                />
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -20,6 +20,29 @@ The contact form posts to `${VITE_API_BASE_URL}/api/contact` on your Sakura-host
    npm run dev
    ```
 
+  ### Internationalization (i18n)
+
+  The app includes a lightweight i18n framework:
+  - Nested keys and graceful fallbacks via `t(key, fallback)`
+  - Interpolation with `{{var}}`
+  - Pluralization via `tp('items', count)` resolving `.one`/`.other`
+  - Locale-aware number/date/currency formatters in `src/i18n/format.ts`
+  - Language persistence in `localStorage('lang')` and browser default detection
+
+  Usage in components:
+  - `import { useT } from './hooks/useT'`
+  - `const { t, tp, locale } = useT()`
+  - Interpolate: `t('cta.contact', 'Contact', { name: 'John' })`
+  - Pluralize: `tp('items', 3)` → uses `items.one/items.other`
+  - Format: `formatNumber(1234.5, locale)`; `formatDate(new Date(), locale)`
+
+  Add messages:
+  - Edit locale files under `src/i18n/locales/{en,ja,vi,zh}/translation.json`
+  - Prefer namespacing like `pages.productShelf.title`
+
+  Switch language:
+  - Use the Language Switcher in the UI. Selection is saved.
+
 ## Build
 
 ```bash

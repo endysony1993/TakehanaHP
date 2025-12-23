@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useT } from '../../hooks/useT'
 
 export type AchievementsDropdownProps = {
   label?: string
@@ -58,6 +59,8 @@ export default function AchievementsDropdown({
       onMouseEnter={openNow}
       onMouseLeave={scheduleClose}
     >
+      { /* ensure i18n accessible */ }
+      { (() => { const { locale } = useT(); (window as any).__locale = locale; return null })() }
       <button
         type="button"
         className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:text-[#3C7FE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3C7FE6] ${buttonClassName}`}
@@ -91,16 +94,16 @@ export default function AchievementsDropdown({
         <div className="w-[min(92vw,24rem)] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
           <ul className="p-2 sm:p-3">
             <li>
-              <MenuLink to="/achievements/ai" title="AI" onClick={() => setOpen(false)} />
+              <MenuLink to="/achievements/ai" title={useT().locale === 'vi' ? 'AI' : 'AI'} onClick={() => setOpen(false)} />
             </li>
             <li>
-              <MenuLink to="/achievements/iot" title="IoT" onClick={() => setOpen(false)} />
+              <MenuLink to="/achievements/iot" title={useT().locale === 'vi' ? 'IoT' : 'IoT'} onClick={() => setOpen(false)} />
             </li>
             <li>
-              <MenuLink to="/achievements/smart-manufacturing" title="製造業向けソリューション" onClick={() => setOpen(false)} />
+              <MenuLink to="/achievements/smart-manufacturing" title={useT().locale === 'vi' ? 'Giải pháp cho sản xuất' : useT().locale === 'en' ? 'Smart Manufacturing' : '製造業向けソリューション'} onClick={() => setOpen(false)} />
             </li>
             <li>
-              <MenuLink to="/achievements/others" title="その他" onClick={() => setOpen(false)} />
+              <MenuLink to="/achievements/others" title={useT().locale === 'vi' ? 'Khác' : useT().locale === 'en' ? 'Others' : 'その他'} onClick={() => setOpen(false)} />
             </li>
           </ul>
         </div>
@@ -114,7 +117,7 @@ function MenuLink({ to, title, onClick }: { to: string; title: string; onClick?:
     <Link
       to={to}
       onClick={onClick}
-      className="block rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+      className="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
       role="menuitem"
     >
       {title}

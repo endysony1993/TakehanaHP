@@ -12,10 +12,13 @@ import Achievements from '../pages/Achievements'
 import AchievementLayout from '../layouts/AchievementLayout'
 import AI from '../pages/Achievements/AI'
 import AIInspection from '../pages/Achievements/AI/AIInspection'
+import ProductShelfRecognition from '../pages/Achievements/AI/ProductShelfRecognition'
 import IoT from '../pages/Achievements/IoT'
 import MobileBatteryShare from '../pages/Achievements/Iot/MobileBatteryShare'
 import SmartParkingSystem from '../pages/Achievements/Iot/SmartParkingSystem'
 import ParkingManagementSystem from '../pages/Achievements/Iot/ParkingManagementSystem'
+import RiverFloodMonitoring from '../pages/Achievements/Iot/RiverFloodMonitoring'
+import CarLicensePlateAnalysis from '../pages/Achievements/Iot/CarLicensePlateAnalysis'
 import SmartManufacturing from '../pages/Achievements/SmartManufacturing'
 import ApsIntro from '../pages/Achievements/SmartManufacturing/APS'
 import MesIntro from '../pages/Achievements/SmartManufacturing/MES'
@@ -64,10 +67,13 @@ const router = createBrowserRouter([
           { index: true, element: <Achievements /> },
           { path: 'ai', element: <AI /> },
           { path: 'ai-inspection', element: <AIInspection /> },
+          { path: 'product-shelf-recognition', element: <ProductShelfRecognition /> },
           { path: 'iot', element: <IoT /> },
           { path: 'mobile-battery-share', element: <MobileBatteryShare /> },
           { path: 'smart-parking-system', element: <SmartParkingSystem /> },
           { path: 'parking-management-system', element: <ParkingManagementSystem /> },
+          { path: 'flood-monitoring', element: <RiverFloodMonitoring /> },
+          { path: 'car-license-plate-analysis', element: <CarLicensePlateAnalysis /> },
           { path: 'smart-manufacturing', element: <SmartManufacturing /> },
           { path: 'aps', element: <ApsIntro /> },
           { path: 'mes', element: <MesIntro /> },
