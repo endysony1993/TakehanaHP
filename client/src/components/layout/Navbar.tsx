@@ -242,7 +242,7 @@ export default function Navbar() {
                   className="block w-full text-left px-5 py-4 text-white hover:bg-[#3C7FE6]/20 focus:outline-none focus:ring-2 focus:ring-[#3C7FE6]"
                   aria-label="お問い合わせフォームを開く"
                 >
-                  {useT().t('cta.contact', 'お問い合わせ')}
+                  {useT().t('cta.contact', 'Contact')}
                 </button>
               </li>
             </ul>

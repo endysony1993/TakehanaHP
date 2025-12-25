@@ -171,7 +171,7 @@ export default function Home() {
                   onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-contact-modal')) }}
                   className="inline-block lg:hidden px-6 py-3 rounded-full bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full max-w-[160px] text-base mx-auto"
                 >
-                  {t('pages.home.cta.contact', 'お問い合わせ')}
+                  {t('cta.contact', 'Contact')}
                 </a>
 						
 						</div>

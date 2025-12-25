@@ -106,7 +106,7 @@ export default function WmsIntro() {
 								{t('cta.contact', 'Contact Us')}
 							</a>
 							<a
-								href={`${import.meta.env.BASE_URL}achievements/smart-manufacturing`}
+								href={`/achievements/smart-manufacturing?lang=${locale}`}
 								className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 text-center w-full sm:w-auto"
 							>
 								{t('cta.moreCases', 'See More Cases')}

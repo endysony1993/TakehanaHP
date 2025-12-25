@@ -103,7 +103,7 @@ export default function CarLicensePlateAnalysis() {
 							{t('cta.contact', 'Contact Us')}
 						</a>
 						<a
-							href={`${import.meta.env.BASE_URL}achievements/iot`}
+							href={`/achievements/iot?lang=${locale}`}
 							className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
 						>
 							{t('cta.moreCases', 'See Other Cases')}

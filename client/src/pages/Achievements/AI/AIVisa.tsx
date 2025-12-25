@@ -74,7 +74,7 @@ export default function AIVisa() {
                 {t('cta.contact', 'Contact')}
               </a>
               <a
-                href={`${import.meta.env.BASE_URL}achievements/ai`}
+                href={`/achievements/ai`}
                 className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
               >
                 {t('cta.moreCases', 'See Other Cases')}
@@ -187,7 +187,7 @@ export default function AIVisa() {
               {t('cta.contact', 'Contact')}
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}achievements/ai`}
+              href={`/achievements/ai?lang=${locale}`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               {t('cta.moreCases', 'See Other Cases')}

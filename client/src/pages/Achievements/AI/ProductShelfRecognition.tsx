@@ -166,7 +166,7 @@ export default function ProductShelfRecognition() {
 							{t('cta.contact', 'お問い合わせ')}
 						</a>
 						<a
-							href={`${import.meta.env.BASE_URL}achievements/ai`}
+							href={`/achievements/ai?lang=${locale}`}
 							className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
 						>
 							{t('cta.moreCases', '他の事例を見る')}

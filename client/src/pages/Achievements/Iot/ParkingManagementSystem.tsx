@@ -224,12 +224,12 @@ export default function ParkingManagementSystem() {
 						>
 							{t('cta.contact', 'Contact')}
 						</a>
-            <a
-              href={`${import.meta.env.BASE_URL}achievements/iot`}
-              className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
-            >
+						<a
+							href={`/achievements/iot?lang=${locale}`}
+							className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
+						>
 							{t('cta.moreCases', 'See Other Cases')}
-            </a>
+						</a>
           </div>
         </div>
       </div>

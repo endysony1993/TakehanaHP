@@ -1,7 +1,9 @@
 import { assetPath } from "../../../utils/assetPath";
 import { useT } from '../../../hooks/useT'
+import { useI18n } from '../../../context/I18nContext'
 export default function MobileBatteryShare() {
   const { t } = useT()
+  const { locale } = useI18n()
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -121,7 +123,7 @@ export default function MobileBatteryShare() {
               {t('cta.contact', 'Liên hệ')}
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}achievements/iot`}
+              href={`/achievements/iot?lang=${locale}`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-center text-white font-semibold shadow-md transition-transform transform hover:scale-105"
             >
               {t('cta.moreCases', 'Xem thêm các dự án khác')}

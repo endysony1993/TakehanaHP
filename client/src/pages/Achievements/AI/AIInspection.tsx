@@ -1,7 +1,9 @@
 import { assetPath } from "../../../utils/assetPath";
 import { useT } from '../../../hooks/useT'
+import { useI18n } from '../../../context/I18nContext'
 export default function AIInspection() {
   const { t } = useT()
+  const { locale } = useI18n()
   return (
     <section className="text-center py-20 bg-gradient-to-b from-white to-gray-50">
       {/* Title */}
@@ -108,7 +110,7 @@ export default function AIInspection() {
               {t('cta.contact', 'Liên hệ')}
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}achievements/ai`}
+              href={`/achievements/ai?lang=${locale}`}
               className="inline-block px-8 py-3 rounded-xl bg-[#0066c5] text-white font-semibold shadow-md transition-transform transform hover:scale-105 w-full sm:w-auto text-center"
             >
               {t('cta.moreCases', 'Xem thêm các dự án khác')}
