@@ -8,9 +8,10 @@ const LangContext = createContext<Ctx | null>(null)
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>(() => {
-    // Prefer localStorage if available
-    const stored = localStorage.getItem('lang') as Lang | null
-    if (stored && ['en', 'ja', 'vi', 'zh'].includes(stored)) return stored
+    // Always default to Japanese unless URL param is present
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang') as Lang | null
+    if (urlLang && ['en', 'ja', 'vi', 'zh'].includes(urlLang)) return urlLang
     return 'ja'
   })
 
